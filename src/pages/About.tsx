@@ -1,4 +1,28 @@
 import Layout from "@/components/Layout";
+import georgeImg from "@/assets/george-hastings.jpg";
+import richardImg from "@/assets/richard-bradley.jpg";
+import jesseImg from "@/assets/jesse-hastings.jpg";
+
+const team = [
+  {
+    name: "George Hastings",
+    title: "Broker & Business Consultant",
+    image: georgeImg,
+    bio: "With over 35 years of entrepreneurial experience, George has built and sold multiple successful businesses, including transactions with publicly traded companies. Over the past decade, he has focused on helping business owners maximize valuation, streamline operations, and execute successful exits. His deep M&A expertise makes him a trusted advisor for entrepreneurs seeking the highest possible transaction value.",
+  },
+  {
+    name: "Richard W. Bradley",
+    title: "CPA / M&A Expert",
+    image: richardImg,
+    bio: "Richard graduated from Radford University with a degree in Business Administration, majoring in accounting with a concentration in finance and economics. After beginning his career as an auditor and serving as Manager of Accounting at Overnite Transportation — reporting to parent company Union Pacific Railroad — he founded the accounting firm Chesnut and Bradley, now CBH Advisory Group. Richard has served on numerous corporate and bank boards as Chief Financial Officer. He specializes in troubled business recoveries, business management systems, mergers and acquisitions, and preparing midsize companies for shareholder exit strategies. Over 28 years, Richard has successfully negotiated the sale of numerous large companies, including five of his own.",
+  },
+  {
+    name: "Jesse Hastings",
+    title: "Business Growth & Scaling Specialist",
+    image: jesseImg,
+    bio: "A serial entrepreneur and business growth expert, Jesse has built and scaled five companies across diverse industries. With firsthand experience scaling businesses past seven figures, he understands what it takes to optimize operations, accelerate revenue, and create sustainable growth. A graduate of Florida College with a degree in Business Administration, Jesse now focuses on business brokerage and consulting — helping owners maximize company value and secure the best possible exit.",
+  },
+];
 
 const About = () => (
   <Layout>
@@ -10,34 +34,30 @@ const About = () => (
             Strategic Advisory. Meaningful Outcomes.
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            CBH Business Group is a Florida-based M&A advisory and business brokerage firm specializing 
-            in representing privately held businesses through strategic sale transactions, valuation advisory, 
-            and structured exit planning.
+            CBH Business Group is a Florida-based M&A advisory and business brokerage firm specializing
+            in representing privately held businesses through strategic sale transactions, valuation advisory,
+            and structured exit planning. With over 50 years of combined experience, our team has worked
+            with more than 2,300 buyers and facilitated transactions across multiple industries.
           </p>
         </div>
       </div>
     </section>
 
-    {/* Background */}
+    {/* What Sets Us Apart */}
     <section className="py-24">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16">
           <div>
-            <p className="text-xs tracking-widest uppercase text-primary mb-3">Our Background</p>
-            <h2 className="text-3xl font-serif text-foreground mb-6">Built for Business Owners.</h2>
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Our Approach</p>
+            <h2 className="text-3xl font-serif text-foreground mb-6">What Sets Us Apart.</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              CBH Business Group was founded to provide business owners with strategic, value-driven 
-              transaction advisory services. We work closely with entrepreneurs who have spent years — 
-              often decades — building their companies.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              We understand that selling a business is more than a financial event. It is a major life 
-              transition. Our role is to ensure that when you go to market, you are positioned for the 
-              best possible outcome — on your terms.
+              We take a highly selective, hands-on approach to advisory and deal execution. Unlike firms
+              that assign you to a single advisor, our entire team works collaboratively on each engagement,
+              ensuring you receive the full depth of our knowledge and experience.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              We are not a listing service. We provide hands-on advisory, buyer targeting, negotiation, 
-              and deal structuring for privately held businesses valued between $3M and $50M.
+              To maintain this level of dedicated service, we limit our active client base to just 10
+              businesses at a time — giving your transaction the focused attention it deserves.
             </p>
           </div>
           <div>
@@ -66,25 +86,46 @@ const About = () => (
       </div>
     </section>
 
-    {/* Philosophy */}
+    {/* Team Bios */}
     <section className="py-24 bg-secondary">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Leadership</p>
+          <h2 className="text-3xl md:text-4xl font-serif text-foreground">Meet Our Experts</h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-10">
+          {team.map((member) => (
+            <div key={member.name} className="group">
+              <div className="aspect-[4/3.3] overflow-hidden rounded-lg mb-6">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+              <p className="text-xs tracking-widest uppercase text-primary mb-1">{member.title}</p>
+              <h3 className="text-xl font-serif text-foreground mb-3">{member.name}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Philosophy */}
+    <section className="py-24">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs tracking-widest uppercase text-primary mb-3">Philosophy</p>
           <h2 className="text-3xl font-serif text-foreground mb-6">Preparation and Structure Drive Valuation.</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            We work with qualified strategic buyers, private equity groups, and individual acquirers to ensure 
-            our clients receive competitive market positioning and disciplined transaction management.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            We prioritize confidentiality, integrity, and long-term relationships over transactional volume. 
-            Every engagement receives the full attention of our advisory team — from initial valuation 
+            We prioritize confidentiality, integrity, and long-term relationships over transactional volume.
+            Every engagement receives the full attention of our advisory team — from initial valuation
             through final closing.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Our commitment is straightforward: advise business owners on how to maximize enterprise value 
-            before going to market, then guide them through a confidential, disciplined sale process that 
-            delivers results.
+            We don't just list businesses — we position them for maximum value. Our hands-on, data-driven
+            approach ensures that every business we represent is optimized for the best possible outcome.
           </p>
         </div>
       </div>
