@@ -34,6 +34,7 @@ const Footer = () => (
             <p>george@cbhadvisory.com</p>
             <p>richard@cbhadvisory.com</p>
             <p>jesse@cbhadvisory.com</p>
+            <p>santiago@cbhadvisory.com</p>
           </div>
         </div>
       </div>
