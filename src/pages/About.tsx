@@ -7,18 +7,21 @@ const team = [
   {
     name: "George Hastings",
     title: "Broker & Business Consultant",
+    email: "george@cbhadvisory.com",
     image: georgeImg,
     bio: "With over 35 years of entrepreneurial experience, George has built and sold multiple successful businesses, including transactions with publicly traded companies. Over the past decade, he has focused on helping business owners maximize valuation, streamline operations, and execute successful exits. His deep M&A expertise makes him a trusted advisor for entrepreneurs seeking the highest possible transaction value.",
   },
   {
     name: "Richard W. Bradley",
     title: "CPA / M&A Expert",
+    email: "richard@cbhadvisory.com",
     image: richardImg,
     bio: "Richard graduated from Radford University with a degree in Business Administration, majoring in accounting with a concentration in finance and economics. After beginning his career as an auditor and serving as Manager of Accounting at Overnite Transportation — reporting to parent company Union Pacific Railroad — he founded the accounting firm Chesnut and Bradley, now CBH Advisory Group. Richard has served on numerous corporate and bank boards as Chief Financial Officer. He specializes in troubled business recoveries, business management systems, mergers and acquisitions, and preparing midsize companies for shareholder exit strategies. Over 28 years, Richard has successfully negotiated the sale of numerous large companies, including five of his own.",
   },
   {
     name: "Jesse Hastings",
     title: "Business Growth & Scaling Specialist",
+    email: "jesse@cbhadvisory.com",
     image: jesseImg,
     bio: "A serial entrepreneur and business growth expert, Jesse has built and scaled five companies across diverse industries. With firsthand experience scaling businesses past seven figures, he understands what it takes to optimize operations, accelerate revenue, and create sustainable growth. A graduate of Florida College with a degree in Business Administration, Jesse now focuses on business brokerage and consulting — helping owners maximize company value and secure the best possible exit.",
   },
@@ -104,7 +107,8 @@ const About = () => (
                 />
               </div>
               <p className="text-xs tracking-widest uppercase text-primary mb-1">{member.title}</p>
-              <h3 className="text-xl font-serif text-foreground mb-3">{member.name}</h3>
+              <h3 className="text-xl font-serif text-foreground mb-1">{member.name}</h3>
+              <a href={`mailto:${member.email}`} className="text-xs text-primary hover:text-primary/80 transition-colors mb-3 block">{member.email}</a>
               <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
             </div>
           ))}
