@@ -1,0 +1,209 @@
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
+};
+
+const topics = [
+  {
+    category: "Valuation",
+    prompts: [
+      "How industry multiples vary across sectors in the lower middle market",
+      "The role of quality of earnings reports in M&A transactions",
+      "How recurring revenue impacts business valuation multiples",
+      "Asset-based vs income-based vs market-based valuation approaches",
+      "How working capital adjustments affect deal economics",
+    ],
+  },
+  {
+    category: "Exit Planning",
+    prompts: [
+      "Building a management team that doesn't depend on the owner",
+      "How to reduce customer concentration before selling",
+      "Tax planning strategies for business owners preparing to sell",
+      "The importance of clean financial records in the sale process",
+      "How to build a credible growth narrative for buyers",
+    ],
+  },
+  {
+    category: "Deal Structure",
+    prompts: [
+      "Understanding earnouts and seller financing in M&A deals",
+      "Asset sale vs stock sale: implications for buyers and sellers",
+      "How private equity recapitalizations work for business owners",
+      "The role of representations and warranties in purchase agreements",
+      "Working capital pegs and their impact on closing adjustments",
+    ],
+  },
+  {
+    category: "Buying",
+    prompts: [
+      "How to evaluate acquisition targets in the lower middle market",
+      "SBA loans vs conventional financing for business acquisitions",
+      "Key due diligence areas every buyer should investigate",
+      "How to assess seller motivation and deal readiness",
+      "Integration planning: the first 100 days after closing",
+    ],
+  },
+  {
+    category: "Market Insights",
+    prompts: [
+      "Current M&A trends in the lower middle market",
+      "How interest rates affect business valuations and deal activity",
+      "Industry sectors with the strongest buyer demand right now",
+      "The impact of economic cycles on M&A transaction volume",
+      "Why strategic buyers pay more than financial buyers",
+    ],
+  },
+];
+
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") {
+    return new Response(null, { headers: corsHeaders });
+  }
+
+  try {
+    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
+
+    const supabase = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+    );
+
+    // Pick a random topic
+    const categoryObj = topics[Math.floor(Math.random() * topics.length)];
+    const prompt =
+      categoryObj.prompts[
+        Math.floor(Math.random() * categoryObj.prompts.length)
+      ];
+    const tags = [categoryObj.category];
+
+    // Add a second tag sometimes
+    const secondTags = ["M&A Process", "Lower Middle Market", "Advisory"];
+    if (Math.random() > 0.5) {
+      tags.push(secondTags[Math.floor(Math.random() * secondTags.length)]);
+    }
+
+    console.log(`Generating blog post about: ${prompt}`);
+
+    // Generate the article via AI
+    const aiResponse = await fetch(
+      "https://ai.gateway.lovable.dev/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "google/gemini-3-flash-preview",
+          messages: [
+            {
+              role: "system",
+              content: `You are a senior M&A advisor writing blog articles for CBH Business Group, a Florida-based M&A advisory firm specializing in businesses valued $3M–$50M. 
+
+Write in a professional, authoritative tone. Use data and specifics where possible. The audience is business owners considering selling or buying a business.
+
+Return a JSON object with these exact keys:
+- "title": A compelling, SEO-optimized article title (50-70 characters)
+- "excerpt": A 1-2 sentence summary for the blog listing (under 200 characters)
+- "meta_description": An SEO meta description (under 160 characters)
+- "content": The full article body in clean HTML using <h2>, <h3>, <p>, <ul>, <li>, <strong>, <em>, and <a href="/contact"> tags. Should be 800-1200 words. Include a call-to-action linking to /contact at the end.
+
+Return ONLY the JSON object, no markdown code fences.`,
+            },
+            {
+              role: "user",
+              content: `Write an in-depth article about: ${prompt}`,
+            },
+          ],
+        }),
+      }
+    );
+
+    if (!aiResponse.ok) {
+      const errText = await aiResponse.text();
+      console.error("AI gateway error:", aiResponse.status, errText);
+      throw new Error(`AI gateway error: ${aiResponse.status}`);
+    }
+
+    const aiData = await aiResponse.json();
+    let content = aiData.choices?.[0]?.message?.content;
+
+    if (!content) throw new Error("No content returned from AI");
+
+    // Clean markdown fences if present
+    content = content.replace(/```json\s*/g, "").replace(/```\s*/g, "").trim();
+
+    let article;
+    try {
+      article = JSON.parse(content);
+    } catch (e) {
+      console.error("Failed to parse AI response:", content);
+      throw new Error("Failed to parse AI response as JSON");
+    }
+
+    const slug = generateSlug(article.title);
+
+    // Check for duplicate slug
+    const { data: existing } = await supabase
+      .from("blog_posts")
+      .select("id")
+      .eq("slug", slug)
+      .maybeSingle();
+
+    if (existing) {
+      console.log(`Post with slug "${slug}" already exists, skipping.`);
+      return new Response(
+        JSON.stringify({ success: false, reason: "duplicate_slug", slug }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Insert the post
+    const { data: post, error } = await supabase
+      .from("blog_posts")
+      .insert({
+        title: article.title,
+        slug,
+        excerpt: article.excerpt,
+        content: article.content,
+        meta_description: article.meta_description,
+        author: "CBH Business Group",
+        published: true,
+        tags,
+      })
+      .select("id, title, slug")
+      .single();
+
+    if (error) throw error;
+
+    console.log(`Published: "${post.title}" at /blog/${post.slug}`);
+
+    return new Response(
+      JSON.stringify({ success: true, post }),
+      { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
+  } catch (error) {
+    console.error("generate-blog-post error:", error);
+    return new Response(
+      JSON.stringify({
+        error: error instanceof Error ? error.message : "Unknown error",
+      }),
+      {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      }
+    );
+  }
+});
