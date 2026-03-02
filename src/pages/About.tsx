@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import SEOHead from "@/components/SEOHead";
 import georgeImg from "@/assets/george-hastings.jpg";
 import richardImg from "@/assets/richard-bradley.jpg";
 import jesseImg from "@/assets/jesse-hastings.jpg";
@@ -37,6 +38,11 @@ const team = [
 
 const About = () => (
   <Layout>
+    <SEOHead
+      title="About Our M&A Advisory Team"
+      description="Meet the CBH Business Group team — over 50 years of combined M&A experience advising privately held business owners through strategic sale transactions in Florida."
+      path="/about"
+    />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl">
@@ -110,7 +116,7 @@ const About = () => (
               <div className="aspect-[4/3.3] overflow-hidden rounded-lg mb-6">
                 <img
                   src={member.image}
-                  alt={member.name}
+                  alt={`${member.name}, ${member.title} at CBH Business Group`}
                   className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>

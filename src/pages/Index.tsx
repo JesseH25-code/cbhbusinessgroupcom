@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import SEOHead from "@/components/SEOHead";
+import { organizationJsonLd, localBusinessJsonLd } from "@/lib/seo-data";
 import heroImage from "@/assets/hero-skyline.jpg";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 
@@ -69,6 +71,12 @@ const deals: { industry: string; revenue: string; ebitda: string; ebitdaLabel?: 
 const Index = () => {
   return (
     <Layout>
+      <SEOHead
+        title="CBH Business Group | M&A Advisory for Businesses $3M–$50M"
+        description="Florida-based M&A advisory and business brokerage firm specializing in strategic sale transactions, valuation advisory, and exit planning for businesses valued $3M–$50M."
+        path="/"
+        jsonLd={[organizationJsonLd, localBusinessJsonLd]}
+      />
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }} />
