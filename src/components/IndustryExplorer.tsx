@@ -102,15 +102,15 @@ const IndustryExplorer = () => {
                 onMouseLeave={() => setActiveIndex(null)}
               >
                 <div
-                  className={`bg-card px-5 py-4 text-sm font-sans font-semibold tracking-wide cursor-pointer transition-colors duration-200 flex items-center justify-between ${
+                  className={`bg-card px-5 py-5 h-16 text-sm font-sans font-semibold tracking-wide cursor-pointer transition-colors duration-200 flex items-center justify-between ${
                     activeIndex === i
                       ? "text-primary bg-card"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  <span>{ind.name}</span>
+                  <span className="leading-tight">{ind.name}</span>
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    className={`w-3.5 h-3.5 ml-2 shrink-0 transition-transform duration-200 ${
                       activeIndex === i ? "rotate-180 text-primary" : ""
                     }`}
                   />
