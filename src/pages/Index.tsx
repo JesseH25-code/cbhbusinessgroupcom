@@ -19,14 +19,42 @@ const steps = [
   { num: "05", title: "Closing & Transition", desc: "Coordinating due diligence, legal documentation, and a smooth ownership transition." },
 ];
 
-const deals: { industry: string; revenue: string; ebitda: string; ebitdaLabel?: string; structure: string; outcome: string; highlights?: string[] }[] = [
-  { industry: "Specialty Manufacturing", revenue: "$28M", ebitda: "$4.2M", structure: "100% Strategic Acquisition", outcome: "Competitive process produced multiple qualified offers. Closed above initial valuation expectations with structured earnout." },
-  { industry: "Healthcare Services", revenue: "$16M", ebitda: "$2.8M", structure: "PE Recapitalization (70/30)", outcome: "Owner achieved partial liquidity while retaining minority equity alongside an institutional growth partner." },
+const deals: { industry: string; revenue: string; ebitda: string; ebitdaLabel?: string; txValue: string; structure: string; outcome: string; highlights: string[] }[] = [
+  {
+    industry: "Construction & Infrastructure Services",
+    revenue: "$30M",
+    ebitda: "$4.2M",
+    txValue: "$20M",
+    structure: "Majority Recapitalization — 20% Equity Retained",
+    outcome: "Advised ownership through a structured sale process targeting both strategic and financial buyers. Transaction resulted in a $20M majority sale while ownership retained 20% equity for future liquidity participation. Process included financial normalization, backlog positioning, and disciplined negotiation of working capital terms.",
+    highlights: [
+      "Competitive buyer outreach",
+      "Multiple qualified discussions",
+      "Structured equity rollover",
+      "Transition alignment with management",
+    ],
+  },
+  {
+    industry: "Consumer Products / Apparel",
+    revenue: "$6M",
+    ebitda: "$1.4M",
+    ebitdaLabel: "Net Income",
+    txValue: "$4.9M",
+    structure: "100% Strategic Acquisition",
+    outcome: "Executed full sale to a strategic acquirer seeking brand expansion and channel growth. Confidential process generated multiple qualified discussions. Final terms delivered complete liquidity to ownership with structured transition support.",
+    highlights: [
+      "Strategic buyer alignment",
+      "Clean full-exit structure",
+      "Negotiated favorable closing terms",
+      "Confidential process management",
+    ],
+  },
   {
     industry: "Engineering & Professional Services",
     revenue: "$6M",
     ebitda: "$3M",
     ebitdaLabel: "Net Income",
+    txValue: "$12M",
     structure: "Majority Sale — 20% Equity Retained",
     outcome: "Advised ownership through a structured majority sale valued at $12M while retaining 20% equity. The transaction provided immediate liquidity with continued participation in long-term value creation through structured ongoing quarterly distributions.",
     highlights: [
@@ -108,12 +136,12 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Track Record</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground">Representative Transactions</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground">Selected Transaction Experience</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {deals.map((deal, i) => (
               <div key={i} className="bg-card border border-border p-8 hover:border-primary/30 transition-colors duration-300 flex flex-col">
-                <p className="text-xs tracking-widest uppercase text-primary mb-4">{deal.industry}</p>
+                <p className="text-xs tracking-widest uppercase text-primary mb-5">{deal.industry}</p>
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Revenue</span>
@@ -124,22 +152,24 @@ const Index = () => {
                     <span className="text-foreground font-medium">{deal.ebitda}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Structure</span>
-                    <span className="text-foreground font-medium">{deal.structure}</span>
+                    <span className="text-muted-foreground">Transaction Value</span>
+                    <span className="text-foreground font-medium">{deal.txValue}</span>
+                  </div>
+                  <div className="flex justify-between text-sm items-start gap-4">
+                    <span className="text-muted-foreground shrink-0">Structure</span>
+                    <span className="text-foreground font-medium text-right">{deal.structure}</span>
                   </div>
                 </div>
                 <div className="gold-divider mb-4" />
                 <p className="text-sm text-muted-foreground leading-relaxed">{deal.outcome}</p>
-                {deal.highlights && (
-                  <ul className="mt-4 space-y-2">
-                    {deal.highlights.map((h, j) => (
-                      <li key={j} className="text-xs text-muted-foreground flex items-start gap-2">
-                        <span className="text-primary mt-0.5">—</span>
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <ul className="mt-4 space-y-2">
+                  {deal.highlights.map((h, j) => (
+                    <li key={j} className="text-xs text-muted-foreground flex items-start gap-2">
+                      <span className="text-primary mt-0.5">—</span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
