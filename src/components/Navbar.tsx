@@ -19,10 +19,9 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto flex items-center justify-between h-20 px-6">
         <Link to="/" className="font-serif text-xl tracking-wider text-foreground">
-          MERIDIAN<span className="text-primary"> CAPITAL</span>
+          CBH<span className="text-primary"> Business Group</span>
         </Link>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
@@ -39,7 +38,6 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden text-foreground"
           onClick={() => setOpen(!open)}
@@ -49,7 +47,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-background border-t border-border px-6 py-6 space-y-4">
           {navItems.map((item) => (

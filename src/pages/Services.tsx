@@ -8,15 +8,26 @@ const services = [
     title: "Sell-Side M&A Advisory",
     subtitle: "Full Transaction Execution",
     points: [
-      "Comprehensive enterprise valuation and financial modeling",
+      "Comprehensive business valuation and financial modeling",
       "Preparation of Confidential Information Memorandum (CIM)",
-      "Targeted outreach to qualified strategic and financial buyers",
+      "Targeted, NDA-protected outreach to qualified buyers",
       "Management of competitive bid dynamics and LOI negotiation",
       "Coordination of due diligence, legal documentation, and closing",
     ],
   },
   {
-    title: "Exit Planning & Value Enhancement",
+    title: "Business Valuation",
+    subtitle: "Market-Based Valuation Advisory",
+    points: [
+      "EBITDA normalization and add-back analysis",
+      "Comparable transaction and industry multiple benchmarking",
+      "Identification of value-enhancing adjustments",
+      "Defensible valuation narrative for buyer conversations",
+      "Clear financial positioning for market readiness",
+    ],
+  },
+  {
+    title: "Exit Planning",
     subtitle: "12–36 Month Pre-Sale Strategy",
     points: [
       "Identification of value drivers and risk factors",
@@ -27,33 +38,22 @@ const services = [
     ],
   },
   {
-    title: "Enterprise Valuation",
-    subtitle: "Market-Based Valuation Analysis",
+    title: "Deal Structuring",
+    subtitle: "Transaction Architecture",
     points: [
-      "EBITDA normalization and add-back analysis",
-      "Comparable transaction and precedent analysis",
-      "Industry multiple benchmarking",
-      "Identification of value-enhancing adjustments",
-      "Defensible valuation narrative for buyer conversations",
+      "Asset vs. stock sale analysis and optimization",
+      "Earnout, seller financing, and rollover equity structures",
+      "Working capital and closing mechanics",
+      "Tax-efficient transaction planning",
+      "Post-closing transition and non-compete frameworks",
     ],
   },
   {
-    title: "Recapitalizations & Partial Liquidity",
-    subtitle: "Structured Capital Events",
-    points: [
-      "Minority equity sales to institutional investors",
-      "Growth capital partnerships with PE sponsors",
-      "Management buyout structuring and financing",
-      "ESOP evaluation and implementation support",
-      "Structured dividend recapitalizations",
-    ],
-  },
-  {
-    title: "Strategic Buyer Advisory",
-    subtitle: "Acquisition-Side Representation",
+    title: "Buyer Representation",
+    subtitle: "Acquisition-Side Advisory",
     points: [
       "Target identification and screening",
-      "Valuation and deal structuring guidance",
+      "Valuation and offer structuring guidance",
       "Negotiation support and LOI preparation",
       "Due diligence coordination",
       "Post-acquisition integration planning",
@@ -68,11 +68,11 @@ const Services = () => (
         <div className="max-w-3xl">
           <p className="text-xs tracking-widest uppercase text-primary mb-3">Advisory Services</p>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
-            Structured Outcomes for Complex Transactions.
+            Structured Process. Measurable Outcomes.
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Every engagement is built around a defined process, clear milestones, and measurable outcomes. 
-            We bring institutional execution to the lower middle market.
+            Every CBH engagement is built around a defined process, clear milestones, and a commitment 
+            to maximizing value for our clients. We bring disciplined execution to every transaction.
           </p>
         </div>
       </div>
