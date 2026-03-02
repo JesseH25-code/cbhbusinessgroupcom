@@ -19,10 +19,23 @@ const steps = [
   { num: "05", title: "Closing & Transition", desc: "Coordinating due diligence, legal documentation, and a smooth ownership transition." },
 ];
 
-const deals = [
+const deals: { industry: string; revenue: string; ebitda: string; ebitdaLabel?: string; structure: string; outcome: string; highlights?: string[] }[] = [
   { industry: "Specialty Manufacturing", revenue: "$28M", ebitda: "$4.2M", structure: "100% Strategic Acquisition", outcome: "Competitive process produced multiple qualified offers. Closed above initial valuation expectations with structured earnout." },
   { industry: "Healthcare Services", revenue: "$16M", ebitda: "$2.8M", structure: "PE Recapitalization (70/30)", outcome: "Owner achieved partial liquidity while retaining minority equity alongside an institutional growth partner." },
-  { industry: "B2B Services", revenue: "$12M", ebitda: "$3.1M", structure: "Strategic Sale", outcome: "Confidential process generated multiple LOIs. Final terms exceeded seller expectations on both price and structure." },
+  {
+    industry: "Engineering & Professional Services",
+    revenue: "$6M",
+    ebitda: "$3M",
+    ebitdaLabel: "Net Income",
+    structure: "Majority Sale — 20% Equity Retained",
+    outcome: "Advised ownership through a structured majority sale valued at $12M while retaining 20% equity. The transaction provided immediate liquidity with continued participation in long-term value creation through structured ongoing quarterly distributions.",
+    highlights: [
+      "High-margin professional services platform",
+      "Equity rollover with long-term distribution rights",
+      "Structured for recurring quarterly income participation",
+      "Negotiated alignment between majority buyer and retained ownership",
+    ],
+  },
 ];
 
 const Index = () => {
@@ -99,7 +112,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {deals.map((deal, i) => (
-              <div key={i} className="bg-card border border-border p-8 hover:border-primary/30 transition-colors duration-300">
+              <div key={i} className="bg-card border border-border p-8 hover:border-primary/30 transition-colors duration-300 flex flex-col">
                 <p className="text-xs tracking-widest uppercase text-primary mb-4">{deal.industry}</p>
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-sm">
@@ -107,7 +120,7 @@ const Index = () => {
                     <span className="text-foreground font-medium">{deal.revenue}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">EBITDA</span>
+                    <span className="text-muted-foreground">{deal.ebitdaLabel || "EBITDA"}</span>
                     <span className="text-foreground font-medium">{deal.ebitda}</span>
                   </div>
                   <div className="flex justify-between text-sm">
@@ -117,6 +130,16 @@ const Index = () => {
                 </div>
                 <div className="gold-divider mb-4" />
                 <p className="text-sm text-muted-foreground leading-relaxed">{deal.outcome}</p>
+                {deal.highlights && (
+                  <ul className="mt-4 space-y-2">
+                    {deal.highlights.map((h, j) => (
+                      <li key={j} className="text-xs text-muted-foreground flex items-start gap-2">
+                        <span className="text-primary mt-0.5">—</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
