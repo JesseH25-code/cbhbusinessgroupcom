@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import georgeImg from "@/assets/george-hastings.jpg";
 import richardImg from "@/assets/richard-bradley.jpg";
 import jesseImg from "@/assets/jesse-hastings.jpg";
+import santiagoImg from "@/assets/santiago-flores.jpg";
 
 const team = [
   {
@@ -24,6 +25,13 @@ const team = [
     email: "jesse@cbhadvisory.com",
     image: jesseImg,
     bio: "A serial entrepreneur and business growth expert, Jesse has built and scaled five companies across diverse industries. With firsthand experience scaling businesses past seven figures, he understands what it takes to optimize operations, accelerate revenue, and create sustainable growth. A graduate of Florida College with a degree in Business Administration, Jesse now focuses on business brokerage and consulting — helping owners maximize company value and secure the best possible exit.",
+  },
+  {
+    name: "Santiago Flores",
+    title: "Sales & Marketing Director",
+    email: "santiago@cbhadvisory.com",
+    image: santiagoImg,
+    bio: "With over 18 years of experience in sales and marketing, Santiago has a proven track record of driving growth and building successful business strategies. He began his journey in e-commerce and online marketing, mastering business development and team training. Over the years, he has built and scaled multiple businesses, generating significant annual revenues. As a former major account executive, Santiago worked with enterprise-level clients — from small teams to large organizations — helping them optimize B2B sales strategies and drive substantial revenue growth. His hands-on experience and strategic insights make him an invaluable asset to clients looking to elevate their sales and marketing efforts.",
   },
 ];
 
@@ -96,7 +104,7 @@ const About = () => (
           <p className="text-xs tracking-widest uppercase text-primary mb-3">Leadership</p>
           <h2 className="text-3xl md:text-4xl font-serif text-foreground">Meet Our Experts</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {team.map((member) => (
             <div key={member.name} className="group">
               <div className="aspect-[4/3.3] overflow-hidden rounded-lg mb-6">
