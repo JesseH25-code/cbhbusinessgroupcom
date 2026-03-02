@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import SEOHead from "@/components/SEOHead";
 import { ArrowRight } from "lucide-react";
 
 const services = [
@@ -63,6 +64,11 @@ const services = [
 
 const Services = () => (
   <Layout>
+    <SEOHead
+      title="M&A Advisory Services"
+      description="Sell-side M&A advisory, business valuation, exit planning, deal structuring, and buyer representation for privately held businesses valued $3M–$50M."
+      path="/services"
+    />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl">

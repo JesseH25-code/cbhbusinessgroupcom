@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import SEOHead from "@/components/SEOHead";
 import IndustryExplorer from "@/components/IndustryExplorer";
 import { ArrowRight } from "lucide-react";
 
@@ -22,6 +23,11 @@ const Buyers = () => {
 
   return (
     <Layout>
+      <SEOHead
+        title="Join Our Acquisition Network"
+        description="Qualified strategic and financial buyers seeking lower middle-market acquisition opportunities in the $3M–$50M enterprise value range. Join CBH Business Group's buyer network."
+        path="/buyers"
+      />
       <section className="py-24 bg-gradient-section">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl">

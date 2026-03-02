@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import SEOHead from "@/components/SEOHead";
+import { faqJsonLd } from "@/lib/seo-data";
 import { ArrowRight } from "lucide-react";
 
 const valueDrivers = [
@@ -21,8 +23,41 @@ const valueKillers = [
   "Key employee risk without retention agreements",
 ];
 
+const faqItems = [
+  {
+    q: "What is M&A advisory?",
+    a: "M&A (Mergers & Acquisitions) advisory involves a professional firm representing a business owner through the process of selling their company. An M&A advisor handles valuation, buyer identification, negotiations, and closing — ensuring the owner achieves maximum value while maintaining confidentiality.",
+  },
+  {
+    q: "How long does it take to sell a business?",
+    a: "A typical M&A transaction takes 6–9 months from engagement to closing. This includes preparation and valuation (months 1–2), buyer outreach (months 2–4), LOI negotiation and due diligence (months 4–6), and definitive agreements and closing (months 6–9).",
+  },
+  {
+    q: "What is EBITDA and why does it matter?",
+    a: "EBITDA stands for Earnings Before Interest, Taxes, Depreciation, and Amortization. It represents the normalized cash earnings of your business and is the primary metric most acquirers use to determine valuation. Enterprise value is calculated by applying an industry-appropriate multiple to your adjusted EBITDA.",
+  },
+  {
+    q: "What size businesses does CBH Business Group work with?",
+    a: "We specialize in privately held businesses valued between $3M and $50M in enterprise value, focusing on sell-side advisory for owners ready to explore a strategic exit or sale transaction.",
+  },
+  {
+    q: "What drives business valuation multiples?",
+    a: "Key drivers include EBITDA quality, revenue diversification, management depth, recurring revenue models, documented operational systems, and a credible growth trajectory. These factors collectively determine the multiple applied to your earnings.",
+  },
+  {
+    q: "Is the sale process confidential?",
+    a: "Absolutely. Every engagement begins with a confidentiality agreement. No information is shared without your explicit approval. We use NDA-protected outreach and never publicly list businesses for sale.",
+  },
+];
+
 const Sellers = () => (
   <Layout>
+    <SEOHead
+      title="Selling Your Business — What to Expect"
+      description="Understand what drives business valuation, how M&A transactions are structured, and what to expect from a confidential sale process for businesses valued $3M–$50M."
+      path="/sellers"
+      jsonLd={faqJsonLd}
+    />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl">
@@ -123,6 +158,24 @@ const Sellers = () => (
               <div key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-1.5 shrink-0" />
                 {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section className="py-24">
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
+          <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            {faqItems.map((faq, i) => (
+              <div key={i} className="border-b border-border pb-6">
+                <h3 className="font-serif text-lg text-foreground mb-2">{faq.q}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
