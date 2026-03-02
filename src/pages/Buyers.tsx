@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import IndustryExplorer from "@/components/IndustryExplorer";
 import { ArrowRight } from "lucide-react";
 
 const buyerTypes = [
@@ -8,12 +9,6 @@ const buyerTypes = [
   { type: "Family Offices", desc: "Direct investments seeking long-term value creation and stable cash flows." },
   { type: "Strategic Acquirers", desc: "Operating companies pursuing horizontal or vertical growth through acquisition." },
   { type: "Search Funds & Independent Sponsors", desc: "Entrepreneurial acquirers seeking a single platform investment." },
-];
-
-const industries = [
-  "Manufacturing & Distribution", "Healthcare Services", "Business Services",
-  "Technology & SaaS", "Industrial Services", "Consumer Products",
-  "Construction & Engineering", "Financial Services",
 ];
 
 const Buyers = () => {
@@ -56,20 +51,7 @@ const Buyers = () => {
         </div>
       </section>
 
-      {/* Industries */}
-      <section className="py-24 bg-secondary">
-        <div className="container mx-auto px-6">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Target Sectors</p>
-          <h2 className="text-3xl font-serif text-foreground mb-12">Industries We Cover</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {industries.map((ind, i) => (
-              <div key={i} className="border border-border bg-card px-4 py-3 text-sm text-muted-foreground text-center">
-                {ind}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <IndustryExplorer />
 
       {/* NDA + Form */}
       <section className="py-24">
