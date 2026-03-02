@@ -8,6 +8,7 @@ const navItems = [
   { label: "Services", path: "/services" },
   { label: "Industries", path: "/industries" },
   { label: "Case Studies", path: "/case-studies" },
+  { label: "Opportunities", path: "/opportunities" },
   { label: "Sellers", path: "/sellers" },
   { label: "Buyers", path: "/buyers" },
   { label: "Blog", path: "/blog" },
