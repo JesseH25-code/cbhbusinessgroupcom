@@ -95,6 +95,51 @@ export type Database = {
         }
         Relationships: []
       }
+      opportunities: {
+        Row: {
+          created_at: string
+          description: string
+          ebitda_range: string | null
+          highlights: string[] | null
+          id: string
+          location: string
+          revenue_range: string
+          sector: string
+          sort_order: number
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          ebitda_range?: string | null
+          highlights?: string[] | null
+          id?: string
+          location: string
+          revenue_range: string
+          sector: string
+          sort_order?: number
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          ebitda_range?: string | null
+          highlights?: string[] | null
+          id?: string
+          location?: string
+          revenue_range?: string
+          sector?: string
+          sort_order?: number
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

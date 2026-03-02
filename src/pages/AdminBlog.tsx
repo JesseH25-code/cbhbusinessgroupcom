@@ -147,6 +147,9 @@ const AdminBlog = () => {
       <header className="border-b border-border bg-card px-6 py-4 flex items-center justify-between">
         <h1 className="font-serif text-lg text-foreground">Blog Admin</h1>
         <div className="flex items-center gap-3">
+          <Button variant="ghost" size="sm" onClick={() => navigate("/admin/opportunities")}>
+            Opportunities
+          </Button>
           <Button variant="ghost" size="sm" onClick={() => navigate("/blog")}>
             <ArrowLeft className="w-4 h-4 mr-1" /> View Blog
           </Button>
