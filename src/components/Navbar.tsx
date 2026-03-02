@@ -1,23 +1,63 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
-const navItems = [
+interface NavItem {
+  label: string;
+  path?: string;
+  children?: { label: string; path: string }[];
+}
+
+const navItems: NavItem[] = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
-  { label: "Services", path: "/services" },
-  { label: "Industries", path: "/industries" },
-  { label: "Case Studies", path: "/case-studies" },
-  { label: "Opportunities", path: "/opportunities" },
-  { label: "Sellers", path: "/sellers" },
-  { label: "Buyers", path: "/buyers" },
+  {
+    label: "Advisory",
+    children: [
+      { label: "Services", path: "/services" },
+      { label: "Industries", path: "/industries" },
+      { label: "Case Studies", path: "/case-studies" },
+    ],
+  },
+  {
+    label: "Transactions",
+    children: [
+      { label: "For Sellers", path: "/sellers" },
+      { label: "For Buyers", path: "/buyers" },
+      { label: "Opportunities", path: "/opportunities" },
+    ],
+  },
   { label: "Blog", path: "/blog" },
   { label: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const location = useLocation();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Close dropdown on route change
+  useEffect(() => {
+    setOpenDropdown(null);
+    setMobileOpen(false);
+    setMobileExpanded(null);
+  }, [location.pathname]);
+
+  const isActive = (item: NavItem) => {
+    if (item.path) return location.pathname === item.path;
+    return item.children?.some((c) => location.pathname === c.path);
+  };
+
+  const handleMouseEnter = (label: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpenDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpenDropdown(null), 150);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
@@ -26,47 +66,122 @@ const Navbar = () => {
           CBH<span className="text-primary"> Business Group</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`text-xs font-sans font-semibold tracking-widest uppercase transition-colors duration-300 ${
-                location.pathname === item.path
-                  ? "text-primary"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-7">
+          {navItems.map((item) =>
+            item.children ? (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(item.label)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <button
+                  className={`flex items-center gap-1 text-xs font-sans font-semibold tracking-widest uppercase transition-colors duration-300 ${
+                    isActive(item) ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {item.label}
+                  <ChevronDown
+                    className={`w-3 h-3 transition-transform duration-200 ${
+                      openDropdown === item.label ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {openDropdown === item.label && (
+                  <div className="absolute top-full left-0 pt-2 min-w-[180px]">
+                    <div className="bg-card border border-border shadow-lg py-2 animate-fade-in">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.path}
+                          to={child.path}
+                          className={`block px-5 py-2.5 text-xs font-sans font-semibold tracking-widest uppercase transition-colors ${
+                            location.pathname === child.path
+                              ? "text-primary bg-primary/5"
+                              : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.path}
+                to={item.path!}
+                className={`text-xs font-sans font-semibold tracking-widest uppercase transition-colors duration-300 ${
+                  isActive(item) ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </div>
 
+        {/* Mobile Toggle */}
         <button
           className="md:hidden text-foreground"
-          onClick={() => setOpen(!open)}
+          onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden bg-background border-t border-border px-6 py-6 space-y-4">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              onClick={() => setOpen(false)}
-              className={`block text-sm font-sans font-semibold tracking-widest uppercase ${
-                location.pathname === item.path
-                  ? "text-primary"
-                  : "text-muted-foreground"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-background border-t border-border px-6 py-6 space-y-1">
+          {navItems.map((item) =>
+            item.children ? (
+              <div key={item.label}>
+                <button
+                  onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                  className={`w-full flex items-center justify-between py-3 text-sm font-sans font-semibold tracking-widest uppercase ${
+                    isActive(item) ? "text-primary" : "text-muted-foreground"
+                  }`}
+                >
+                  {item.label}
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      mobileExpanded === item.label ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                {mobileExpanded === item.label && (
+                  <div className="pl-4 pb-2 space-y-1 animate-fade-in">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.path}
+                        to={child.path}
+                        onClick={() => setMobileOpen(false)}
+                        className={`block py-2 text-sm font-sans tracking-widest uppercase ${
+                          location.pathname === child.path ? "text-primary" : "text-muted-foreground"
+                        }`}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.path}
+                to={item.path!}
+                onClick={() => setMobileOpen(false)}
+                className={`block py-3 text-sm font-sans font-semibold tracking-widest uppercase ${
+                  isActive(item) ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </div>
       )}
     </nav>
