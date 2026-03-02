@@ -1,16 +1,41 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const Contact = () => {
   const [form, setForm] = useState({
     company: "", revenue: "", ebitda: "", timeline: "", email: "", phone: "", message: "", confidentiality: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: {
+          company: form.company,
+          revenue: form.revenue,
+          ebitda: form.ebitda,
+          timeline: form.timeline,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+        },
+      });
+
+      if (error) throw error;
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Submission error:", err);
+      toast.error("There was an issue submitting your inquiry. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const fieldClass = "w-full bg-card border border-border px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none transition-colors";
@@ -104,8 +129,8 @@ const Contact = () => {
                     and will not be shared with any third party without my explicit written consent.
                   </p>
                 </div>
-                <Button variant="hero" size="lg" type="submit" className="w-full">
-                  Submit Confidential Inquiry
+                <Button variant="hero" size="lg" type="submit" className="w-full" disabled={loading}>
+                  {loading ? "Submitting..." : "Submit Confidential Inquiry"}
                 </Button>
               </form>
             )}
