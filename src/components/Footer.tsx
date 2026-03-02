@@ -1,0 +1,47 @@
+import { Link } from "react-router-dom";
+
+const Footer = () => (
+  <footer className="border-t border-border bg-secondary">
+    <div className="container mx-auto px-6 py-16">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="md:col-span-2">
+          <h3 className="font-serif text-xl tracking-wider text-foreground mb-4">
+            MERIDIAN<span className="text-primary"> CAPITAL</span>
+          </h3>
+          <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
+            Strategic M&A advisory for lower middle-market businesses valued $3M–$50M. 
+            Confidential, disciplined, results-driven.
+          </p>
+        </div>
+        <div>
+          <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Navigation</h4>
+          <div className="space-y-3">
+            {["About", "Services", "Sellers", "Buyers", "Contact"].map((item) => (
+              <Link
+                key={item}
+                to={`/${item.toLowerCase()}`}
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Contact</h4>
+          <div className="space-y-3 text-sm text-muted-foreground">
+            <p>Florida, United States</p>
+            <p>info@meridiancap.com</p>
+            <p>(305) 555-0100</p>
+          </div>
+        </div>
+      </div>
+      <div className="gold-divider mt-12 mb-6" />
+      <p className="text-xs text-muted-foreground text-center">
+        © {new Date().getFullYear()} Meridian Capital Advisors. All rights reserved. All transactions conducted in strict confidence.
+      </p>
+    </div>
+  </footer>
+);
+
+export default Footer;
