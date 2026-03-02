@@ -16,7 +16,7 @@ export const organizationJsonLd = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
-    email: "george@cbhadvisory.com",
+    email: "jesse@cbhadvisory.com",
   },
   sameAs: [],
 };
