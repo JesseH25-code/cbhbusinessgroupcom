@@ -5,24 +5,24 @@ import heroImage from "@/assets/hero-skyline.jpg";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 
 const stats = [
-  { value: "$2.4B+", label: "Transaction Value Advised" },
-  { value: "$18M", label: "Average Deal Size" },
-  { value: "14", label: "Industries Represented" },
-  { value: "340+", label: "Qualified Buyer Network" },
+  { value: "$3M–$50M", label: "Transaction Range" },
+  { value: "Sell-Side", label: "Advisory Focus" },
+  { value: "Florida", label: "Headquartered" },
+  { value: "Confidential", label: "Process Driven" },
 ];
 
 const steps = [
-  { num: "01", title: "Enterprise Valuation & Financial Normalization", desc: "Comprehensive financial analysis, EBITDA adjustments, and market-based valuation modeling." },
-  { num: "02", title: "Market Positioning & Investment Thesis", desc: "Crafting a compelling narrative that articulates your competitive advantages and growth trajectory." },
-  { num: "03", title: "Targeted Buyer Outreach", desc: "Disciplined outreach to pre-qualified strategic acquirers and financial sponsors." },
-  { num: "04", title: "Negotiation & Deal Structuring", desc: "Managing competitive dynamics, structuring terms, and maximizing total consideration." },
-  { num: "05", title: "Closing & Post-Transaction Transition", desc: "Coordinating diligence, legal documentation, and seamless ownership transfer." },
+  { num: "01", title: "Business Valuation & Financial Normalization", desc: "Comprehensive analysis of earnings, EBITDA adjustments, and defensible market-based valuation." },
+  { num: "02", title: "Strategic Positioning & Investment Thesis", desc: "Building a clear narrative that communicates your company's competitive strengths and growth potential." },
+  { num: "03", title: "Targeted Buyer Identification & Outreach", desc: "Disciplined, confidential outreach to pre-qualified strategic acquirers, PE groups, and individual buyers." },
+  { num: "04", title: "Negotiation & Deal Structuring", desc: "Managing competitive dynamics, structuring terms, and protecting your interests through closing." },
+  { num: "05", title: "Closing & Transition", desc: "Coordinating due diligence, legal documentation, and a smooth ownership transition." },
 ];
 
 const deals = [
-  { industry: "Specialty Manufacturing", revenue: "$28M", ebitda: "$4.2M", structure: "100% Strategic Acquisition", outcome: "Closed at 7.8x EBITDA with earnout structure exceeding initial ask by 22%." },
-  { industry: "Healthcare Services", revenue: "$16M", ebitda: "$2.8M", structure: "PE Recapitalization (70/30)", outcome: "Owner retained 30% equity with institutional partner, achieving partial liquidity and growth capital." },
-  { industry: "B2B Technology", revenue: "$12M", ebitda: "$3.1M", structure: "Strategic Sale to Public Company", outcome: "Competitive process generated 4 LOIs. Closed at 9.2x EBITDA with favorable working capital terms." },
+  { industry: "Specialty Manufacturing", revenue: "$28M", ebitda: "$4.2M", structure: "100% Strategic Acquisition", outcome: "Competitive process produced multiple qualified offers. Closed above initial valuation expectations with structured earnout." },
+  { industry: "Healthcare Services", revenue: "$16M", ebitda: "$2.8M", structure: "PE Recapitalization (70/30)", outcome: "Owner achieved partial liquidity while retaining minority equity alongside an institutional growth partner." },
+  { industry: "B2B Services", revenue: "$12M", ebitda: "$3.1M", structure: "Strategic Sale", outcome: "Confidential process generated multiple LOIs. Final terms exceeded seller expectations on both price and structure." },
 ];
 
 const Index = () => {
@@ -30,10 +30,7 @@ const Index = () => {
     <Layout>
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }} />
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="relative container mx-auto px-6">
           <div className="max-w-3xl">
@@ -41,20 +38,17 @@ const Index = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-6 text-foreground animate-fade-in">
               Strategic M&A Advisory for Businesses Valued $3M–$50M.
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl" style={{ animationDelay: "0.2s" }}>
-              We help founders and ownership groups maximize enterprise value and execute structured 
-              transactions with qualified strategic and financial buyers.
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl">
+              CBH Business Group advises owners of privately held companies through confidential sale transactions, 
+              valuation advisory, and structured exit planning. We are not a listing service — we provide 
+              hands-on advisory, buyer targeting, negotiation, and deal structuring.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4" style={{ animationDelay: "0.4s" }}>
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contact">
-                <Button variant="hero" size="lg">
-                  Request Confidential Valuation
-                </Button>
+                <Button variant="hero" size="lg">Request Confidential Valuation</Button>
               </Link>
               <Link to="/contact">
-                <Button variant="heroOutline" size="lg">
-                  Schedule Advisory Consultation
-                </Button>
+                <Button variant="heroOutline" size="lg">Schedule Advisory Consultation</Button>
               </Link>
             </div>
           </div>
@@ -80,7 +74,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Our Process</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground">Structured Advisory Approach</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground">A Disciplined Advisory Approach</h2>
           </div>
           <div className="max-w-3xl mx-auto space-y-8">
             {steps.map((step) => (
@@ -134,18 +128,19 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Exit Planning</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">Preparation Drives Multiple Expansion.</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">Preparation and Structure Drive Valuation.</h2>
             <p className="text-muted-foreground leading-relaxed mb-12">
-              The most impactful value creation occurs 12–36 months before a transaction. Our exit readiness 
-              framework addresses the key drivers that strategic and financial buyers evaluate.
+              The most impactful value creation happens before a business goes to market. 
+              Our exit readiness framework addresses the key factors that buyers evaluate 
+              when determining what a company is worth.
             </p>
           </div>
           <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { icon: BarChart3, title: "Financial Normalization", desc: "Clean, adjusted financials that reflect true earnings power." },
-              { icon: TrendingUp, title: "Growth Narrative", desc: "Articulating a credible path to continued value creation." },
-              { icon: Shield, title: "Risk Mitigation", desc: "Addressing customer concentration, key-person, and operational risks." },
-              { icon: Users, title: "Working Capital Clarity", desc: "Clear definitions and benchmarks for smooth deal mechanics." },
+              { icon: BarChart3, title: "Financial Normalization", desc: "Clean, adjusted financials that reflect true earnings power and EBITDA clarity." },
+              { icon: TrendingUp, title: "Growth Narrative", desc: "A credible, data-supported case for continued value creation post-transaction." },
+              { icon: Shield, title: "Risk Mitigation", desc: "Addressing customer concentration, key-person dependency, and operational risks." },
+              { icon: Users, title: "Working Capital Clarity", desc: "Clear definitions and benchmarks for smooth deal mechanics and closing." },
             ].map((item, i) => (
               <div key={i} className="text-center">
                 <item.icon className="w-8 h-8 text-primary mx-auto mb-4" strokeWidth={1.5} />
@@ -169,7 +164,7 @@ const Index = () => {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-4">The 8 Drivers of Enterprise Value</h2>
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
-            A structured framework for understanding what moves valuation multiples in the lower middle market.
+            A practical framework for understanding what moves valuation multiples in the lower middle market.
           </p>
           <Link to="/contact">
             <Button variant="hero" size="lg">

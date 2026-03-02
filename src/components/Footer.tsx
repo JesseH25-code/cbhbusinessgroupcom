@@ -6,11 +6,11 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="md:col-span-2">
           <h3 className="font-serif text-xl tracking-wider text-foreground mb-4">
-            MERIDIAN<span className="text-primary"> CAPITAL</span>
+            CBH<span className="text-primary"> Business Group</span>
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-            Strategic M&A advisory for lower middle-market businesses valued $3M–$50M. 
-            Confidential, disciplined, results-driven.
+            M&A advisory and business brokerage for privately held companies valued $3M–$50M. 
+            Confidential. Disciplined. Results-driven.
           </p>
         </div>
         <div>
@@ -31,14 +31,13 @@ const Footer = () => (
           <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Contact</h4>
           <div className="space-y-3 text-sm text-muted-foreground">
             <p>Florida, United States</p>
-            <p>info@meridiancap.com</p>
-            <p>(305) 555-0100</p>
+            <p>info@cbhbusinessgroup.com</p>
           </div>
         </div>
       </div>
       <div className="gold-divider mt-12 mb-6" />
       <p className="text-xs text-muted-foreground text-center">
-        © {new Date().getFullYear()} Meridian Capital Advisors. All rights reserved. All transactions conducted in strict confidence.
+        © {new Date().getFullYear()} CBH Business Group. All rights reserved. All transactions conducted in strict confidence.
       </p>
     </div>
   </footer>
