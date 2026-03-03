@@ -31,10 +31,10 @@ const Footer = () => (
           <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Contact</h4>
           <div className="space-y-3 text-sm text-muted-foreground">
             <p>1550 Dolphin Drive<br />St. Cloud, FL 34771</p>
-            <p>george@cbhadvisory.com</p>
-            <p>richard@cbhadvisory.com</p>
-            <p>jesse@cbhadvisory.com</p>
-            <p>santiago@cbhadvisory.com</p>
+            <p>George@cbhadvisory.com</p>
+            <p>Richard@cbhadvisory.com</p>
+            <p>Jesse@cbhadvisory.com</p>
+            <p>Santiago@cbhadvisory.com</p>
           </div>
         </div>
       </div>
