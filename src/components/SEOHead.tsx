@@ -5,7 +5,7 @@ interface SEOHeadProps {
   description: string;
   path: string;
   type?: string;
-  jsonLd?: object;
+  jsonLd?: object | object[];
 }
 
 const SITE_URL = "https://cbhbusinessgroup.com";
