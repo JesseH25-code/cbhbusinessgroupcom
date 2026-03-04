@@ -1,11 +1,17 @@
 import { Helmet } from "react-helmet-async";
 
+interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
   path: string;
   type?: string;
   jsonLd?: object | object[];
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const SITE_URL = "https://cbhbusinessgroup.com";
