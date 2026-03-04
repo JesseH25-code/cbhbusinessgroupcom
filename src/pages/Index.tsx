@@ -98,7 +98,7 @@ const Index = () => {
         <div className="relative container mx-auto px-6">
           <div className="max-w-3xl">
             {/* Live Ticker */}
-            <div className="inline-flex items-center gap-3 bg-card/80 backdrop-blur border border-border rounded-full px-5 py-2 mb-8">
+            <div className="inline-flex items-center gap-3 bg-card/80 backdrop-blur border border-border rounded-full px-5 py-2 mb-8 mt-8 md:mt-0">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
