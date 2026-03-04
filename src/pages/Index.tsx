@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -69,6 +70,18 @@ const deals: { industry: string; revenue: string; ebitda: string; ebitdaLabel?: 
 ];
 
 const Index = () => {
+  const [closedAmount, setClosedAmount] = useState(23654765);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setClosedAmount((prev) => prev + 100);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatDollars = (amount: number) =>
+    "$" + amount.toLocaleString("en-US");
+
   return (
     <Layout>
       <SEOHead
@@ -104,10 +117,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Credibility Strip */}
+      {/* Live Ticker */}
       <section className="border-y border-border bg-secondary">
         <div className="container mx-auto px-6 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            <div className="text-center col-span-2 md:col-span-1">
+              <p className="text-2xl md:text-3xl font-serif text-primary mb-1 tabular-nums transition-all">
+                {formatDollars(closedAmount)}
+              </p>
+              <p className="text-xs tracking-widest uppercase text-muted-foreground">Closed (Last 12 Mo.)</p>
+            </div>
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-2xl md:text-3xl font-serif text-primary mb-1">{stat.value}</p>
