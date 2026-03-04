@@ -18,6 +18,8 @@ import BlogPost from "./pages/BlogPost";
 import AdminLogin from "./pages/AdminLogin";
 import AdminBlog from "./pages/AdminBlog";
 import AdminOpportunities from "./pages/AdminOpportunities";
+import SellBusinessFlorida from "./pages/SellBusinessFlorida";
+import BusinessValuation from "./pages/BusinessValuation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
