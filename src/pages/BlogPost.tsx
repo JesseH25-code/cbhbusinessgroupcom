@@ -146,6 +146,29 @@ const BlogPost = () => {
           </div>
         </div>
       </article>
+
+      {/* Internal Links */}
+      <section className="py-16 bg-secondary border-t border-border">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs tracking-widest uppercase text-primary mb-6">Continue Reading</p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              <Link to="/services" className="bg-card border border-border p-5 hover:border-primary/30 transition-colors">
+                <p className="font-serif text-sm text-foreground mb-1">Our Services</p>
+                <p className="text-xs text-muted-foreground">Full M&A advisory process</p>
+              </Link>
+              <Link to="/business-valuation" className="bg-card border border-border p-5 hover:border-primary/30 transition-colors">
+                <p className="font-serif text-sm text-foreground mb-1">Business Valuation</p>
+                <p className="text-xs text-muted-foreground">What's your business worth?</p>
+              </Link>
+              <Link to="/sell-business-florida" className="bg-card border border-border p-5 hover:border-primary/30 transition-colors">
+                <p className="font-serif text-sm text-foreground mb-1">Sell in Florida</p>
+                <p className="text-xs text-muted-foreground">Florida-specific M&A advisory</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 };
