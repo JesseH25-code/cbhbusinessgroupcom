@@ -18,6 +18,8 @@ import BlogPost from "./pages/BlogPost";
 import AdminLogin from "./pages/AdminLogin";
 import AdminBlog from "./pages/AdminBlog";
 import AdminOpportunities from "./pages/AdminOpportunities";
+import SellBusinessFlorida from "./pages/SellBusinessFlorida";
+import BusinessValuation from "./pages/BusinessValuation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +46,8 @@ const App = () => (
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/blog" element={<AdminBlog />} />
             <Route path="/admin/opportunities" element={<AdminOpportunities />} />
+            <Route path="/sell-business-florida" element={<SellBusinessFlorida />} />
+            <Route path="/business-valuation" element={<BusinessValuation />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

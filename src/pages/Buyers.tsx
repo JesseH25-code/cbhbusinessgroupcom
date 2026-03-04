@@ -12,6 +12,38 @@ const buyerTypes = [
   { type: "Search Funds & Independent Sponsors", desc: "Entrepreneurial acquirers seeking a single platform investment." },
 ];
 
+const buyersFaq = [
+  {
+    q: "How do I get access to deal flow?",
+    a: "Submit your acquisition criteria through our buyer registration form. Once verified, you'll receive anonymized opportunity summaries matching your criteria. Full Confidential Information Memorandums (CIMs) are provided upon execution of deal-specific NDAs.",
+  },
+  {
+    q: "What is the typical acquisition size range?",
+    a: "We focus on businesses with enterprise values between $3M and $50M, typically generating $1M–$8M in adjusted EBITDA. Transaction structures include full acquisitions, majority recapitalizations, and management buyouts.",
+  },
+  {
+    q: "Do you work with individual buyers?",
+    a: "Yes. We work with individual buyers, search funds, independent sponsors, family offices, private equity firms, and strategic acquirers. All prospective buyers must demonstrate financial capacity and strategic alignment before receiving confidential materials.",
+  },
+  {
+    q: "What industries are available?",
+    a: "Our deal flow spans multiple sectors including construction, professional services, healthcare, technology, manufacturing, consumer products, and business services. Opportunities vary based on current engagements.",
+  },
+];
+
+const buyersFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: buyersFaq.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 const Buyers = () => {
   const [form, setForm] = useState({ name: "", firm: "", email: "", criteria: "", type: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -27,7 +59,9 @@ const Buyers = () => {
         title="Join Our Acquisition Network"
         description="Qualified strategic and financial buyers seeking lower middle-market acquisition opportunities in the $3M–$50M enterprise value range. Join CBH Business Group's buyer network."
         path="/buyers"
+        jsonLd={buyersFaqJsonLd}
       />
+      {/* ... keep existing code (hero, buyer types, industry explorer, NDA + form sections) */}
       <section className="py-24 bg-gradient-section">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl">
@@ -41,7 +75,6 @@ const Buyers = () => {
         </div>
       </section>
 
-      {/* Buyer Types */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <p className="text-xs tracking-widest uppercase text-primary mb-3">Buyer Profiles</p>
@@ -59,7 +92,6 @@ const Buyers = () => {
 
       <IndustryExplorer />
 
-      {/* NDA + Form */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
@@ -118,6 +150,24 @@ const Buyers = () => {
                   </Button>
                 </form>
               )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-secondary">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
+            <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              {buyersFaq.map((faq, i) => (
+                <div key={i} className="border-b border-border pb-6">
+                  <h3 className="font-serif text-lg text-foreground mb-2">{faq.q}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

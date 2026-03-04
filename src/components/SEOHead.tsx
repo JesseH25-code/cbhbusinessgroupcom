@@ -5,7 +5,7 @@ interface SEOHeadProps {
   description: string;
   path: string;
   type?: string;
-  jsonLd?: object;
+  jsonLd?: object | object[];
 }
 
 const SITE_URL = "https://cbhbusinessgroup.com";
@@ -40,7 +40,11 @@ const SEOHead = ({ title, description, path, type = "website", jsonLd }: SEOHead
 
       {/* JSON-LD */}
       {jsonLd && (
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        Array.isArray(jsonLd)
+          ? jsonLd.map((ld, i) => (
+              <script key={i} type="application/ld+json">{JSON.stringify(ld)}</script>
+            ))
+          : <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       )}
     </Helmet>
   );

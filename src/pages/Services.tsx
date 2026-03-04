@@ -62,12 +62,49 @@ const services = [
   },
 ];
 
+const servicesFaq = [
+  {
+    q: "What fees does an M&A advisor charge?",
+    a: "Most M&A advisors charge a success-based fee (a percentage of the transaction value) plus a smaller monthly retainer. This structure aligns our interests with yours — we succeed when you do. Fee structures vary based on deal size and complexity.",
+  },
+  {
+    q: "Do I need an M&A advisor to sell my business?",
+    a: "While not legally required, owners who use an M&A advisor typically achieve 20–40% higher valuations than those who sell independently. An advisor manages the entire process — from valuation and buyer identification to negotiation and closing — while you continue running your business.",
+  },
+  {
+    q: "What is a Confidential Information Memorandum (CIM)?",
+    a: "A CIM is a comprehensive document that presents your business to prospective buyers. It includes financial performance, growth opportunities, operational overview, and investment thesis — all prepared under strict confidentiality protocols.",
+  },
+  {
+    q: "How do you find buyers for my business?",
+    a: "We conduct targeted, confidential outreach to pre-qualified buyers including private equity firms, strategic acquirers, family offices, and independent sponsors. Each potential buyer is vetted for financial capacity and strategic fit before receiving any information about your company.",
+  },
+  {
+    q: "What is the difference between asset sale and stock sale?",
+    a: "In an asset sale, the buyer purchases specific assets and liabilities. In a stock sale, the buyer acquires the entire entity including all assets, liabilities, and contracts. Each structure has different tax implications, liability exposure, and complexity. We advise on the optimal structure for your situation.",
+  },
+];
+
+const servicesFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: servicesFaq.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 const Services = () => (
   <Layout>
     <SEOHead
       title="M&A Advisory Services"
       description="Sell-side M&A advisory, business valuation, exit planning, deal structuring, and buyer representation for privately held businesses valued $3M–$50M."
       path="/services"
+      jsonLd={servicesFaqJsonLd}
     />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
@@ -107,7 +144,25 @@ const Services = () => (
       </div>
     </section>
 
-    <section className="py-20 bg-secondary border-t border-border">
+    {/* FAQ Section */}
+    <section className="py-24 bg-secondary">
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mx-auto">
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
+          <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            {servicesFaq.map((faq, i) => (
+              <div key={i} className="border-b border-border pb-6">
+                <h3 className="font-serif text-lg text-foreground mb-2">{faq.q}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="py-20 border-t border-border">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-2xl font-serif text-foreground mb-4">Ready to Discuss Your Situation?</h2>
         <p className="text-muted-foreground mb-8">Every conversation begins in confidence.</p>
