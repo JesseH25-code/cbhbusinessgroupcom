@@ -88,6 +88,11 @@ const BlogPost = () => {
         path={`/blog/${post.slug}`}
         type="article"
         jsonLd={articleJsonLd}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
       />
 
       <article className="py-20">

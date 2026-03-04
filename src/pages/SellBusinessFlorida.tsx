@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { ArrowRight, Shield, TrendingUp, Users, BarChart3, FileText } from "lucide-react";
 
 const faqItems = [
   {
