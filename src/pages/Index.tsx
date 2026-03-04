@@ -258,6 +258,8 @@ const Index = () => {
           </Link>
         </div>
       </section>
+
+      <ConfidentialPopup />
     </Layout>
   );
 };
