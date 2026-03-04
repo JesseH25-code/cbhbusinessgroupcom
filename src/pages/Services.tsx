@@ -105,6 +105,10 @@ const Services = () => (
       description="Sell-side M&A advisory, business valuation, exit planning, deal structuring, and buyer representation for privately held businesses valued $3M–$50M."
       path="/services"
       jsonLd={servicesFaqJsonLd}
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+      ]}
     />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
