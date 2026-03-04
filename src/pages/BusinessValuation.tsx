@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 
 const faqItems = [
   {
@@ -53,6 +53,11 @@ const BusinessValuation = () => (
       description="Professional business valuation advisory for companies valued $3M–$50M. EBITDA analysis, industry benchmarking, and market-based valuation to determine what your business is worth."
       path="/business-valuation"
       jsonLd={faqJsonLd}
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+        { name: "Business Valuation", path: "/business-valuation" },
+      ]}
     />
 
     <section className="py-24 bg-gradient-section">
@@ -113,6 +118,27 @@ const BusinessValuation = () => (
               </div>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Internal Links */}
+    <section className="py-16 bg-secondary">
+      <div className="container mx-auto px-6">
+        <p className="text-xs tracking-widest uppercase text-primary mb-6 text-center">Related Resources</p>
+        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <Link to="/sell-business-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Sell a Business in Florida</p>
+            <p className="text-xs text-muted-foreground">State-specific M&A guidance</p>
+          </Link>
+          <Link to="/sellers" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">For Sellers</p>
+            <p className="text-xs text-muted-foreground">What drives valuation multiples</p>
+          </Link>
+          <Link to="/blog" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">M&A Insights</p>
+            <p className="text-xs text-muted-foreground">Expert articles & guides</p>
+          </Link>
         </div>
       </div>
     </section>

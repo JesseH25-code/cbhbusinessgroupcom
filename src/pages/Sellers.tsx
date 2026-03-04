@@ -57,6 +57,10 @@ const Sellers = () => (
       description="Understand what drives business valuation, how M&A transactions are structured, and what to expect from a confidential sale process for businesses valued $3M–$50M."
       path="/sellers"
       jsonLd={faqJsonLd}
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "For Sellers", path: "/sellers" },
+      ]}
     />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">

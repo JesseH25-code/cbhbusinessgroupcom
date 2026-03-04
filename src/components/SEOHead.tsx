@@ -1,20 +1,44 @@
 import { Helmet } from "react-helmet-async";
 
+interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
   path: string;
   type?: string;
   jsonLd?: object | object[];
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const SITE_URL = "https://cbhbusinessgroup.com";
 const SITE_NAME = "CBH Business Group";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
-const SEOHead = ({ title, description, path, type = "website", jsonLd }: SEOHeadProps) => {
+const SEOHead = ({ title, description, path, type = "website", jsonLd, breadcrumbs }: SEOHeadProps) => {
   const fullTitle = path === "/" ? title : `${title} | ${SITE_NAME}`;
   const canonicalUrl = `${SITE_URL}${path}`;
+
+  const breadcrumbJsonLd = breadcrumbs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((item, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: item.name,
+          item: `${SITE_URL}${item.path}`,
+        })),
+      }
+    : null;
+
+  const allJsonLd = [
+    ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []),
+    ...(breadcrumbJsonLd ? [breadcrumbJsonLd] : []),
+  ];
 
   return (
     <Helmet>
@@ -39,13 +63,9 @@ const SEOHead = ({ title, description, path, type = "website", jsonLd }: SEOHead
       <meta name="twitter:image" content={OG_IMAGE} />
 
       {/* JSON-LD */}
-      {jsonLd && (
-        Array.isArray(jsonLd)
-          ? jsonLd.map((ld, i) => (
-              <script key={i} type="application/ld+json">{JSON.stringify(ld)}</script>
-            ))
-          : <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      )}
+      {allJsonLd.map((ld, i) => (
+        <script key={i} type="application/ld+json">{JSON.stringify(ld)}</script>
+      ))}
     </Helmet>
   );
 };

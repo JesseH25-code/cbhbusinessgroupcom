@@ -42,6 +42,10 @@ const About = () => (
       title="About Our M&A Advisory Team"
       description="Meet the CBH Business Group team — over 50 years of combined M&A experience advising privately held business owners through strategic sale transactions in Florida."
       path="/about"
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+      ]}
     />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">

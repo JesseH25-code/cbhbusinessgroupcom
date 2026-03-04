@@ -105,6 +105,10 @@ const Services = () => (
       description="Sell-side M&A advisory, business valuation, exit planning, deal structuring, and buyer representation for privately held businesses valued $3M–$50M."
       path="/services"
       jsonLd={servicesFaqJsonLd}
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+      ]}
     />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
@@ -158,6 +162,27 @@ const Services = () => (
               </div>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Related Resources */}
+    <section className="py-16 bg-secondary">
+      <div className="container mx-auto px-6">
+        <p className="text-xs tracking-widest uppercase text-primary mb-6 text-center">Related Resources</p>
+        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <Link to="/sell-business-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Sell a Business in Florida</p>
+            <p className="text-xs text-muted-foreground">State-specific M&A guidance</p>
+          </Link>
+          <Link to="/business-valuation" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Business Valuation</p>
+            <p className="text-xs text-muted-foreground">How much is your business worth?</p>
+          </Link>
+          <Link to="/sellers" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">For Sellers</p>
+            <p className="text-xs text-muted-foreground">What drives valuation multiples</p>
+          </Link>
         </div>
       </div>
     </section>
