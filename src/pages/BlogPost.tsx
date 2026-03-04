@@ -53,12 +53,41 @@ const BlogPost = () => {
     );
   }
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.meta_description || post.excerpt,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "CBH Business Group",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://cbhbusinessgroup.com/og-image.jpg",
+      },
+    },
+    datePublished: post.created_at,
+    dateModified: post.updated_at,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://cbhbusinessgroup.com/blog/${post.slug}`,
+    },
+    ...(post.cover_image_url ? { image: post.cover_image_url } : {}),
+    ...(post.tags ? { keywords: post.tags.join(", ") } : {}),
+  };
+
   return (
     <Layout>
       <SEOHead
         title={`${post.title} | CBH Business Group`}
         description={post.meta_description || post.excerpt}
         path={`/blog/${post.slug}`}
+        type="article"
+        jsonLd={articleJsonLd}
       />
 
       <article className="py-20">
