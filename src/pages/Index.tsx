@@ -102,7 +102,7 @@ const Index = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
               </span>
-              <span className="text-sm text-muted-foreground">Last 12 Months Closed:</span>
+              <span className="text-sm text-muted-foreground">Deal Volume to Date:</span>
               <span className="text-sm font-serif font-semibold text-primary tabular-nums">{formatDollars(closedAmount)}</span>
             </div>
 
