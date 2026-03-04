@@ -27,7 +27,7 @@ const ConfidentialPopup = () => {
     const timer = setTimeout(() => {
 
       setOpen(true);
-    }, 25000);
+    }, 15000);
 
     return () => clearTimeout(timer);
   }, []);
