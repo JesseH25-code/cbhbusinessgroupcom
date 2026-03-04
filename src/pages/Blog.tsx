@@ -26,6 +26,10 @@ const Blog = () => {
         title="M&A Insights Blog | CBH Business Group"
         description="Expert insights on selling a business, M&A deal structures, valuation strategies, and exit planning for business owners in the lower middle market."
         path="/blog"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+        ]}
       />
 
       {/* Hero */}

@@ -60,6 +60,10 @@ const Buyers = () => {
         description="Qualified strategic and financial buyers seeking lower middle-market acquisition opportunities in the $3M–$50M enterprise value range. Join CBH Business Group's buyer network."
         path="/buyers"
         jsonLd={buyersFaqJsonLd}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "For Buyers", path: "/buyers" },
+        ]}
       />
       {/* ... keep existing code (hero, buyer types, industry explorer, NDA + form sections) */}
       <section className="py-24 bg-gradient-section">

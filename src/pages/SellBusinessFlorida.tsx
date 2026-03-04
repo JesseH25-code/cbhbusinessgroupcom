@@ -44,6 +44,11 @@ const SellBusinessFlorida = () => (
       description="Expert M&A advisory for selling your Florida business. Confidential process, professional valuation, and strategic buyer identification for businesses valued $3M–$50M."
       path="/sell-business-florida"
       jsonLd={faqJsonLd}
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+        { name: "Sell a Business in Florida", path: "/sell-business-florida" },
+      ]}
     />
 
     <section className="py-24 bg-gradient-section">

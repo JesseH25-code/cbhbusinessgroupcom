@@ -53,6 +53,11 @@ const BusinessValuation = () => (
       description="Professional business valuation advisory for companies valued $3M–$50M. EBITDA analysis, industry benchmarking, and market-based valuation to determine what your business is worth."
       path="/business-valuation"
       jsonLd={faqJsonLd}
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+        { name: "Business Valuation", path: "/business-valuation" },
+      ]}
     />
 
     <section className="py-24 bg-gradient-section">
