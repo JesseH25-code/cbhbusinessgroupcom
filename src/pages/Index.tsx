@@ -96,6 +96,16 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="relative container mx-auto px-6">
           <div className="max-w-3xl">
+            {/* Live Ticker */}
+            <div className="inline-flex items-center gap-3 bg-card/80 backdrop-blur border border-border rounded-full px-5 py-2 mb-8">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+              </span>
+              <span className="text-sm text-muted-foreground">Last 12 Months Closed:</span>
+              <span className="text-sm font-serif font-semibold text-primary tabular-nums">{formatDollars(closedAmount)}</span>
+            </div>
+
             <div className="gold-divider w-24 mb-8" />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-6 text-foreground animate-fade-in">
               Strategic M&A Advisory for Businesses Valued $3M–$50M.
@@ -117,16 +127,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Live Ticker */}
+      {/* Credibility Strip */}
       <section className="border-y border-border bg-secondary">
         <div className="container mx-auto px-6 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-            <div className="text-center col-span-2 md:col-span-1">
-              <p className="text-2xl md:text-3xl font-serif text-primary mb-1 tabular-nums transition-all">
-                {formatDollars(closedAmount)}
-              </p>
-              <p className="text-xs tracking-widest uppercase text-muted-foreground">Closed (Last 12 Mo.)</p>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="text-2xl md:text-3xl font-serif text-primary mb-1">{stat.value}</p>
