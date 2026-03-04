@@ -70,6 +70,18 @@ const deals: { industry: string; revenue: string; ebitda: string; ebitdaLabel?: 
 ];
 
 const Index = () => {
+  const [closedAmount, setClosedAmount] = useState(23654765);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setClosedAmount((prev) => prev + 100);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatDollars = (amount: number) =>
+    "$" + amount.toLocaleString("en-US");
+
   return (
     <Layout>
       <SEOHead
