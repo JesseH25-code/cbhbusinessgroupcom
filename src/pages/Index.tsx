@@ -93,7 +93,7 @@ const Index = () => {
       />
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroImage})` }} />
+        <img src={heroImage} alt="Florida skyline" fetchPriority="high" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="relative container mx-auto px-6">
           <div className="max-w-3xl">

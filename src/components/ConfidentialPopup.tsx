@@ -70,7 +70,7 @@ const ConfidentialPopup = () => {
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && handleClose()}>
-      <DialogContent className="sm:max-w-lg bg-card border-border p-0 gap-0 overflow-hidden">
+      <DialogContent className="sm:max-w-lg bg-card border-border p-0 gap-0 overflow-hidden" aria-describedby="confidential-popup-desc">
         {/* Header */}
         <div className="bg-secondary px-6 py-5 border-b border-border">
           <div className="flex items-center gap-3">
@@ -79,7 +79,7 @@ const ConfidentialPopup = () => {
               Confidential Inquiry
             </DialogTitle>
           </div>
-          <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+          <p id="confidential-popup-desc" className="text-xs text-muted-foreground mt-2 leading-relaxed">
             All information is held in strict confidence and will never be shared without your explicit written consent.
           </p>
         </div>
