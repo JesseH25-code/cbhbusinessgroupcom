@@ -81,7 +81,7 @@ Deno.serve(async (req) => {
         body: JSON.stringify({
           from: "CBH Business Group <inquiries@cbhbusinessgroup.com>",
           to: ["jesse@cbhadvisory.com"],
-          subject: `New Inquiry: ${body.company}`,
+          subject: `New Inquiry: ${escapeHtml(body.company)}`,
           html: emailHtml,
           reply_to: body.email,
         }),
