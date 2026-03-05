@@ -142,7 +142,7 @@ const BlogPost = () => {
                 prose-strong:text-foreground
                 prose-li:text-muted-foreground
                 prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
             />
           </div>
         </div>
