@@ -116,7 +116,7 @@ const Index = () => {
               valuation advisory, and structured exit planning. We are not a listing service — we provide 
               hands-on advisory, buyer targeting, negotiation, and deal structuring.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 pb-12 md:pb-0">
               <Link to="/contact">
                 <Button variant="hero" size="lg">Request Confidential Valuation</Button>
               </Link>
