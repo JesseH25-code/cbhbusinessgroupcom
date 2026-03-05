@@ -15,6 +15,8 @@ interface ContactForm {
   phone?: string;
   message?: string;
 }
+const escapeHtml = (s: string): string =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -52,17 +54,17 @@ Deno.serve(async (req) => {
       console.error("Database error:", dbError);
     }
 
-    // Send email notification via Supabase's built-in email (using Edge Function email)
+    // Send email notification via Resend
     const emailHtml = `
       <h2>New Confidential Inquiry — CBH Advisory</h2>
       <table style="border-collapse:collapse;width:100%;max-width:600px;">
-        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Company</td><td style="padding:8px;border-bottom:1px solid #ddd;">${body.company}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Revenue</td><td style="padding:8px;border-bottom:1px solid #ddd;">${body.revenue}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">EBITDA</td><td style="padding:8px;border-bottom:1px solid #ddd;">${body.ebitda}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Timeline</td><td style="padding:8px;border-bottom:1px solid #ddd;">${body.timeline}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border-bottom:1px solid #ddd;">${body.email}</td></tr>
-        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border-bottom:1px solid #ddd;">${body.phone || "Not provided"}</td></tr>
-        <tr><td style="padding:8px;font-weight:bold;">Message</td><td style="padding:8px;">${body.message || "No additional details"}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Company</td><td style="padding:8px;border-bottom:1px solid #ddd;">${escapeHtml(body.company)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Revenue</td><td style="padding:8px;border-bottom:1px solid #ddd;">${escapeHtml(body.revenue)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">EBITDA</td><td style="padding:8px;border-bottom:1px solid #ddd;">${escapeHtml(body.ebitda)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Timeline</td><td style="padding:8px;border-bottom:1px solid #ddd;">${escapeHtml(body.timeline)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border-bottom:1px solid #ddd;">${escapeHtml(body.email)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border-bottom:1px solid #ddd;">${escapeHtml(body.phone || "Not provided")}</td></tr>
+        <tr><td style="padding:8px;font-weight:bold;">Message</td><td style="padding:8px;">${escapeHtml(body.message || "No additional details")}</td></tr>
       </table>
     `;
 
