@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import DOMPurify from "dompurify";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowLeft, Calendar, User } from "lucide-react";
@@ -141,7 +142,7 @@ const BlogPost = () => {
                 prose-strong:text-foreground
                 prose-li:text-muted-foreground
                 prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
             />
           </div>
         </div>
