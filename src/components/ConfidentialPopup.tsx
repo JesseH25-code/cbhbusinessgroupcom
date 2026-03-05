@@ -79,7 +79,7 @@ const ConfidentialPopup = () => {
               Confidential Inquiry
             </DialogTitle>
           </div>
-          <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+          <p id="confidential-popup-desc" className="text-xs text-muted-foreground mt-2 leading-relaxed">
             All information is held in strict confidence and will never be shared without your explicit written consent.
           </p>
         </div>
