@@ -70,7 +70,7 @@ const ConfidentialPopup = () => {
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && handleClose()}>
-      <DialogContent className="sm:max-w-lg bg-card border-border p-0 gap-0 overflow-hidden">
+      <DialogContent className="sm:max-w-lg bg-card border-border p-0 gap-0 overflow-hidden" aria-describedby="confidential-popup-desc">
         {/* Header */}
         <div className="bg-secondary px-6 py-5 border-b border-border">
           <div className="flex items-center gap-3">
