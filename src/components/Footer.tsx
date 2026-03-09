@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => (
   <footer className="border-t border-border bg-secondary">
     <div className="container mx-auto px-6 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
         <div className="md:col-span-2">
           <h3 className="font-serif text-xl tracking-wider text-foreground mb-4">
             CBH<span className="text-primary"> Business Group</span>
