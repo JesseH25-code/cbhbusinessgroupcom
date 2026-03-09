@@ -74,6 +74,21 @@ const App = () => (
               <Route path="/sell-construction-company-florida" element={<SellConstructionCompanyFlorida />} />
               <Route path="/sell-healthcare-business-florida" element={<SellHealthcareBusinessFlorida />} />
               <Route path="/sell-manufacturing-company-florida" element={<SellManufacturingCompanyFlorida />} />
+              <Route path="/sell-business-miami" element={<SellBusinessMiami />} />
+              <Route path="/sell-business-tampa" element={<SellBusinessTampa />} />
+              <Route path="/sell-business-orlando" element={<SellBusinessOrlando />} />
+              <Route path="/sell-business-jacksonville" element={<SellBusinessJacksonville />} />
+              <Route path="/sell-business-fort-lauderdale" element={<SellBusinessFortLauderdale />} />
+              <Route path="/sell-technology-company-florida" element={<SellTechnologyCompanyFlorida />} />
+              <Route path="/sell-professional-services-firm-florida" element={<SellProfessionalServicesFirmFlorida />} />
+              <Route path="/sell-hvac-company-florida" element={<SellHVACCompanyFlorida />} />
+              <Route path="/sell-landscaping-business-florida" element={<SellLandscapingBusinessFlorida />} />
+              <Route path="/buy-a-business-in-florida" element={<BuyBusinessFlorida />} />
+              <Route path="/businesses-for-sale-florida" element={<BusinessesForSaleFlorida />} />
+              <Route path="/what-is-ebitda" element={<WhatIsEBITDA />} />
+              <Route path="/how-to-sell-a-business" element={<HowToSellABusiness />} />
+              <Route path="/business-broker-vs-ma-advisor" element={<BusinessBrokerVsMAAdvisor />} />
+              <Route path="/seller-financing-explained" element={<SellerFinancingExplained />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
