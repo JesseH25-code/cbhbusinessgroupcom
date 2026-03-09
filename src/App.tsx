@@ -22,6 +22,10 @@ const AdminBlog = lazy(() => import("./pages/AdminBlog"));
 const AdminOpportunities = lazy(() => import("./pages/AdminOpportunities"));
 const SellBusinessFlorida = lazy(() => import("./pages/SellBusinessFlorida"));
 const BusinessValuation = lazy(() => import("./pages/BusinessValuation"));
+const SellRestaurantFlorida = lazy(() => import("./pages/SellRestaurantFlorida"));
+const SellConstructionCompanyFlorida = lazy(() => import("./pages/SellConstructionCompanyFlorida"));
+const SellHealthcareBusinessFlorida = lazy(() => import("./pages/SellHealthcareBusinessFlorida"));
+const SellManufacturingCompanyFlorida = lazy(() => import("./pages/SellManufacturingCompanyFlorida"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
