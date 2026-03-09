@@ -302,14 +302,17 @@ const Index = () => {
               Every industry has unique valuation drivers and buyer landscapes. We bring sector fluency to every engagement.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
               { label: "Construction & Engineering", path: "/sell-construction-company-florida" },
               { label: "Healthcare Services", path: "/sell-healthcare-business-florida" },
               { label: "Manufacturing & Distribution", path: "/sell-manufacturing-company-florida" },
+              { label: "Technology Companies", path: "/sell-technology-company-florida" },
+              { label: "HVAC & Mechanical", path: "/sell-hvac-company-florida" },
+              { label: "Professional Services", path: "/sell-professional-services-firm-florida" },
+              { label: "Landscaping & Outdoor", path: "/sell-landscaping-business-florida" },
               { label: "Restaurants & Food Service", path: "/sell-restaurant-florida" },
               { label: "All Industries", path: "/industries" },
-              { label: "Business Valuation", path: "/business-valuation" },
             ].map((item, i) => (
               <Link key={i} to={item.path} className="bg-card border border-border p-6 hover:border-primary/30 transition-colors group">
                 <p className="font-serif text-sm text-foreground group-hover:text-primary transition-colors flex items-center justify-between">
