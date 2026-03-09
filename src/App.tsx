@@ -26,6 +26,21 @@ const SellRestaurantFlorida = lazy(() => import("./pages/SellRestaurantFlorida")
 const SellConstructionCompanyFlorida = lazy(() => import("./pages/SellConstructionCompanyFlorida"));
 const SellHealthcareBusinessFlorida = lazy(() => import("./pages/SellHealthcareBusinessFlorida"));
 const SellManufacturingCompanyFlorida = lazy(() => import("./pages/SellManufacturingCompanyFlorida"));
+const SellBusinessMiami = lazy(() => import("./pages/SellBusinessMiami"));
+const SellBusinessTampa = lazy(() => import("./pages/SellBusinessTampa"));
+const SellBusinessOrlando = lazy(() => import("./pages/SellBusinessOrlando"));
+const SellBusinessJacksonville = lazy(() => import("./pages/SellBusinessJacksonville"));
+const SellBusinessFortLauderdale = lazy(() => import("./pages/SellBusinessFortLauderdale"));
+const SellTechnologyCompanyFlorida = lazy(() => import("./pages/SellTechnologyCompanyFlorida"));
+const SellProfessionalServicesFirmFlorida = lazy(() => import("./pages/SellProfessionalServicesFirmFlorida"));
+const SellHVACCompanyFlorida = lazy(() => import("./pages/SellHVACCompanyFlorida"));
+const SellLandscapingBusinessFlorida = lazy(() => import("./pages/SellLandscapingBusinessFlorida"));
+const BuyBusinessFlorida = lazy(() => import("./pages/BuyBusinessFlorida"));
+const BusinessesForSaleFlorida = lazy(() => import("./pages/BusinessesForSaleFlorida"));
+const WhatIsEBITDA = lazy(() => import("./pages/WhatIsEBITDA"));
+const HowToSellABusiness = lazy(() => import("./pages/HowToSellABusiness"));
+const BusinessBrokerVsMAAdvisor = lazy(() => import("./pages/BusinessBrokerVsMAAdvisor"));
+const SellerFinancingExplained = lazy(() => import("./pages/SellerFinancingExplained"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
