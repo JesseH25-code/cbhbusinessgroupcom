@@ -16,13 +16,44 @@ const Footer = () => (
         <div>
           <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Navigation</h4>
           <div className="space-y-3">
-            {["About", "Services", "Sellers", "Buyers", "Blog", "Contact"].map((item) => (
+            {[
+              { label: "About", path: "/about" },
+              { label: "Services", path: "/services" },
+              { label: "Industries", path: "/industries" },
+              { label: "For Sellers", path: "/sellers" },
+              { label: "For Buyers", path: "/buyers" },
+              { label: "Opportunities", path: "/opportunities" },
+              { label: "Case Studies", path: "/case-studies" },
+              { label: "Blog", path: "/blog" },
+              { label: "Contact", path: "/contact" },
+            ].map((item) => (
               <Link
-                key={item}
-                to={`/${item.toLowerCase()}`}
+                key={item.path}
+                to={item.path}
                 className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                {item}
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Resources</h4>
+          <div className="space-y-3">
+            {[
+              { label: "Sell a Business in Florida", path: "/sell-business-florida" },
+              { label: "Business Valuation", path: "/business-valuation" },
+              { label: "Sell a Restaurant", path: "/sell-restaurant-florida" },
+              { label: "Sell a Construction Co.", path: "/sell-construction-company-florida" },
+              { label: "Sell a Healthcare Business", path: "/sell-healthcare-business-florida" },
+              { label: "Sell a Manufacturing Co.", path: "/sell-manufacturing-company-florida" },
+            ].map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item.label}
               </Link>
             ))}
           </div>
