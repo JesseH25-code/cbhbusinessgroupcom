@@ -22,6 +22,10 @@ const AdminBlog = lazy(() => import("./pages/AdminBlog"));
 const AdminOpportunities = lazy(() => import("./pages/AdminOpportunities"));
 const SellBusinessFlorida = lazy(() => import("./pages/SellBusinessFlorida"));
 const BusinessValuation = lazy(() => import("./pages/BusinessValuation"));
+const SellRestaurantFlorida = lazy(() => import("./pages/SellRestaurantFlorida"));
+const SellConstructionCompanyFlorida = lazy(() => import("./pages/SellConstructionCompanyFlorida"));
+const SellHealthcareBusinessFlorida = lazy(() => import("./pages/SellHealthcareBusinessFlorida"));
+const SellManufacturingCompanyFlorida = lazy(() => import("./pages/SellManufacturingCompanyFlorida"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -51,6 +55,10 @@ const App = () => (
               <Route path="/admin/opportunities" element={<AdminOpportunities />} />
               <Route path="/sell-business-florida" element={<SellBusinessFlorida />} />
               <Route path="/business-valuation" element={<BusinessValuation />} />
+              <Route path="/sell-restaurant-florida" element={<SellRestaurantFlorida />} />
+              <Route path="/sell-construction-company-florida" element={<SellConstructionCompanyFlorida />} />
+              <Route path="/sell-healthcare-business-florida" element={<SellHealthcareBusinessFlorida />} />
+              <Route path="/sell-manufacturing-company-florida" element={<SellManufacturingCompanyFlorida />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
