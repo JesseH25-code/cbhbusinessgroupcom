@@ -117,11 +117,11 @@ const Index = () => {
               hands-on advisory, buyer targeting, negotiation, and deal structuring.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pb-12 md:pb-0">
-              <Link to="/contact">
-                <Button variant="hero" size="lg">Request Confidential Valuation</Button>
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button variant="hero" size="lg" className="w-full sm:w-auto">Request Confidential Valuation</Button>
               </Link>
-              <Link to="/contact">
-                <Button variant="heroOutline" size="lg">Schedule Advisory Consultation</Button>
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button variant="heroOutline" size="lg" className="w-full sm:w-auto">Schedule Advisory Consultation</Button>
               </Link>
             </div>
           </div>
