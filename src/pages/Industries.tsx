@@ -136,37 +136,51 @@ const Industries = () => (
     </section>
 
     {/* Industry Sections */}
-    {industries.map((ind, i) => (
-      <section key={ind.slug} id={ind.slug} className={`py-24 ${i % 2 === 1 ? "bg-secondary" : ""}`}>
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl">
-            <p className="text-xs tracking-widest uppercase text-primary mb-3">{ind.name}</p>
-            <h2 className="text-3xl font-serif text-foreground mb-6">{ind.headline}</h2>
-            <p className="text-muted-foreground leading-relaxed mb-10">{ind.description}</p>
+    {industries.map((ind, i) => {
+      const landingPageMap: Record<string, string> = {
+        manufacturing: "/sell-manufacturing-company-florida",
+        healthcare: "/sell-healthcare-business-florida",
+        construction: "/sell-construction-company-florida",
+      };
+      const landingPage = landingPageMap[ind.slug];
 
-            <div className="grid md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="font-serif text-foreground mb-4 text-lg">Key Valuation Drivers</h3>
-                <ul className="space-y-3">
-                  {ind.drivers.map((driver, j) => (
-                    <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
-                      <span className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" />
-                      {driver}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-serif text-foreground mb-4 text-lg">Typical Buyer Landscape</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{ind.buyerTypes}</p>
+      return (
+        <section key={ind.slug} id={ind.slug} className={`py-24 ${i % 2 === 1 ? "bg-secondary" : ""}`}>
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl">
+              <p className="text-xs tracking-widest uppercase text-primary mb-3">{ind.name}</p>
+              <h2 className="text-3xl font-serif text-foreground mb-6">{ind.headline}</h2>
+              <p className="text-muted-foreground leading-relaxed mb-10">{ind.description}</p>
+
+              <div className="grid md:grid-cols-2 gap-12">
+                <div>
+                  <h3 className="font-serif text-foreground mb-4 text-lg">Key Valuation Drivers</h3>
+                  <ul className="space-y-3">
+                    {ind.drivers.map((driver, j) => (
+                      <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
+                        <span className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" />
+                        {driver}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-serif text-foreground mb-4 text-lg">Typical Buyer Landscape</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{ind.buyerTypes}</p>
+                  {landingPage && (
+                    <Link to={landingPage} className="inline-flex items-center gap-1 text-sm text-primary mt-4 hover:underline">
+                      Sell Your {ind.name.split(" ")[0]} Company in Florida <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="gold-divider mt-16" />
-        </div>
-      </section>
-    ))}
+            <div className="gold-divider mt-16" />
+          </div>
+        </section>
+      );
+    })}
 
     {/* CTA */}
     <section className="py-20 border-t border-border">
