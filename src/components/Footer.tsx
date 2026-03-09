@@ -38,15 +38,40 @@ const Footer = () => (
           </div>
         </div>
         <div>
-          <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Resources</h4>
+          <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Industries</h4>
           <div className="space-y-3">
             {[
               { label: "Sell a Business in Florida", path: "/sell-business-florida" },
+              { label: "Construction", path: "/sell-construction-company-florida" },
+              { label: "Healthcare", path: "/sell-healthcare-business-florida" },
+              { label: "Manufacturing", path: "/sell-manufacturing-company-florida" },
+              { label: "Technology", path: "/sell-technology-company-florida" },
+              { label: "HVAC", path: "/sell-hvac-company-florida" },
+              { label: "Professional Services", path: "/sell-professional-services-firm-florida" },
+              { label: "Landscaping", path: "/sell-landscaping-business-florida" },
+              { label: "Restaurants", path: "/sell-restaurant-florida" },
+            ].map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Resources</h4>
+          <div className="space-y-3">
+            {[
               { label: "Business Valuation", path: "/business-valuation" },
-              { label: "Sell a Restaurant", path: "/sell-restaurant-florida" },
-              { label: "Sell a Construction Co.", path: "/sell-construction-company-florida" },
-              { label: "Sell a Healthcare Business", path: "/sell-healthcare-business-florida" },
-              { label: "Sell a Manufacturing Co.", path: "/sell-manufacturing-company-florida" },
+              { label: "What Is EBITDA?", path: "/what-is-ebitda" },
+              { label: "How to Sell a Business", path: "/how-to-sell-a-business" },
+              { label: "Broker vs. M&A Advisor", path: "/business-broker-vs-ma-advisor" },
+              { label: "Seller Financing", path: "/seller-financing-explained" },
+              { label: "Buy a Business in FL", path: "/buy-a-business-in-florida" },
+              { label: "Businesses for Sale FL", path: "/businesses-for-sale-florida" },
             ].map((item) => (
               <Link
                 key={item.path}
