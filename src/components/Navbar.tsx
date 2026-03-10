@@ -16,6 +16,7 @@ const navItems: NavItem[] = [
     children: [
       { label: "Services", path: "/services" },
       { label: "Consulting", path: "/consulting" },
+      { label: "Valuation Calculator", path: "/valuation-calculator" },
       { label: "Industries", path: "/industries" },
     ],
   },
