@@ -570,6 +570,21 @@ const BusinessGrowthRoadmap = () => {
         </div>
       </section>
 
+      {/* ── FAQ Section ───────────────────────────────── */}
+      <section className="py-20 border-t border-border">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <h2 className="font-serif text-3xl text-foreground text-center mb-12">Frequently Asked Questions</h2>
+          <div className="space-y-8">
+            {roadmapFaqItems.map((faq) => (
+              <div key={faq.q}>
+                <h3 className="font-serif text-lg text-foreground mb-2">{faq.q}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Final CTA ────────────────────────────────────── */}
       <section className="py-20 border-t border-border bg-secondary/30">
         <div className="container mx-auto px-6 text-center max-w-2xl">
