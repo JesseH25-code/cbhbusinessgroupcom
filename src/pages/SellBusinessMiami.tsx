@@ -111,7 +111,7 @@ const SellBusinessMiami = () => (
     <section className="py-16 bg-secondary">
       <div className="container mx-auto px-6">
         <p className="text-xs tracking-widest uppercase text-primary mb-6 text-center">Related Resources</p>
-        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           <Link to="/sell-business-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Sell a Business in Florida</p>
             <p className="text-xs text-muted-foreground">Statewide M&A advisory</p>
@@ -119,6 +119,10 @@ const SellBusinessMiami = () => (
           <Link to="/business-valuation" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Business Valuation</p>
             <p className="text-xs text-muted-foreground">EBITDA analysis & multiples</p>
+          </Link>
+          <Link to="/business-valuation-calculator-miami" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Miami Valuation Calculator</p>
+            <p className="text-xs text-muted-foreground">Free EBITDA-based estimate</p>
           </Link>
           <Link to="/sell-restaurant-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Sell a Restaurant</p>
