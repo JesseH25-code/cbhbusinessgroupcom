@@ -432,19 +432,58 @@ const ValuationCalculator = () => {
                 </div>
 
                 <div className="border-t border-border pt-6 text-center space-y-4">
-                  <p className="font-serif text-lg text-foreground">Ready for a Comprehensive Valuation?</p>
-                  <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                    Our advisory team provides in-depth financial analysis, EBITDA normalization, and 
-                    market-based valuation to establish a defensible asking price.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Link to="/contact">
-                      <Button variant="hero" size="lg">Request Full Valuation <ArrowRight className="ml-2 w-4 h-4" /></Button>
-                    </Link>
-                    <Link to="/consulting">
-                      <Button variant="heroOutline" size="lg">Learn About Exit Planning</Button>
-                    </Link>
-                  </div>
+                  {formalRequested ? (
+                    <div className="bg-secondary border border-border p-6">
+                      <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
+                      <p className="font-serif text-lg text-foreground mb-2">Formal Valuation Requested</p>
+                      <p className="text-sm text-muted-foreground max-w-md mx-auto">
+                        A senior advisor will review your information and contact you within one business day 
+                        to discuss your comprehensive valuation.
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      <p className="font-serif text-lg text-foreground">Ready for a Comprehensive Valuation?</p>
+                      <p className="text-sm text-muted-foreground max-w-md mx-auto">
+                        Our advisory team provides in-depth financial analysis, EBITDA normalization, and 
+                        market-based valuation to establish a defensible asking price.
+                      </p>
+                      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <Button
+                          variant="hero"
+                          size="lg"
+                          disabled={requestingFormal}
+                          onClick={async () => {
+                            setRequestingFormal(true);
+                            try {
+                              await supabase.functions.invoke("send-contact-email", {
+                                body: {
+                                  company,
+                                  email,
+                                  phone: phone || "",
+                                  revenue,
+                                  ebitda,
+                                  timeline: "Formal Valuation Request",
+                                  message: `Formal Valuation Request (from Calculator)\nName: ${name}\nSector: ${selectedSector}\nSubcategory: ${selectedSubcategory}\nRevenue: ${revenue}\nEBITDA: ${ebitda}\nYears: ${years}\nEmployees: ${employees}\nOwner Dependency: ${ownerDependency}\nGrowth: ${growth}\nConcentration: ${concentration}\nRecurring Revenue: ${recurringRevenue}\n\nCalculator Estimate: ${formatCurrency(result!.low)} – ${formatCurrency(result!.high)}`,
+                                },
+                              });
+                              setFormalRequested(true);
+                              toast.success("Your formal valuation request has been submitted.");
+                            } catch {
+                              toast.error("There was an issue submitting your request. Please try again.");
+                            } finally {
+                              setRequestingFormal(false);
+                            }
+                          }}
+                        >
+                          {requestingFormal ? "Submitting..." : "Request Formal Valuation"} <ArrowRight className="ml-2 w-4 h-4" />
+                        </Button>
+                        <Link to="/consulting">
+                          <Button variant="heroOutline" size="lg">Learn About Exit Planning</Button>
+                        </Link>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             )}
