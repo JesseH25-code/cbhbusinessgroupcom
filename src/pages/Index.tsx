@@ -6,7 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import { organizationJsonLd, localBusinessJsonLd } from "@/lib/seo-data";
 import heroImage from "@/assets/hero-skyline.jpg";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
-import ConfidentialPopup from "@/components/ConfidentialPopup";
+
 
 const stats = [
   { value: "$3M–$50M", label: "Transaction Range" },
@@ -343,7 +343,7 @@ const Index = () => {
         </div>
       </section>
 
-      <ConfidentialPopup />
+      
     </Layout>
   );
 };
