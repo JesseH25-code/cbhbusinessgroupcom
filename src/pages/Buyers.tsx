@@ -94,10 +94,13 @@ const Buyers = () => {
           <div className="max-w-3xl">
             <p className="text-xs tracking-widest uppercase text-primary mb-3">For Acquirers</p>
             <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">Join Our Acquisition Network</h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               We maintain a confidential network of qualified strategic and financial buyers seeking 
               lower middle-market opportunities in the $3M–$50M enterprise value range.
             </p>
+            <a href="#buyer-form" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 text-sm tracking-wide uppercase hover:bg-primary/90 transition-colors">
+              Register as a Buyer <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>
