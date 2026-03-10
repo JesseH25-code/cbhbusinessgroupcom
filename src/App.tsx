@@ -112,6 +112,7 @@ const App = () => (
               <Route path="/business-valuation-calculator-naples" element={<BusinessValuationCalculatorNaples />} />
               <Route path="/business-valuation-calculator-sarasota" element={<BusinessValuationCalculatorSarasota />} />
               <Route path="/business-valuation-calculator-palm-beach" element={<BusinessValuationCalculatorPalmBeach />} />
+              <Route path="/business-growth-roadmap" element={<BusinessGrowthRoadmap />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
