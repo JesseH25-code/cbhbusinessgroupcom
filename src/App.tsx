@@ -102,6 +102,15 @@ const App = () => (
               <Route path="/seller-financing-explained" element={<SellerFinancingExplained />} />
               <Route path="/consulting" element={<Consulting />} />
               <Route path="/valuation-calculator" element={<ValuationCalculator />} />
+              <Route path="/business-valuation-calculator-florida" element={<BusinessValuationCalculatorFlorida />} />
+              <Route path="/business-valuation-calculator-miami" element={<BusinessValuationCalculatorMiami />} />
+              <Route path="/business-valuation-calculator-tampa" element={<BusinessValuationCalculatorTampa />} />
+              <Route path="/business-valuation-calculator-orlando" element={<BusinessValuationCalculatorOrlando />} />
+              <Route path="/business-valuation-calculator-jacksonville" element={<BusinessValuationCalculatorJacksonville />} />
+              <Route path="/business-valuation-calculator-fort-lauderdale" element={<BusinessValuationCalculatorFortLauderdale />} />
+              <Route path="/business-valuation-calculator-naples" element={<BusinessValuationCalculatorNaples />} />
+              <Route path="/business-valuation-calculator-sarasota" element={<BusinessValuationCalculatorSarasota />} />
+              <Route path="/business-valuation-calculator-palm-beach" element={<BusinessValuationCalculatorPalmBeach />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
