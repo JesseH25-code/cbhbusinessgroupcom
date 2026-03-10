@@ -138,6 +138,8 @@ const ValuationCalculator = () => {
   const [company, setCompany] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<{ low: number; high: number } | null>(null);
+  const [formalRequested, setFormalRequested] = useState(false);
+  const [requestingFormal, setRequestingFormal] = useState(false);
 
   const sector = sectors.find((s) => s.label === selectedSector);
 
