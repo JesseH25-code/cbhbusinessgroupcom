@@ -62,7 +62,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
+    <>
+      <div className="fixed top-0 left-0 right-0 z-50 h-1.5 bg-[hsl(220_30%_15%)]" />
+      <nav className="fixed top-1.5 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto flex items-center justify-between h-20 px-6">
         <Link to="/" className="font-serif text-xl tracking-wider text-foreground">
           CBH<span className="text-primary"> Business Group</span>
