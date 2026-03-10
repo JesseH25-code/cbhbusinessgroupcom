@@ -93,6 +93,7 @@ const Contact = () => {
                     <label className="text-xs tracking-widest uppercase text-muted-foreground mb-1 block">EBITDA Range</label>
                     <select value={form.ebitda} onChange={(e) => setForm({ ...form, ebitda: e.target.value })} className={fieldClass} required>
                       <option value="">Select</option>
+                      <option>$0 – $1M</option>
                       <option>$1M – $3M</option>
                       <option>$3M – $5M</option>
                       <option>$5M – $10M</option>
