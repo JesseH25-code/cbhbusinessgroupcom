@@ -41,6 +41,7 @@ const WhatIsEBITDA = lazy(() => import("./pages/WhatIsEBITDA"));
 const HowToSellABusiness = lazy(() => import("./pages/HowToSellABusiness"));
 const BusinessBrokerVsMAAdvisor = lazy(() => import("./pages/BusinessBrokerVsMAAdvisor"));
 const SellerFinancingExplained = lazy(() => import("./pages/SellerFinancingExplained"));
+const Consulting = lazy(() => import("./pages/Consulting"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -89,6 +90,7 @@ const App = () => (
               <Route path="/how-to-sell-a-business" element={<HowToSellABusiness />} />
               <Route path="/business-broker-vs-ma-advisor" element={<BusinessBrokerVsMAAdvisor />} />
               <Route path="/seller-financing-explained" element={<SellerFinancingExplained />} />
+              <Route path="/consulting" element={<Consulting />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
