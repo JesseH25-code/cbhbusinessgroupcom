@@ -26,6 +26,7 @@ const Footer = () => (
               { label: "Opportunities", path: "/opportunities" },
               { label: "Case Studies", path: "/case-studies" },
               { label: "Blog", path: "/blog" },
+              { label: "Growth Roadmap", path: "/business-growth-roadmap" },
               { label: "Contact", path: "/contact" },
             ].map((item) => (
               <Link
