@@ -120,8 +120,8 @@ const Index = () => {
               <Link to="/contact" className="w-full sm:w-auto">
                 <Button variant="hero" size="lg" className="w-full sm:w-auto">Request Confidential Valuation</Button>
               </Link>
-              <Link to="/contact" className="w-full sm:w-auto">
-                <Button variant="heroOutline" size="lg" className="w-full sm:w-auto">Schedule Advisory Consultation</Button>
+              <Link to="/valuation-calculator" className="w-full sm:w-auto">
+                <Button variant="heroOutline" size="lg" className="w-full sm:w-auto">Free Business Valuation</Button>
               </Link>
             </div>
           </div>
