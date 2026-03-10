@@ -157,14 +157,16 @@ const ValuationCalculator = () => {
     const high = ebitdaMid * Math.max(baseHigh, 2.0);
 
     try {
-      await supabase.from("contact_submissions").insert({
-        company,
-        email,
-        phone: phone || null,
-        revenue,
-        ebitda,
-        timeline: "Valuation Calculator Lead",
-        message: `Valuation Calculator Submission\nSector: ${selectedSector}\nSubcategory: ${selectedSubcategory}\nRevenue: ${revenue}\nEBITDA: ${ebitda}\nYears: ${years}\nEmployees: ${employees}\nOwner Dependency: ${ownerDependency}\nGrowth: ${growth}\nConcentration: ${concentration}\nRecurring Revenue: ${recurringRevenue}`,
+      await supabase.functions.invoke("send-contact-email", {
+        body: {
+          company,
+          email,
+          phone: phone || "",
+          revenue,
+          ebitda,
+          timeline: "Valuation Calculator Lead",
+          message: `Valuation Calculator Submission\nSector: ${selectedSector}\nSubcategory: ${selectedSubcategory}\nRevenue: ${revenue}\nEBITDA: ${ebitda}\nYears: ${years}\nEmployees: ${employees}\nOwner Dependency: ${ownerDependency}\nGrowth: ${growth}\nConcentration: ${concentration}\nRecurring Revenue: ${recurringRevenue}\n\nEstimated Range: ${formatCurrency(low)} – ${formatCurrency(high)}`,
+        },
       });
     } catch {
       // Still show results even if save fails

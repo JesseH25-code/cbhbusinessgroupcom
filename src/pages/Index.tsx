@@ -116,12 +116,15 @@ const Index = () => {
               valuation advisory, and structured exit planning. We are not a listing service — we provide 
               hands-on advisory, buyer targeting, negotiation, and deal structuring.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pb-12 md:pb-0">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 pb-12 md:pb-0">
               <Link to="/contact" className="w-full sm:w-auto">
                 <Button variant="hero" size="lg" className="w-full sm:w-auto">Request Confidential Valuation</Button>
               </Link>
               <Link to="/valuation-calculator" className="w-full sm:w-auto">
                 <Button variant="heroOutline" size="lg" className="w-full sm:w-auto">Free Business Valuation</Button>
+              </Link>
+              <Link to="/buyers#buyer-form" className="w-full sm:w-auto">
+                <Button variant="heroOutline" size="lg" className="w-full sm:w-auto">Join Buyer Network</Button>
               </Link>
             </div>
           </div>
