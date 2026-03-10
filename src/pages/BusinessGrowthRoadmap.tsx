@@ -195,6 +195,11 @@ const BusinessGrowthRoadmap = () => {
         title="Business Growth Roadmap — Scale from Startup to $100M+"
         description="A clear framework showing how businesses scale from startup to $100M+. Identify your growth stage, calculate your sellability score, and estimate your business value."
         path="/business-growth-roadmap"
+        jsonLd={roadmapFaqJsonLd}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Business Growth Roadmap", path: "/business-growth-roadmap" },
+        ]}
       />
 
       {/* ── Hero ──────────────────────────────────────────── */}
