@@ -90,6 +90,7 @@ const App = () => (
               <Route path="/how-to-sell-a-business" element={<HowToSellABusiness />} />
               <Route path="/business-broker-vs-ma-advisor" element={<BusinessBrokerVsMAAdvisor />} />
               <Route path="/seller-financing-explained" element={<SellerFinancingExplained />} />
+              <Route path="/consulting" element={<Consulting />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

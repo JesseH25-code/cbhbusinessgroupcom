@@ -19,6 +19,7 @@ const Footer = () => (
             {[
               { label: "About", path: "/about" },
               { label: "Services", path: "/services" },
+              { label: "Consulting", path: "/consulting" },
               { label: "Industries", path: "/industries" },
               { label: "For Sellers", path: "/sellers" },
               { label: "For Buyers", path: "/buyers" },

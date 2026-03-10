@@ -15,6 +15,7 @@ const navItems: NavItem[] = [
     label: "Advisory",
     children: [
       { label: "Services", path: "/services" },
+      { label: "Consulting", path: "/consulting" },
       { label: "Industries", path: "/industries" },
     ],
   },
