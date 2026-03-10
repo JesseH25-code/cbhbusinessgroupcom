@@ -92,19 +92,21 @@ const Resources = () => {
       return;
     }
     setSubmitting(true);
+    const guide = guides.find((g) => g.id === guideId);
     try {
-      const { error } = await supabase.from("contact_submissions").insert({
-        company: form.company || "N/A",
-        email: form.email,
-        revenue: "N/A",
-        ebitda: "N/A",
-        timeline: "Resource Download",
-        message: `Downloaded guide: ${guideId}`,
+      const res = await supabase.functions.invoke("send-resource-email", {
+        body: {
+          name: form.name,
+          email: form.email,
+          company: form.company || undefined,
+          guideId,
+          guideTitle: guide?.title || guideId,
+        },
       });
-      if (error) throw error;
+      if (res.error) throw res.error;
       setUnlockedGuides((prev) => new Set([...prev, guideId]));
       setActiveGuide(null);
-      toast.success("Guide unlocked! Check your email for the download link.");
+      toast.success("Guide unlocked! Check your email for a confirmation.");
     } catch {
       toast.error("Something went wrong. Please try again.");
     } finally {
