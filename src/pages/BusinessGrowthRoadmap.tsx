@@ -10,6 +10,45 @@ import GrowthStageCalculator from "@/components/roadmap/GrowthStageCalculator";
 import SellabilityScoreTool from "@/components/roadmap/SellabilityScoreTool";
 import ValuationEstimator from "@/components/roadmap/ValuationEstimator";
 
+/* ─── FAQ Data ────────────────────────────────────────────────────── */
+
+const roadmapFaqItems = [
+  {
+    q: "What are the five stages of business growth?",
+    a: "The five stages are Startup ($0–$1M), Operator ($1M–$3M), Systemized ($3M–$10M), Scale ($10M–$30M), and Expansion ($30M+). Each stage has a unique primary constraint, required founder skills, and organizational structure.",
+  },
+  {
+    q: "How do I know what stage my business is in?",
+    a: "Your stage is primarily determined by annual revenue, organizational structure, and the founder's role. Use our Growth Stage Calculator to answer a few diagnostic questions and identify your current stage along with the constraint holding you back.",
+  },
+  {
+    q: "What is a sellability score?",
+    a: "A sellability score (0–100) measures how attractive your business is to potential buyers. It evaluates factors like revenue size, profit margins, owner dependence, customer concentration, recurring revenue, financial documentation, and management team strength.",
+  },
+  {
+    q: "How can I increase my business valuation?",
+    a: "Key strategies include reducing owner dependence, building a management team, increasing recurring revenue, diversifying your customer base, documenting processes and financials, and demonstrating consistent growth over 3+ years.",
+  },
+  {
+    q: "When should I start planning to sell my business?",
+    a: "Ideally, begin planning 12–24 months before your target exit. This gives you time to optimize financials, reduce owner dependence, strengthen your management team, and address any operational weaknesses that could compress valuation multiples.",
+  },
+  {
+    q: "What is the biggest bottleneck that stops companies from scaling?",
+    a: "The most common bottleneck is founder dependency — when the business relies too heavily on the owner for operations, sales, or decision-making. Building management layers, documenting processes, and delegating systematically are key to breaking through.",
+  },
+];
+
+const roadmapFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: roadmapFaqItems.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: { "@type": "Answer", text: faq.a },
+  })),
+};
+
 /* ─── Data ───────────────────────────────────────────────────────── */
 
 const stages = [
