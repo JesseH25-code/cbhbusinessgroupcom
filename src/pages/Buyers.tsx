@@ -4,6 +4,8 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import IndustryExplorer from "@/components/IndustryExplorer";
 import { ArrowRight } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const buyerTypes = [
   { type: "Private Equity", desc: "Platform and add-on acquisitions for PE-backed portfolio companies." },
