@@ -80,6 +80,8 @@ const Contact = () => {
                     <label className="text-xs tracking-widest uppercase text-muted-foreground mb-1 block">Revenue Range</label>
                     <select value={form.revenue} onChange={(e) => setForm({ ...form, revenue: e.target.value })} className={fieldClass} required>
                       <option value="">Select</option>
+                      <option>$0 – $1M</option>
+                      <option>$1M – $5M</option>
                       <option>$5M – $10M</option>
                       <option>$10M – $25M</option>
                       <option>$25M – $50M</option>
