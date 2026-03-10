@@ -122,7 +122,7 @@ const Buyers = () => {
 
       <IndustryExplorer />
 
-      <section className="py-24">
+      <section id="buyer-form" className="py-24">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
