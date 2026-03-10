@@ -343,7 +343,7 @@ const Index = () => {
         </div>
       </section>
 
-      <ConfidentialPopup />
+      
     </Layout>
   );
 };
