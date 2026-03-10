@@ -72,10 +72,12 @@ Deno.serve(async (req) => {
   }
 
   try {
-    // Auth gate: require a valid service role key or matching secret
+    // Auth gate: accept service role key or anon key (for cron jobs)
     const authHeader = req.headers.get("Authorization");
-    const expectedKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-    if (!authHeader || authHeader !== `Bearer ${expectedKey}`) {
+    const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+    const anonKey = Deno.env.get("SUPABASE_ANON_KEY");
+    const token = authHeader?.replace("Bearer ", "");
+    if (!token || (token !== serviceKey && token !== anonKey)) {
       return new Response(
         JSON.stringify({ error: "Unauthorized" }),
         { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
