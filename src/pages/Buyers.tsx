@@ -170,8 +170,8 @@ const Buyers = () => {
                       placeholder="Industry preferences, size range, geography, structure..."
                     />
                   </div>
-                  <Button variant="hero" size="lg" type="submit" className="w-full">
-                    Join Acquisition Network <ArrowRight className="ml-2 w-4 h-4" />
+                  <Button variant="hero" size="lg" type="submit" className="w-full" disabled={submitting}>
+                    {submitting ? "Submitting..." : "Join Acquisition Network"} <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </form>
               )}
