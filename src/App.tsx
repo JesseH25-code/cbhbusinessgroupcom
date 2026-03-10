@@ -43,6 +43,15 @@ const BusinessBrokerVsMAAdvisor = lazy(() => import("./pages/BusinessBrokerVsMAA
 const SellerFinancingExplained = lazy(() => import("./pages/SellerFinancingExplained"));
 const Consulting = lazy(() => import("./pages/Consulting"));
 const ValuationCalculator = lazy(() => import("./pages/ValuationCalculator"));
+const BusinessValuationCalculatorFlorida = lazy(() => import("./pages/BusinessValuationCalculatorFlorida"));
+const BusinessValuationCalculatorMiami = lazy(() => import("./pages/BusinessValuationCalculatorMiami"));
+const BusinessValuationCalculatorTampa = lazy(() => import("./pages/BusinessValuationCalculatorTampa"));
+const BusinessValuationCalculatorOrlando = lazy(() => import("./pages/BusinessValuationCalculatorOrlando"));
+const BusinessValuationCalculatorJacksonville = lazy(() => import("./pages/BusinessValuationCalculatorJacksonville"));
+const BusinessValuationCalculatorFortLauderdale = lazy(() => import("./pages/BusinessValuationCalculatorFortLauderdale"));
+const BusinessValuationCalculatorNaples = lazy(() => import("./pages/BusinessValuationCalculatorNaples"));
+const BusinessValuationCalculatorSarasota = lazy(() => import("./pages/BusinessValuationCalculatorSarasota"));
+const BusinessValuationCalculatorPalmBeach = lazy(() => import("./pages/BusinessValuationCalculatorPalmBeach"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
