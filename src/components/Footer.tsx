@@ -67,12 +67,37 @@ const Footer = () => (
           <div className="space-y-3">
             {[
               { label: "Business Valuation", path: "/business-valuation" },
+              { label: "Valuation Calculator", path: "/valuation-calculator" },
               { label: "What Is EBITDA?", path: "/what-is-ebitda" },
               { label: "How to Sell a Business", path: "/how-to-sell-a-business" },
               { label: "Broker vs. M&A Advisor", path: "/business-broker-vs-ma-advisor" },
               { label: "Seller Financing", path: "/seller-financing-explained" },
               { label: "Buy a Business in FL", path: "/buy-a-business-in-florida" },
               { label: "Businesses for Sale FL", path: "/businesses-for-sale-florida" },
+            ].map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Valuation by City</h4>
+          <div className="space-y-3">
+            {[
+              { label: "Calculator — Florida", path: "/business-valuation-calculator-florida" },
+              { label: "Calculator — Miami", path: "/business-valuation-calculator-miami" },
+              { label: "Calculator — Tampa", path: "/business-valuation-calculator-tampa" },
+              { label: "Calculator — Orlando", path: "/business-valuation-calculator-orlando" },
+              { label: "Calculator — Jacksonville", path: "/business-valuation-calculator-jacksonville" },
+              { label: "Calculator — Fort Lauderdale", path: "/business-valuation-calculator-fort-lauderdale" },
+              { label: "Calculator — Naples", path: "/business-valuation-calculator-naples" },
+              { label: "Calculator — Sarasota", path: "/business-valuation-calculator-sarasota" },
+              { label: "Calculator — Palm Beach", path: "/business-valuation-calculator-palm-beach" },
             ].map((item) => (
               <Link
                 key={item.path}
