@@ -75,6 +75,7 @@ const Footer = () => (
               { label: "Seller Financing", path: "/seller-financing-explained" },
               { label: "Buy a Business in FL", path: "/buy-a-business-in-florida" },
               { label: "Businesses for Sale FL", path: "/businesses-for-sale-florida" },
+              { label: "Free Guides & Resources", path: "/resources" },
             ].map((item) => (
               <Link
                 key={item.path}

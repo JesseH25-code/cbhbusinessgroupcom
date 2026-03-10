@@ -30,6 +30,7 @@ const navItems: NavItem[] = [
   },
   { label: "Case Studies", path: "/case-studies" },
   { label: "Roadmap", path: "/business-growth-roadmap" },
+  { label: "Resources", path: "/resources" },
   { label: "Blog", path: "/blog" },
   { label: "Contact", path: "/contact" },
 ];

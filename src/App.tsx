@@ -53,6 +53,7 @@ const BusinessValuationCalculatorNaples = lazy(() => import("./pages/BusinessVal
 const BusinessValuationCalculatorSarasota = lazy(() => import("./pages/BusinessValuationCalculatorSarasota"));
 const BusinessValuationCalculatorPalmBeach = lazy(() => import("./pages/BusinessValuationCalculatorPalmBeach"));
 const BusinessGrowthRoadmap = lazy(() => import("./pages/BusinessGrowthRoadmap"));
+const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -113,6 +114,7 @@ const App = () => (
               <Route path="/business-valuation-calculator-sarasota" element={<BusinessValuationCalculatorSarasota />} />
               <Route path="/business-valuation-calculator-palm-beach" element={<BusinessValuationCalculatorPalmBeach />} />
               <Route path="/business-growth-roadmap" element={<BusinessGrowthRoadmap />} />
+              <Route path="/resources" element={<Resources />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
