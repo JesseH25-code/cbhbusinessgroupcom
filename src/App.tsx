@@ -53,6 +53,7 @@ const BusinessValuationCalculatorNaples = lazy(() => import("./pages/BusinessVal
 const BusinessValuationCalculatorSarasota = lazy(() => import("./pages/BusinessValuationCalculatorSarasota"));
 const BusinessValuationCalculatorPalmBeach = lazy(() => import("./pages/BusinessValuationCalculatorPalmBeach"));
 const BusinessGrowthRoadmap = lazy(() => import("./pages/BusinessGrowthRoadmap"));
+const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
