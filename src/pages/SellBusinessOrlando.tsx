@@ -111,7 +111,7 @@ const SellBusinessOrlando = () => (
     <section className="py-16 bg-secondary">
       <div className="container mx-auto px-6">
         <p className="text-xs tracking-widest uppercase text-primary mb-6 text-center">Related Resources</p>
-        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           <Link to="/sell-business-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Sell a Business in Florida</p>
             <p className="text-xs text-muted-foreground">Statewide M&A advisory</p>
@@ -119,6 +119,10 @@ const SellBusinessOrlando = () => (
           <Link to="/sell-construction-company-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Construction M&A</p>
             <p className="text-xs text-muted-foreground">Sell a construction company</p>
+          </Link>
+          <Link to="/business-valuation-calculator-orlando" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Orlando Valuation Calculator</p>
+            <p className="text-xs text-muted-foreground">Free EBITDA-based estimate</p>
           </Link>
           <Link to="/business-valuation" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Business Valuation</p>
