@@ -43,6 +43,15 @@ const BusinessBrokerVsMAAdvisor = lazy(() => import("./pages/BusinessBrokerVsMAA
 const SellerFinancingExplained = lazy(() => import("./pages/SellerFinancingExplained"));
 const Consulting = lazy(() => import("./pages/Consulting"));
 const ValuationCalculator = lazy(() => import("./pages/ValuationCalculator"));
+const BusinessValuationCalculatorFlorida = lazy(() => import("./pages/BusinessValuationCalculatorFlorida"));
+const BusinessValuationCalculatorMiami = lazy(() => import("./pages/BusinessValuationCalculatorMiami"));
+const BusinessValuationCalculatorTampa = lazy(() => import("./pages/BusinessValuationCalculatorTampa"));
+const BusinessValuationCalculatorOrlando = lazy(() => import("./pages/BusinessValuationCalculatorOrlando"));
+const BusinessValuationCalculatorJacksonville = lazy(() => import("./pages/BusinessValuationCalculatorJacksonville"));
+const BusinessValuationCalculatorFortLauderdale = lazy(() => import("./pages/BusinessValuationCalculatorFortLauderdale"));
+const BusinessValuationCalculatorNaples = lazy(() => import("./pages/BusinessValuationCalculatorNaples"));
+const BusinessValuationCalculatorSarasota = lazy(() => import("./pages/BusinessValuationCalculatorSarasota"));
+const BusinessValuationCalculatorPalmBeach = lazy(() => import("./pages/BusinessValuationCalculatorPalmBeach"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -93,6 +102,15 @@ const App = () => (
               <Route path="/seller-financing-explained" element={<SellerFinancingExplained />} />
               <Route path="/consulting" element={<Consulting />} />
               <Route path="/valuation-calculator" element={<ValuationCalculator />} />
+              <Route path="/business-valuation-calculator-florida" element={<BusinessValuationCalculatorFlorida />} />
+              <Route path="/business-valuation-calculator-miami" element={<BusinessValuationCalculatorMiami />} />
+              <Route path="/business-valuation-calculator-tampa" element={<BusinessValuationCalculatorTampa />} />
+              <Route path="/business-valuation-calculator-orlando" element={<BusinessValuationCalculatorOrlando />} />
+              <Route path="/business-valuation-calculator-jacksonville" element={<BusinessValuationCalculatorJacksonville />} />
+              <Route path="/business-valuation-calculator-fort-lauderdale" element={<BusinessValuationCalculatorFortLauderdale />} />
+              <Route path="/business-valuation-calculator-naples" element={<BusinessValuationCalculatorNaples />} />
+              <Route path="/business-valuation-calculator-sarasota" element={<BusinessValuationCalculatorSarasota />} />
+              <Route path="/business-valuation-calculator-palm-beach" element={<BusinessValuationCalculatorPalmBeach />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
