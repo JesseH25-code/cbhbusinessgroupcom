@@ -4,6 +4,8 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import IndustryExplorer from "@/components/IndustryExplorer";
 import { ArrowRight } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const buyerTypes = [
   { type: "Private Equity", desc: "Platform and add-on acquisitions for PE-backed portfolio companies." },
@@ -48,9 +50,28 @@ const Buyers = () => {
   const [form, setForm] = useState({ name: "", firm: "", email: "", criteria: "", type: "" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    try {
+      const { error } = await supabase.from("buyer_submissions").insert({
+        name: form.name,
+        firm: form.firm,
+        email: form.email,
+        buyer_type: form.type,
+        criteria: form.criteria,
+      });
+      if (error) throw error;
+      setSubmitted(true);
+      toast.success("Submission received — we'll be in touch within 48 hours.");
+    } catch (err) {
+      console.error("Buyer submission error:", err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -149,8 +170,8 @@ const Buyers = () => {
                       placeholder="Industry preferences, size range, geography, structure..."
                     />
                   </div>
-                  <Button variant="hero" size="lg" type="submit" className="w-full">
-                    Join Acquisition Network <ArrowRight className="ml-2 w-4 h-4" />
+                  <Button variant="hero" size="lg" type="submit" className="w-full" disabled={submitting}>
+                    {submitting ? "Submitting..." : "Join Acquisition Network"} <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </form>
               )}

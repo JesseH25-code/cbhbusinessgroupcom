@@ -59,6 +59,36 @@ export type Database = {
         }
         Relationships: []
       }
+      buyer_submissions: {
+        Row: {
+          buyer_type: string
+          created_at: string
+          criteria: string
+          email: string
+          firm: string
+          id: string
+          name: string
+        }
+        Insert: {
+          buyer_type: string
+          created_at?: string
+          criteria: string
+          email: string
+          firm: string
+          id?: string
+          name: string
+        }
+        Update: {
+          buyer_type?: string
+          created_at?: string
+          criteria?: string
+          email?: string
+          firm?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           company: string

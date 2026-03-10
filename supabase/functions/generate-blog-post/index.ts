@@ -57,6 +57,26 @@ const topics = [
       "Why strategic buyers pay more than financial buyers",
     ],
   },
+  {
+    category: "Consulting",
+    prompts: [
+      "Why business consulting is essential before listing your company for sale",
+      "How operational consulting increases your business valuation before exit",
+      "The role of exit planning consultants in maximizing sale proceeds",
+      "Common operational inefficiencies that reduce business value and how to fix them",
+      "How strategic consulting helps business owners prepare for due diligence",
+    ],
+  },
+  {
+    category: "Sale Preparation",
+    prompts: [
+      "The 12-month checklist for preparing your business to sell",
+      "Why starting exit preparation two years early leads to better outcomes",
+      "How to document your processes and SOPs before selling your business",
+      "Financial housekeeping: getting your books ready for buyer scrutiny",
+      "Building a business that runs without you: the key to a premium exit",
+    ],
+  },
 ];
 
 function generateSlug(title: string): string {
