@@ -56,14 +56,16 @@ const Buyers = () => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      const { error } = await supabase.from("buyer_submissions").insert({
-        name: form.name,
-        firm: form.firm,
-        email: form.email,
-        buyer_type: form.type,
-        criteria: form.criteria,
+      const response = await supabase.functions.invoke("send-buyer-email", {
+        body: {
+          name: form.name,
+          firm: form.firm,
+          email: form.email,
+          buyer_type: form.type,
+          criteria: form.criteria,
+        },
       });
-      if (error) throw error;
+      if (response.error) throw response.error;
       setSubmitted(true);
       toast.success("Submission received — we'll be in touch within 48 hours.");
     } catch (err) {
