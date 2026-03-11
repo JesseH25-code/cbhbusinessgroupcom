@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { BarChart3, X } from "lucide-react";
 
 const DISMISSED_KEY = "cbh_sticky_cta_dismissed";
 
-const StickyCTABar = () => {
+const StickyCTABar = forwardRef<HTMLDivElement>((_, ref) => {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const { pathname } = useLocation();
@@ -71,6 +71,8 @@ const StickyCTABar = () => {
       </div>
     </div>
   );
-};
+});
+
+StickyCTABar.displayName = "StickyCTABar";
 
 export default StickyCTABar;
