@@ -84,7 +84,7 @@ const FloridaMABenchmarks = () => (
     <SEOHead
       title="Florida M&A Industry Benchmarks 2025 | Valuation Multiples by Sector"
       description="Free Florida M&A benchmarks: EBITDA multiples, median deal sizes, and valuation drivers across 8 industries. Data-driven insights for business owners planning an exit."
-      canonical="https://cbhbusinessgroup.com/florida-ma-benchmarks"
+      path="/florida-ma-benchmarks"
     />
 
     {/* Hero */}
