@@ -18,6 +18,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const AdminBlog = lazy(() => import("./pages/AdminBlog"));
 const AdminOpportunities = lazy(() => import("./pages/AdminOpportunities"));
 const SellBusinessFlorida = lazy(() => import("./pages/SellBusinessFlorida"));
