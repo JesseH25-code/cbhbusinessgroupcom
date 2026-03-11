@@ -35,6 +35,10 @@ const Opportunities = () => {
         description="Active acquisition opportunities represented by CBH Business Group. Explore confidential deal listings across manufacturing, healthcare, technology, and more."
         path="/opportunities"
         jsonLd={opportunitiesJsonLd}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Opportunities", path: "/opportunities" },
+        ]}
       />
 
       {/* Hero */}

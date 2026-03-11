@@ -205,6 +205,11 @@ const ValuationCalculator = () => {
         title="Free Business Valuation Calculator | CBH Business Group"
         description="Get a preliminary estimate of your business's value based on industry multiples, financial performance, and key value drivers. Free and confidential."
         path="/valuation-calculator"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: "Valuation Calculator", path: "/valuation-calculator" },
+        ]}
       />
 
       <section className="pt-32 pb-20 bg-gradient-section">

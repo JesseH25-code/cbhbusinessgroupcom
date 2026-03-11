@@ -247,53 +247,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof / Testimonials */}
-      <section className="py-24 bg-secondary border-y border-border">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-xs tracking-widest uppercase text-primary mb-3">Client Confidence</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground">Trusted by Business Owners Across Florida</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-            {[
-              {
-                quote: "CBH Business Group managed our entire sale process with professionalism and discretion. They delivered a result that exceeded our expectations.",
-                attribution: "— Construction Services Company, Southeast FL",
-                metric: "$20M Transaction",
-              },
-              {
-                quote: "Their structured approach and buyer outreach generated multiple qualified offers. We felt in control at every stage of the process.",
-                attribution: "— Consumer Products Company, Central FL",
-                metric: "$4.9M Transaction",
-              },
-              {
-                quote: "The team's financial acumen and negotiation skills were critical to structuring a deal that met both our liquidity and long-term goals.",
-                attribution: "— Engineering & Professional Services, FL",
-                metric: "$12M Transaction",
-              },
-            ].map((testimonial, i) => (
-              <div key={i} className="bg-card border border-border p-8 flex flex-col">
-                <p className="text-primary font-serif text-sm mb-4">{testimonial.metric}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed italic flex-1">"{testimonial.quote}"</p>
-                <p className="text-xs text-muted-foreground mt-4 pt-4 border-t border-border">{testimonial.attribution}</p>
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto text-center">
-            {[
-              { value: "100%", label: "Client Confidentiality" },
-              { value: "$37M+", label: "Deal Volume" },
-              { value: "6–9 Mo", label: "Avg. Timeline" },
-              { value: "3x–7x", label: "EBITDA Multiples" },
-            ].map((stat, i) => (
-              <div key={i}>
-                <p className="text-2xl font-serif text-primary mb-1">{stat.value}</p>
-                <p className="text-xs tracking-widest uppercase text-muted-foreground">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* Industry Landing Pages */}
       <section className="py-24">
@@ -343,8 +298,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <Testimonials />
+
 
     </Layout>
   );

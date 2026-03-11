@@ -73,6 +73,10 @@ const CaseStudies = () => (
       description="Real M&A transaction outcomes: $20M construction recapitalization and $12M engineering majority sale with structured equity rollover. See how CBH Business Group delivers results."
       path="/case-studies"
       jsonLd={caseStudyJsonLd}
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "Case Studies", path: "/case-studies" },
+      ]}
     />
 
     {/* Hero */}

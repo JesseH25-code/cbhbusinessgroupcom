@@ -85,6 +85,11 @@ const FloridaMABenchmarks = () => (
       title="Florida M&A Industry Benchmarks 2025 | Valuation Multiples by Sector"
       description="Free Florida M&A benchmarks: EBITDA multiples, median deal sizes, and valuation drivers across 8 industries. Data-driven insights for business owners planning an exit."
       path="/florida-ma-benchmarks"
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "Resources", path: "/resources" },
+        { name: "Florida M&A Benchmarks", path: "/florida-ma-benchmarks" },
+      ]}
     />
 
     {/* Hero */}
