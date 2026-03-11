@@ -8,6 +8,8 @@ import heroImage from "@/assets/hero-skyline.jpg";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
 
+      {/* Testimonials */}
+      <Testimonials />
 
 const stats = [
   { value: "$3M–$50M", label: "Transaction Range" },

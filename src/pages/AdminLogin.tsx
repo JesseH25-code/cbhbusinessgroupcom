@@ -21,7 +21,7 @@ const AdminLogin = () => {
     if (error) {
       toast({ title: "Login failed", description: error.message, variant: "destructive" });
     } else {
-      navigate("/admin/blog");
+      navigate("/admin/dashboard");
     }
   };
 
