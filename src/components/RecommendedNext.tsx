@@ -10,6 +10,7 @@ interface Recommendation {
 
 const allRecommendations: Recommendation[] = [
   { title: "Free Business Valuation", desc: "Get an instant estimate of what your business could be worth.", path: "/valuation-calculator", icon: BarChart3 },
+  { title: "Industry Benchmarks", desc: "EBITDA multiples and deal data across 8 Florida industries.", path: "/florida-ma-benchmarks", icon: TrendingUp },
   { title: "Business Growth Roadmap", desc: "Diagnostic tools to assess your sellability and growth stage.", path: "/business-growth-roadmap", icon: TrendingUp },
   { title: "Free M&A Guides", desc: "Download expert guides on exit planning, valuation, and due diligence.", path: "/resources", icon: BookOpen },
   { title: "How to Sell a Business", desc: "Step-by-step guide to the M&A process for business owners.", path: "/how-to-sell-a-business", icon: FileText },

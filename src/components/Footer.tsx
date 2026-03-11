@@ -69,6 +69,7 @@ const Footer = () => (
             {[
               { label: "Business Valuation", path: "/business-valuation" },
               { label: "Valuation Calculator", path: "/valuation-calculator" },
+              { label: "Industry Benchmarks", path: "/florida-ma-benchmarks" },
               { label: "What Is EBITDA?", path: "/what-is-ebitda" },
               { label: "How to Sell a Business", path: "/how-to-sell-a-business" },
               { label: "Broker vs. M&A Advisor", path: "/business-broker-vs-ma-advisor" },
