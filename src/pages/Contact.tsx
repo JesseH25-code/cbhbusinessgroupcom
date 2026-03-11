@@ -47,6 +47,10 @@ const Contact = () => {
         title="Contact — Confidential M&A Inquiry"
         description="Begin a confidential conversation about selling your business. Submit an inquiry and a senior CBH Business Group advisor will respond within one business day."
         path="/contact"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
       />
       <section className="py-24 bg-gradient-section">
         <div className="container mx-auto px-6">

@@ -119,6 +119,10 @@ const Industries = () => (
       description="Sector-specific M&A advisory for manufacturing, healthcare, technology, construction, business services, and financial services. Valuation drivers and buyer landscapes by industry."
       path="/industries"
       jsonLd={industryJsonLd}
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "Industries", path: "/industries" },
+      ]}
     />
 
     {/* Hero */}
