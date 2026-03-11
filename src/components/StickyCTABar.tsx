@@ -71,6 +71,8 @@ const StickyCTABar = forwardRef<HTMLDivElement>((_, ref) => {
       </div>
     </div>
   );
-};
+});
+
+StickyCTABar.displayName = "StickyCTABar";
 
 export default StickyCTABar;
