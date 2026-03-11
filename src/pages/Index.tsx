@@ -343,6 +343,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <Testimonials />
+
     </Layout>
   );
 };
