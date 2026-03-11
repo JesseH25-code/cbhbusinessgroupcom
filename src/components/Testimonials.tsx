@@ -3,19 +3,19 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "CBH Business Group guided us through the entire process with exceptional professionalism. Their understanding of our industry and disciplined buyer outreach resulted in a transaction that exceeded our expectations.",
-    attribution: "Construction Services Owner",
-    detail: "Florida · Sold at 5.2x EBITDA",
+    quote: "We'd been running our plumbing company for 28 years and had no idea where to start with selling. CBH walked us through every step — the valuation, the buyer meetings, the paperwork. We closed in under 7 months and the final number was more than we ever expected.",
+    attribution: "Commercial Plumbing Company Owner",
+    detail: "Tampa Bay · Sold at 4.8x EBITDA",
   },
   {
-    quote: "The team's confidentiality protocols gave us peace of mind throughout the process. Our employees and clients never knew we were exploring a sale until we were ready to announce.",
-    attribution: "Healthcare Services Founder",
-    detail: "Southeast Florida · Strategic Acquisition",
+    quote: "CBH Business Group understood our construction business inside and out. They positioned our backlog, our bonding capacity, and our crew depth in a way that got buyers competing against each other. The result spoke for itself.",
+    attribution: "General Contractor & Founder",
+    detail: "Central Florida · $12M Transaction",
   },
   {
-    quote: "Their valuation analysis was thorough and defensible. When buyers challenged our pricing, CBH had the data and narrative to support every number. That made a real difference at the negotiating table.",
-    attribution: "Manufacturing Company Owner",
-    detail: "Central Florida · $15M+ Transaction",
+    quote: "Selling a roofing company isn't easy — buyers always question the warranty liabilities and seasonal revenue. CBH built a financial narrative that addressed every concern upfront. We had three offers within 90 days of going to market.",
+    attribution: "Roofing Company Owner",
+    detail: "South Florida · Strategic Acquisition",
   },
 ];
 
