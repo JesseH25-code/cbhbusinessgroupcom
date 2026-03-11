@@ -116,6 +116,7 @@ const App = () => (
               <Route path="/business-valuation-calculator-palm-beach" element={<BusinessValuationCalculatorPalmBeach />} />
               <Route path="/business-growth-roadmap" element={<BusinessGrowthRoadmap />} />
               <Route path="/resources" element={<Resources />} />
+              <Route path="/florida-ma-benchmarks" element={<FloridaMABenchmarks />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
