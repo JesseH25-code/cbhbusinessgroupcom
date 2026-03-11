@@ -54,6 +54,7 @@ const BusinessValuationCalculatorSarasota = lazy(() => import("./pages/BusinessV
 const BusinessValuationCalculatorPalmBeach = lazy(() => import("./pages/BusinessValuationCalculatorPalmBeach"));
 const BusinessGrowthRoadmap = lazy(() => import("./pages/BusinessGrowthRoadmap"));
 const Resources = lazy(() => import("./pages/Resources"));
+const FloridaMABenchmarks = lazy(() => import("./pages/FloridaMABenchmarks"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
