@@ -129,6 +129,16 @@ const App = () => (
               <Route path="/business-growth-roadmap" element={<BusinessGrowthRoadmap />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/florida-ma-benchmarks" element={<FloridaMABenchmarks />} />
+              <Route path="/sell-my-business-miami" element={<SellMyBusinessMiami />} />
+              <Route path="/sell-my-business-tampa" element={<SellMyBusinessTampa />} />
+              <Route path="/sell-my-business-orlando" element={<SellMyBusinessOrlando />} />
+              <Route path="/sell-my-business-jacksonville" element={<SellMyBusinessJacksonville />} />
+              <Route path="/sell-my-business-fort-lauderdale" element={<SellMyBusinessFortLauderdale />} />
+              <Route path="/business-broker-miami" element={<BusinessBrokerMiami />} />
+              <Route path="/business-broker-tampa" element={<BusinessBrokerTampa />} />
+              <Route path="/business-broker-orlando" element={<BusinessBrokerOrlando />} />
+              <Route path="/business-broker-jacksonville" element={<BusinessBrokerJacksonville />} />
+              <Route path="/business-broker-fort-lauderdale" element={<BusinessBrokerFortLauderdale />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
