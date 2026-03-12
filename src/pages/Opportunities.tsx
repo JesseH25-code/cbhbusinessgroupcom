@@ -75,32 +75,6 @@ const Opportunities = () => {
         </div>
       </section>
 
-      {/* Featured Listing */}
-      <section className="py-16 border-b border-border">
-        <div className="container mx-auto px-6">
-          <p className="text-xs tracking-widest uppercase text-primary mb-8 font-semibold">Featured Listing</p>
-          <a
-            href="https://www.bizbuysell.com/business-opportunity/turnkey-custom-window-and-door-manufacturer-florida-based/2395241/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-card border border-border p-8 md:p-10 hover:border-primary/40 transition-colors group max-w-3xl"
-          >
-            <div className="flex items-start justify-between mb-2">
-              <p className="text-[10px] tracking-widest uppercase text-muted-foreground font-semibold">Manufacturing · Orlando, FL</p>
-              <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-            </div>
-            <h2 className="text-xl md:text-2xl font-serif text-foreground mb-3 group-hover:text-primary transition-colors">
-              Turnkey Custom Window &amp; Door Manufacturer — Florida Based
-            </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              Well-established Florida-based company specializing in the design, manufacturing, and installation of high-end custom doors and windows. Strong reputation for superior craftsmanship with a growing customer base of luxury homeowners and commercial clients.
-            </p>
-            <span className="inline-flex items-center text-sm font-medium text-primary">
-              View Full Details on BizBuySell <ArrowRight className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </span>
-          </a>
-        </div>
-      </section>
 
       {/* All BizBuySell Listings */}
       <section className="py-24">
