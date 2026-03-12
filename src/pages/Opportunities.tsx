@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,38 @@ const opportunitiesJsonLd = {
   name: "Current Opportunities — CBH Business Group",
   description: "Active acquisition opportunities represented by CBH Business Group. Confidential deal listings across multiple industries.",
   url: "https://cbhbusinessgroup.com/opportunities",
+};
+
+const BizBuySellEmbed = () => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.5/iframeResizer.min.js";
+    script.onload = () => {
+      if (iframeRef.current && (window as any).iFrameResize) {
+        try {
+          (window as any).iFrameResize({ checkOrigin: false }, iframeRef.current);
+        } catch (e) {
+          console.warn("iFrameResize failed:", e);
+        }
+      }
+    };
+    document.body.appendChild(script);
+    return () => {
+      try { document.body.removeChild(script); } catch {}
+    };
+  }, []);
+
+  return (
+    <iframe
+      ref={iframeRef}
+      src="https://www.bizbuysell.com/brokerdirectory/Profile/ViewAllListings.aspx?J=b&I=46770&m_dmr=1"
+      scrolling="no"
+      style={{ border: "none", width: "100%", minHeight: "600px" }}
+      title="CBH Business Group Listings on BizBuySell"
+    />
+  );
 };
 
 const Opportunities = () => {
@@ -125,6 +158,22 @@ const Opportunities = () => {
               </Link>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* BizBuySell Listings */}
+      <section className="py-24 bg-secondary border-t border-border">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Marketplace Listings</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Browse Our Listings</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              View our publicly listed opportunities on BizBuySell, the largest online marketplace for businesses for sale.
+            </p>
+          </div>
+          <div className="bg-card border border-border p-4 md:p-8">
+            <BizBuySellEmbed />
+          </div>
         </div>
       </section>
 
