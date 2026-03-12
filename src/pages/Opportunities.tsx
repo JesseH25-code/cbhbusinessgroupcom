@@ -129,6 +129,22 @@ const Opportunities = () => {
         </div>
       </section>
 
+      {/* BizBuySell Listings */}
+      <section className="py-24 bg-secondary border-t border-border">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Marketplace Listings</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Browse Our Listings</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              View our publicly listed opportunities on BizBuySell, the largest online marketplace for businesses for sale.
+            </p>
+          </div>
+          <div className="bg-card border border-border p-4 md:p-8">
+            <BizBuySellEmbed />
+          </div>
+        </div>
+      </section>
+
       {/* Disclaimer + CTA */}
       {opportunities && opportunities.length > 0 && (
         <section className="py-20 bg-secondary border-t border-border">
