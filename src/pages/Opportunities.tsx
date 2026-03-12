@@ -15,6 +15,38 @@ const opportunitiesJsonLd = {
   url: "https://cbhbusinessgroup.com/opportunities",
 };
 
+const BizBuySellEmbed = () => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.5/iframeResizer.min.js";
+    script.onload = () => {
+      if (iframeRef.current && (window as any).iFrameResize) {
+        try {
+          (window as any).iFrameResize({ checkOrigin: false }, iframeRef.current);
+        } catch (e) {
+          console.warn("iFrameResize failed:", e);
+        }
+      }
+    };
+    document.body.appendChild(script);
+    return () => {
+      try { document.body.removeChild(script); } catch {}
+    };
+  }, []);
+
+  return (
+    <iframe
+      ref={iframeRef}
+      src="https://www.bizbuysell.com/brokerdirectory/Profile/ViewAllListings.aspx?J=b&I=46770&m_dmr=1"
+      scrolling="no"
+      style={{ border: "none", width: "100%", minHeight: "600px" }}
+      title="CBH Business Group Listings on BizBuySell"
+    />
+  );
+};
+
 const Opportunities = () => {
   const { data: opportunities, isLoading } = useQuery({
     queryKey: ["opportunities"],
