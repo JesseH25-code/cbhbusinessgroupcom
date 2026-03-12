@@ -56,6 +56,16 @@ const BusinessValuationCalculatorPalmBeach = lazy(() => import("./pages/Business
 const BusinessGrowthRoadmap = lazy(() => import("./pages/BusinessGrowthRoadmap"));
 const Resources = lazy(() => import("./pages/Resources"));
 const FloridaMABenchmarks = lazy(() => import("./pages/FloridaMABenchmarks"));
+const SellMyBusinessMiami = lazy(() => import("./pages/SellMyBusinessMiami"));
+const SellMyBusinessTampa = lazy(() => import("./pages/SellMyBusinessTampa"));
+const SellMyBusinessOrlando = lazy(() => import("./pages/SellMyBusinessOrlando"));
+const SellMyBusinessJacksonville = lazy(() => import("./pages/SellMyBusinessJacksonville"));
+const SellMyBusinessFortLauderdale = lazy(() => import("./pages/SellMyBusinessFortLauderdale"));
+const BusinessBrokerMiami = lazy(() => import("./pages/BusinessBrokerMiami"));
+const BusinessBrokerTampa = lazy(() => import("./pages/BusinessBrokerTampa"));
+const BusinessBrokerOrlando = lazy(() => import("./pages/BusinessBrokerOrlando"));
+const BusinessBrokerJacksonville = lazy(() => import("./pages/BusinessBrokerJacksonville"));
+const BusinessBrokerFortLauderdale = lazy(() => import("./pages/BusinessBrokerFortLauderdale"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -119,6 +129,16 @@ const App = () => (
               <Route path="/business-growth-roadmap" element={<BusinessGrowthRoadmap />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/florida-ma-benchmarks" element={<FloridaMABenchmarks />} />
+              <Route path="/sell-my-business-miami" element={<SellMyBusinessMiami />} />
+              <Route path="/sell-my-business-tampa" element={<SellMyBusinessTampa />} />
+              <Route path="/sell-my-business-orlando" element={<SellMyBusinessOrlando />} />
+              <Route path="/sell-my-business-jacksonville" element={<SellMyBusinessJacksonville />} />
+              <Route path="/sell-my-business-fort-lauderdale" element={<SellMyBusinessFortLauderdale />} />
+              <Route path="/business-broker-miami" element={<BusinessBrokerMiami />} />
+              <Route path="/business-broker-tampa" element={<BusinessBrokerTampa />} />
+              <Route path="/business-broker-orlando" element={<BusinessBrokerOrlando />} />
+              <Route path="/business-broker-jacksonville" element={<BusinessBrokerJacksonville />} />
+              <Route path="/business-broker-fort-lauderdale" element={<BusinessBrokerFortLauderdale />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
