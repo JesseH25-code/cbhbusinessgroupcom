@@ -39,7 +39,7 @@ const BizBuySellEmbed = () => {
   return (
     <iframe
       ref={iframeRef}
-      src="https://www.bizbuysell.com/listings/Profile/Preview.aspx?q=2395241&l_ibwlp=1"
+      src="https://www.bizbuysell.com/brokerdirectory/Profile/ViewAllListings.aspx?J=b&I=46770&m_dmr=1"
       scrolling="no"
       style={{ border: "none", width: "100%", minHeight: "600px" }}
       title="CBH Business Group Listings on BizBuySell"
