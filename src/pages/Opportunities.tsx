@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowRight, MapPin, TrendingUp, Building2 } from "lucide-react";
+import { ArrowRight, MapPin, TrendingUp, Building2, ExternalLink } from "lucide-react";
 
 const opportunitiesJsonLd = {
   "@context": "https://schema.org",
@@ -39,7 +39,7 @@ const BizBuySellEmbed = () => {
   return (
     <iframe
       ref={iframeRef}
-      src="https://www.bizbuysell.com/listings/Profile/Preview.aspx?q=2395241&l_ibwlp=1"
+      src="https://www.bizbuysell.com/brokerdirectory/Profile/ViewAllListings.aspx?J=b&I=46770&m_dmr=1"
       scrolling="no"
       style={{ border: "none", width: "100%", minHeight: "600px" }}
       title="CBH Business Group Listings on BizBuySell"
@@ -161,12 +161,42 @@ const Opportunities = () => {
         </div>
       </section>
 
-      {/* BizBuySell Listings */}
+      {/* Featured BizBuySell Listing */}
       <section className="py-24 bg-secondary border-t border-border">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mb-12">
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Featured Listing</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Highlighted Opportunity</h2>
+          </div>
+          <a
+            href="https://www.bizbuysell.com/listings/Profile/Preview.aspx?q=2395241&l_ibwlp=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-card border border-border p-8 md:p-10 hover:border-primary/40 transition-colors group"
+          >
+            <div className="flex items-start justify-between mb-4">
+              <p className="text-[10px] tracking-widest uppercase text-primary font-semibold">View on BizBuySell</p>
+              <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+            </div>
+            <h3 className="text-xl font-serif text-foreground mb-3 group-hover:text-primary transition-colors">
+              Business Opportunity — View Full Details
+            </h3>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              Click to view the complete listing details, financials, and inquiry form on BizBuySell.
+            </p>
+            <span className="inline-flex items-center text-sm font-medium text-primary">
+              View Listing <ArrowRight className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </span>
+          </a>
+        </div>
+      </section>
+
+      {/* All BizBuySell Listings */}
+      <section className="py-24 border-t border-border">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mb-12">
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Marketplace Listings</p>
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Browse Our Listings</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Browse All Listings</h2>
             <p className="text-muted-foreground leading-relaxed">
               View our publicly listed opportunities on BizBuySell, the largest online marketplace for businesses for sale.
             </p>
