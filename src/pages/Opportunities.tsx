@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowRight, MapPin, TrendingUp, Building2 } from "lucide-react";
+import { ArrowRight, MapPin, TrendingUp, Building2, ExternalLink } from "lucide-react";
 
 const opportunitiesJsonLd = {
   "@context": "https://schema.org",
