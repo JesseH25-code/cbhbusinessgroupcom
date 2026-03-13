@@ -135,11 +135,35 @@ Deno.serve(async (req) => {
 
 Write in a professional, authoritative tone. Use data and specifics where possible. The audience is business owners considering selling or buying a business.
 
+IMPORTANT — Internal Linking: Naturally weave in 3-5 contextual links to these pages throughout the article where relevant:
+- /sell-business-florida — Selling a business in Florida
+- /sell-business-miami — Selling in Miami
+- /sell-business-tampa — Selling in Tampa
+- /sell-business-orlando — Selling in Orlando
+- /sell-business-jacksonville — Selling in Jacksonville
+- /sell-business-fort-lauderdale — Selling in Fort Lauderdale
+- /business-valuation — Business valuation services
+- /business-valuation-calculator-florida — Free valuation calculator
+- /florida-ma-benchmarks — Florida M&A industry benchmarks
+- /business-growth-roadmap — Business growth roadmap tools
+- /how-to-sell-a-business — Complete guide to selling
+- /what-is-ebitda — EBITDA explained
+- /seller-financing-explained — Seller financing guide
+- /sell-construction-company-florida — Selling a construction company
+- /sell-healthcare-business-florida — Selling a healthcare business
+- /sell-hvac-company-florida — Selling an HVAC company
+- /sell-technology-company-florida — Selling a tech company
+- /sell-manufacturing-company-florida — Selling a manufacturing company
+- /industries — Industry-specific M&A advisory
+- /buyers — For buyers looking to acquire
+- /buy-a-business-in-florida — Buying a business in Florida
+Do NOT force links — only include them where they fit naturally in the text.
+
 Return a JSON object with these exact keys:
 - "title": A compelling, SEO-optimized article title (50-70 characters)
 - "excerpt": A 1-2 sentence summary for the blog listing (under 200 characters)
 - "meta_description": An SEO meta description (under 160 characters)
-- "content": The full article body in clean HTML using <h2>, <h3>, <p>, <ul>, <li>, <strong>, <em>, and <a href="/contact"> tags. Should be 800-1200 words. Include a call-to-action linking to /contact at the end.
+- "content": The full article body in clean HTML using <h2>, <h3>, <p>, <ul>, <li>, <strong>, <em>, and <a href="..."> tags. Should be 800-1200 words. Include internal links as described above. Include a call-to-action linking to /contact at the end.
 
 Return ONLY the JSON object, no markdown code fences.`,
             },
