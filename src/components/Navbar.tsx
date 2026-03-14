@@ -158,6 +158,7 @@ const Navbar = () => {
           </a>
           <div className="gold-divider mb-2" />
           {navItems.map((item) =>
+            item.children ? (
               <div key={item.label}>
                 <button
                   onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
