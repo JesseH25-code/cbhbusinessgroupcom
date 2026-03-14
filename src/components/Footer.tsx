@@ -116,6 +116,7 @@ const Footer = () => (
         <div>
           <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Contact</h4>
           <div className="space-y-3 text-sm text-muted-foreground">
+            <a href="tel:+14073953964" className="block text-foreground hover:text-primary transition-colors font-medium">(407) 395-3964</a>
             <p>1550 Dolphin Drive<br />St. Cloud, FL 34771</p>
             <a href="mailto:George@cbhadvisory.com" className="block hover:text-foreground transition-colors">George@cbhadvisory.com</a>
             <a href="mailto:Richard@cbhadvisory.com" className="block hover:text-foreground transition-colors">Richard@cbhadvisory.com</a>
