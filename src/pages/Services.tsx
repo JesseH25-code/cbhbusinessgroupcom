@@ -3,6 +3,17 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
 
 const services = [
   {
@@ -112,7 +123,7 @@ const Services = () => (
     />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl">
+        <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-3xl">
           <p className="text-xs tracking-widest uppercase text-primary mb-3">Advisory Services</p>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
             Structured Process. Measurable Outcomes.
@@ -121,14 +132,20 @@ const Services = () => (
             Every CBH engagement is built around a defined process, clear milestones, and a commitment 
             to maximizing value for our clients. We bring disciplined execution to every transaction.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
 
     <section className="py-24">
-      <div className="container mx-auto px-6 space-y-16">
+      <motion.div
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="container mx-auto px-6 space-y-16"
+      >
         {services.map((service, i) => (
-          <div key={i} className="grid md:grid-cols-3 gap-8 items-start">
+          <motion.div key={i} variants={fadeUp} className="grid md:grid-cols-3 gap-8 items-start">
             <div>
               <p className="text-xs tracking-widest uppercase text-primary mb-2">{service.subtitle}</p>
               <h2 className="text-2xl font-serif text-foreground">{service.title}</h2>
@@ -143,26 +160,34 @@ const Services = () => (
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
 
     {/* FAQ Section */}
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
-          <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="max-w-3xl mx-auto"
+        >
+          <motion.div variants={fadeUp}>
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
+            <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+          </motion.div>
           <div className="space-y-6">
             {servicesFaq.map((faq, i) => (
-              <div key={i} className="border-b border-border pb-6">
+              <motion.div key={i} variants={fadeUp} className="border-b border-border pb-6">
                 <h3 className="font-serif text-lg text-foreground mb-2">{faq.q}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
 
@@ -170,24 +195,42 @@ const Services = () => (
     <section className="py-16 bg-secondary">
       <div className="container mx-auto px-6">
         <p className="text-xs tracking-widest uppercase text-primary mb-6 text-center">Related Resources</p>
-        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-          <Link to="/sell-business-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
-            <p className="font-serif text-sm text-foreground mb-1">Sell a Business in Florida</p>
-            <p className="text-xs text-muted-foreground">State-specific M&A guidance</p>
-          </Link>
-          <Link to="/business-valuation" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
-            <p className="font-serif text-sm text-foreground mb-1">Business Valuation</p>
-            <p className="text-xs text-muted-foreground">How much is your business worth?</p>
-          </Link>
-          <Link to="/sellers" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
-            <p className="font-serif text-sm text-foreground mb-1">For Sellers</p>
-            <p className="text-xs text-muted-foreground">What drives valuation multiples</p>
-          </Link>
-        </div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto"
+        >
+          <motion.div variants={fadeUp}>
+            <Link to="/sell-business-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center block">
+              <p className="font-serif text-sm text-foreground mb-1">Sell a Business in Florida</p>
+              <p className="text-xs text-muted-foreground">State-specific M&A guidance</p>
+            </Link>
+          </motion.div>
+          <motion.div variants={fadeUp}>
+            <Link to="/business-valuation" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center block">
+              <p className="font-serif text-sm text-foreground mb-1">Business Valuation</p>
+              <p className="text-xs text-muted-foreground">How much is your business worth?</p>
+            </Link>
+          </motion.div>
+          <motion.div variants={fadeUp}>
+            <Link to="/sellers" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center block">
+              <p className="font-serif text-sm text-foreground mb-1">For Sellers</p>
+              <p className="text-xs text-muted-foreground">What drives valuation multiples</p>
+            </Link>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
 
-    <section className="py-20 border-t border-border">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      className="py-20 border-t border-border"
+    >
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-2xl font-serif text-foreground mb-4">Ready to Discuss Your Situation?</h2>
         <p className="text-muted-foreground mb-8">Every conversation begins in confidence.</p>
@@ -197,7 +240,7 @@ const Services = () => (
           </Button>
         </Link>
       </div>
-    </section>
+    </motion.section>
   </Layout>
 );
 
