@@ -15,7 +15,7 @@ const Layout = ({ children }: LayoutProps) => (
       Skip to main content
     </a>
     <Navbar />
-    <main id="main-content" className="flex-1 pt-[86px]">{children}</main>
+    <main id="main-content" className="flex-1 pt-24">{children}</main>
     <RecommendedNext />
     <Footer />
     <ChatWidget />
