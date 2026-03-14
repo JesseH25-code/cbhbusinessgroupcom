@@ -121,6 +121,14 @@ const Footer = () => (
             <p>Richard@cbhadvisory.com</p>
             <p>Jesse@cbhadvisory.com</p>
             <p>Santiago@cbhadvisory.com</p>
+            <div className="flex gap-3 pt-2">
+              <a href="https://www.linkedin.com/in/jesse-hastings-3291ba32/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin size={20} />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61569796270430" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook size={20} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
