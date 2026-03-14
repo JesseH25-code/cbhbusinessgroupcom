@@ -117,10 +117,10 @@ const Footer = () => (
           <h4 className="text-xs font-sans font-semibold tracking-widest uppercase text-primary mb-4">Contact</h4>
           <div className="space-y-3 text-sm text-muted-foreground">
             <p>1550 Dolphin Drive<br />St. Cloud, FL 34771</p>
-            <p>George@cbhadvisory.com</p>
-            <p>Richard@cbhadvisory.com</p>
-            <p>Jesse@cbhadvisory.com</p>
-            <p>Santiago@cbhadvisory.com</p>
+            <a href="mailto:George@cbhadvisory.com" className="block hover:text-foreground transition-colors">George@cbhadvisory.com</a>
+            <a href="mailto:Richard@cbhadvisory.com" className="block hover:text-foreground transition-colors">Richard@cbhadvisory.com</a>
+            <a href="mailto:Jesse@cbhadvisory.com" className="block hover:text-foreground transition-colors">Jesse@cbhadvisory.com</a>
+            <a href="mailto:Santiago@cbhadvisory.com" className="block hover:text-foreground transition-colors">Santiago@cbhadvisory.com</a>
             <div className="flex gap-3 pt-2">
               <a href="https://www.linkedin.com/in/jesse-hastings-3291ba32/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin size={20} />
