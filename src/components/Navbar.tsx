@@ -70,20 +70,24 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 h-1.5 bg-[hsl(220_30%_15%)]" />
-      <nav className="fixed top-1.5 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
-      <div className="container mx-auto flex items-center justify-between h-20 px-6">
+      {/* Utility Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-[hsl(220_30%_12%)] border-b border-primary/10">
+        <div className="container mx-auto flex items-center justify-end h-8 px-6">
+          <a href="tel:+14079083845" className="flex items-center gap-2 text-primary/90 hover:text-primary transition-colors text-[11px] font-sans font-medium tracking-widest uppercase">
+            <Phone className="w-3 h-3" />
+            (407) 908-3845
+          </a>
+        </div>
+      </div>
+
+      <nav className="fixed top-8 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
+      <div className="container mx-auto flex items-center justify-between h-16 px-6">
         <Link to="/" className="font-serif text-xl tracking-wider text-foreground">
           CBH<span className="text-primary"> Business Group</span>
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-7">
-          <a href="tel:+14079083845" className="flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors text-xs font-sans font-semibold tracking-widest uppercase">
-            <Phone className="w-3.5 h-3.5" />
-            (407) 908-3845
-          </a>
-          <div className="h-4 w-px bg-border" />
           {navItems.map((item) =>
             item.children ? (
               <div
