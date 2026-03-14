@@ -157,7 +157,7 @@ const Navbar = () => {
             (407) 908-3845
           </a>
           <div className="gold-divider mb-2" />
-            item.children ? (
+          {navItems.map((item) =>
               <div key={item.label}>
                 <button
                   onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
