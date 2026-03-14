@@ -79,9 +79,9 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-7">
-          <a href="tel:+14073953964" className="flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors text-xs font-sans font-semibold tracking-widest uppercase">
+          <a href="tel:+14079083845" className="flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors text-xs font-sans font-semibold tracking-widest uppercase">
             <Phone className="w-3.5 h-3.5" />
-            (407) 395-3964
+            (407) 908-3845
           </a>
           <div className="h-4 w-px bg-border" />
           {navItems.map((item) =>
