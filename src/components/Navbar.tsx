@@ -152,7 +152,11 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-background border-t border-border px-6 py-6 space-y-1">
-          {navItems.map((item) =>
+          <a href="tel:+14079083845" className="flex items-center gap-2 py-3 text-sm font-sans font-semibold tracking-widest uppercase text-primary">
+            <Phone className="w-4 h-4" />
+            (407) 908-3845
+          </a>
+          <div className="gold-divider mb-2" />
             item.children ? (
               <div key={item.label}>
                 <button

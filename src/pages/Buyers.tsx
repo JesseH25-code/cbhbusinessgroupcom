@@ -6,6 +6,17 @@ import IndustryExplorer from "@/components/IndustryExplorer";
 import { ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
 
 const buyerTypes = [
   { type: "Private Equity", desc: "Platform and add-on acquisitions for PE-backed portfolio companies." },
@@ -49,7 +60,6 @@ const buyersFaqJsonLd = {
 const Buyers = () => {
   const [form, setForm] = useState({ name: "", firm: "", email: "", criteria: "", type: "" });
   const [submitted, setSubmitted] = useState(false);
-
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -88,10 +98,10 @@ const Buyers = () => {
           { name: "For Buyers", path: "/buyers" },
         ]}
       />
-      {/* ... keep existing code (hero, buyer types, industry explorer, NDA + form sections) */}
+
       <section className="py-24 bg-gradient-section">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl">
+          <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-3xl">
             <p className="text-xs tracking-widest uppercase text-primary mb-3">For Acquirers</p>
             <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">Join Our Acquisition Network</h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
@@ -101,22 +111,35 @@ const Buyers = () => {
             <a href="#buyer-form" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 text-sm tracking-wide uppercase hover:bg-primary/90 transition-colors">
               Register as a Buyer <ArrowRight className="w-4 h-4" />
             </a>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Buyer Profiles</p>
-          <h2 className="text-3xl font-serif text-foreground mb-12">Types of Qualified Buyers</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+          >
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Buyer Profiles</p>
+            <h2 className="text-3xl font-serif text-foreground mb-12">Types of Qualified Buyers</h2>
+          </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-2 gap-8"
+          >
             {buyerTypes.map((b, i) => (
-              <div key={i} className="bg-card border border-border p-8">
+              <motion.div key={i} variants={fadeUp} className="bg-card border border-border p-8">
                 <h3 className="font-serif text-lg text-foreground mb-2">{b.type}</h3>
                 <p className="text-sm text-muted-foreground">{b.desc}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -124,8 +147,14 @@ const Buyers = () => {
 
       <section id="buyer-form" className="py-24">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16">
-            <div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-2 gap-16"
+          >
+            <motion.div variants={fadeUp}>
               <p className="text-xs tracking-widest uppercase text-primary mb-3">Process</p>
               <h2 className="text-3xl font-serif text-foreground mb-6">NDA-Protected Access</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
@@ -137,8 +166,8 @@ const Buyers = () => {
                 Once approved, you will receive anonymized opportunity summaries matching your 
                 acquisition criteria. Full CIMs are provided upon execution of deal-specific NDAs.
               </p>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={fadeUp}>
               <h2 className="text-3xl font-serif text-foreground mb-6">Submit Acquisition Criteria</h2>
               {submitted ? (
                 <div className="bg-card border border-primary/30 p-8 text-center">
@@ -180,26 +209,34 @@ const Buyers = () => {
                   </Button>
                 </form>
               )}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* FAQ Section */}
       <section className="py-24 bg-secondary">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
-            <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="max-w-3xl mx-auto"
+          >
+            <motion.div variants={fadeUp}>
+              <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
+              <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+            </motion.div>
             <div className="space-y-6">
               {buyersFaq.map((faq, i) => (
-                <div key={i} className="border-b border-border pb-6">
+                <motion.div key={i} variants={fadeUp} className="border-b border-border pb-6">
                   <h3 className="font-serif text-lg text-foreground mb-2">{faq.q}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </Layout>

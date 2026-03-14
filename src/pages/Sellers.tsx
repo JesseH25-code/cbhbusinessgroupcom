@@ -4,6 +4,17 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { faqJsonLd } from "@/lib/seo-data";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
 
 const valueDrivers = [
   { title: "EBITDA Quality", desc: "Buyers pay premiums for clean, recurring, and growing earnings streams with defensible margins." },
@@ -64,37 +75,55 @@ const Sellers = () => (
     />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl">
+        <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-3xl">
           <p className="text-xs tracking-widest uppercase text-primary mb-3">For Business Owners</p>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">Considering a Transaction?</h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Understanding what drives valuation, how transactions are structured, and what to 
             expect from a confidential sale process.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
 
     {/* Valuation Drivers */}
     <section className="py-24">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={fadeUp}
+          className="text-center mb-16"
+        >
           <p className="text-xs tracking-widest uppercase text-primary mb-3">Valuation</p>
           <h2 className="text-3xl font-serif text-foreground">What Drives Valuation Multiples</h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        </motion.div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-3 gap-8"
+        >
           {valueDrivers.map((driver, i) => (
-            <div key={i} className="border-l border-primary/20 pl-6">
+            <motion.div key={i} variants={fadeUp} className="border-l border-primary/20 pl-6">
               <h3 className="font-serif text-foreground mb-2">{driver.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{driver.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
 
     {/* EBITDA vs EV */}
-    <section className="py-24 bg-secondary">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+      variants={fadeUp}
+      className="py-24 bg-secondary"
+    >
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs tracking-widest uppercase text-primary mb-3">Fundamentals</p>
@@ -115,13 +144,19 @@ const Sellers = () => (
           </p>
         </div>
       </div>
-    </section>
+    </motion.section>
 
     {/* Process & Timeline */}
     <section className="py-24">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16">
-          <div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 gap-16"
+        >
+          <motion.div variants={fadeUp}>
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Process</p>
             <h2 className="text-3xl font-serif text-foreground mb-6">Confidential Process Overview</h2>
             <div className="space-y-4 text-sm text-muted-foreground">
@@ -129,8 +164,8 @@ const Sellers = () => (
               <p>We create a comprehensive investment thesis, identify and pre-qualify buyers, manage all communications, and negotiate on your behalf — protecting your identity and business operations throughout.</p>
               <p>You remain in control at every stage. No commitment to sell is required until final terms are agreed upon.</p>
             </div>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div variants={fadeUp}>
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Timeline</p>
             <h2 className="text-3xl font-serif text-foreground mb-6">Typical Timeline: 6–9 Months</h2>
             <div className="space-y-4">
@@ -146,44 +181,60 @@ const Sellers = () => (
                 </div>
               ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
 
     {/* Value Killers */}
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Risk Factors</p>
-          <h2 className="text-3xl font-serif text-foreground mb-8">Common Value Killers</h2>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="max-w-3xl mx-auto"
+        >
+          <motion.div variants={fadeUp}>
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Risk Factors</p>
+            <h2 className="text-3xl font-serif text-foreground mb-8">Common Value Killers</h2>
+          </motion.div>
           <div className="space-y-4">
             {valueKillers.map((item, i) => (
-              <div key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+              <motion.div key={i} variants={fadeUp} className="flex items-start gap-3 text-sm text-muted-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-1.5 shrink-0" />
                 {item}
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
 
     {/* FAQ Section */}
     <section className="py-24">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
-          <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="max-w-3xl mx-auto"
+        >
+          <motion.div variants={fadeUp}>
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
+            <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+          </motion.div>
           <div className="space-y-6">
             {faqItems.map((faq, i) => (
-              <div key={i} className="border-b border-border pb-6">
+              <motion.div key={i} variants={fadeUp} className="border-b border-border pb-6">
                 <h3 className="font-serif text-lg text-foreground mb-2">{faq.q}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
 
@@ -191,29 +242,38 @@ const Sellers = () => (
     <section className="py-16 bg-secondary">
       <div className="container mx-auto px-6">
         <p className="text-xs tracking-widest uppercase text-primary mb-6 text-center">Related Resources</p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
-          <Link to="/sell-business-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
-            <p className="font-serif text-sm text-foreground mb-1">Sell a Business in Florida</p>
-            <p className="text-xs text-muted-foreground">Florida-specific guide</p>
-          </Link>
-          <Link to="/business-valuation" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
-            <p className="font-serif text-sm text-foreground mb-1">Business Valuation</p>
-            <p className="text-xs text-muted-foreground">EBITDA analysis & multiples</p>
-          </Link>
-          <Link to="/industries" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
-            <p className="font-serif text-sm text-foreground mb-1">Industry Expertise</p>
-            <p className="text-xs text-muted-foreground">Sector-specific advisory</p>
-          </Link>
-          <Link to="/opportunities" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
-            <p className="font-serif text-sm text-foreground mb-1">Current Opportunities</p>
-            <p className="text-xs text-muted-foreground">Active deal listings</p>
-          </Link>
-        </div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"
+        >
+          {[
+            { label: "Sell a Business in Florida", desc: "Florida-specific guide", path: "/sell-business-florida" },
+            { label: "Business Valuation", desc: "EBITDA analysis & multiples", path: "/business-valuation" },
+            { label: "Industry Expertise", desc: "Sector-specific advisory", path: "/industries" },
+            { label: "Current Opportunities", desc: "Active deal listings", path: "/opportunities" },
+          ].map((item) => (
+            <motion.div key={item.path} variants={fadeUp}>
+              <Link to={item.path} className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center block">
+                <p className="font-serif text-sm text-foreground mb-1">{item.label}</p>
+                <p className="text-xs text-muted-foreground">{item.desc}</p>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
 
     {/* CTA */}
-    <section className="py-20 border-t border-border">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeUp}
+      className="py-20 border-t border-border"
+    >
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-2xl font-serif text-foreground mb-4">Request a Confidential Assessment</h2>
         <p className="text-muted-foreground mb-8">No obligation. Complete discretion.</p>
@@ -223,7 +283,7 @@ const Sellers = () => (
           </Button>
         </Link>
       </div>
-    </section>
+    </motion.section>
   </Layout>
 );
 

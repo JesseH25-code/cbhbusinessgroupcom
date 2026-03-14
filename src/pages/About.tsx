@@ -4,6 +4,17 @@ import georgeImg from "@/assets/george-hastings.jpg";
 import richardImg from "@/assets/richard-bradley.jpg";
 import jesseImg from "@/assets/jesse-hastings.jpg";
 import santiagoImg from "@/assets/santiago-flores.jpg";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
 
 const team = [
   {
@@ -49,7 +60,7 @@ const About = () => (
     />
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl">
+        <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-3xl">
           <p className="text-xs tracking-widest uppercase text-primary mb-3">About the Firm</p>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
             Strategic Advisory. Meaningful Outcomes.
@@ -60,15 +71,21 @@ const About = () => (
             and structured exit planning. With over 50 years of combined experience, our team has worked
             with more than 2,300 buyers and facilitated transactions across multiple industries.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
 
     {/* What Sets Us Apart */}
     <section className="py-24">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16">
-          <div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 gap-16"
+        >
+          <motion.div variants={fadeUp}>
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Our Approach</p>
             <h2 className="text-3xl font-serif text-foreground mb-6">What Sets Us Apart.</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
@@ -80,8 +97,8 @@ const About = () => (
               To maintain this level of dedicated service, we limit our active client base to just 10
               businesses at a time — giving your transaction the focused attention it deserves.
             </p>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div variants={fadeUp}>
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Advisory Focus</p>
             <h2 className="text-3xl font-serif text-foreground mb-6">What We Do.</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -102,21 +119,33 @@ const About = () => (
                 <p className="text-sm">Structured deal management from LOI through closing and transition.</p>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
 
     {/* Team Bios */}
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={fadeUp}
+          className="text-center mb-16"
+        >
           <p className="text-xs tracking-widest uppercase text-primary mb-3">Leadership</p>
           <h2 className="text-3xl md:text-4xl font-serif text-foreground">Meet Our Experts</h2>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        </motion.div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-10"
+        >
           {team.map((member) => (
-            <div key={member.name} className="group">
+            <motion.div key={member.name} variants={fadeUp} className="group">
               <div className="aspect-[4/3.3] overflow-hidden rounded-lg mb-6">
                 <img
                   src={member.image}
@@ -131,14 +160,20 @@ const About = () => (
               <h3 className="text-xl font-serif text-foreground mb-1">{member.name}</h3>
               <a href={`mailto:${member.email}`} className="text-xs text-primary hover:text-primary/80 transition-colors mb-3 block">{member.email}</a>
               <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
 
     {/* Philosophy */}
-    <section className="py-24">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+      variants={fadeUp}
+      className="py-24"
+    >
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs tracking-widest uppercase text-primary mb-3">Philosophy</p>
@@ -154,7 +189,7 @@ const About = () => (
           </p>
         </div>
       </div>
-    </section>
+    </motion.section>
   </Layout>
 );
 
