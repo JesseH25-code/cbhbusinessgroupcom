@@ -7,6 +7,17 @@ import { organizationJsonLd, localBusinessJsonLd } from "@/lib/seo-data";
 import heroImage from "@/assets/hero-skyline.jpg";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
 
 const stats = [
   { value: "$3M–$50M", label: "Transaction Range" },
@@ -98,25 +109,45 @@ const Index = () => {
         <div className="relative container mx-auto px-6">
           <div className="max-w-3xl">
             {/* Live Ticker */}
-            <div className="inline-flex items-center gap-3 bg-card/80 backdrop-blur border border-border rounded-full px-5 py-2 mb-8 mt-8 md:mt-0">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-3 bg-card/80 backdrop-blur border border-border rounded-full px-5 py-2 mb-8 mt-8 md:mt-0"
+            >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
               </span>
               <span className="text-sm text-muted-foreground">Deal Volume to Date:</span>
               <span className="text-sm font-serif font-semibold text-primary tabular-nums">{formatDollars(closedAmount)}</span>
-            </div>
+            </motion.div>
 
             <div className="gold-divider w-24 mb-8" />
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-6 text-foreground animate-fade-in">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight mb-6 text-foreground"
+            >
               Strategic M&A Advisory for Businesses Valued $3M–$50M.
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+            >
               CBH Business Group advises owners of privately held companies through confidential sale transactions, 
               valuation advisory, and structured exit planning. We are not a listing service — we provide 
               hands-on advisory, buyer targeting, negotiation, and deal structuring.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-12 md:pb-0 max-w-2xl">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-12 md:pb-0 max-w-2xl"
+            >
               <Link to="/contact">
                 <Button variant="heroOutline" size="lg" className="w-full">Request Confidential Valuation</Button>
               </Link>
@@ -126,7 +157,7 @@ const Index = () => {
               <Link to="/buyers#buyer-form">
                 <Button variant="heroOutline" size="lg" className="w-full">Join Buyer Network</Button>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -134,48 +165,78 @@ const Index = () => {
       {/* Credibility Strip */}
       <section className="border-y border-border bg-secondary">
         <div className="container mx-auto px-6 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
+              <motion.div key={stat.label} variants={fadeUp} className="text-center">
                 <p className="text-2xl md:text-3xl font-serif text-primary mb-1">{stat.value}</p>
                 <p className="text-xs tracking-widest uppercase text-muted-foreground">{stat.label}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Advisory Approach */}
       <section className="py-24 bg-gradient-section">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center mb-16"
+          >
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Our Process</p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground">A Disciplined Advisory Approach</h2>
-          </div>
-          <div className="max-w-3xl mx-auto space-y-8">
+          </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="max-w-3xl mx-auto space-y-8"
+          >
             {steps.map((step) => (
-              <div key={step.num} className="flex gap-6 group">
+              <motion.div key={step.num} variants={fadeUp} className="flex gap-6 group">
                 <span className="text-primary font-serif text-2xl opacity-50 group-hover:opacity-100 transition-opacity">{step.num}</span>
                 <div className="border-l border-border pl-6 pb-2">
                   <h3 className="font-serif text-lg text-foreground mb-1">{step.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Transaction Experience */}
       <section className="py-24 bg-secondary">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center mb-16"
+          >
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Track Record</p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground">Selected Transaction Experience</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-3 gap-8"
+          >
             {deals.map((deal, i) => (
-              <div key={i} className="bg-card border border-border p-8 hover:border-primary/30 transition-colors duration-300 flex flex-col">
+              <motion.div key={i} variants={fadeUp} className="bg-card border border-border p-8 hover:border-primary/30 transition-colors duration-300 flex flex-col">
                 <p className="text-xs tracking-widest uppercase text-primary mb-5">{deal.industry}</p>
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-sm">
@@ -205,16 +266,22 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Exit Readiness */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="max-w-3xl mx-auto text-center"
+          >
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Exit Planning</p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-6">Preparation and Structure Drive Valuation.</h2>
             <p className="text-muted-foreground leading-relaxed mb-12">
@@ -222,28 +289,40 @@ const Index = () => {
               Our exit readiness framework addresses the key factors that buyers evaluate 
               when determining what a company is worth.
             </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto"
+          >
             {[
               { icon: BarChart3, title: "Financial Normalization", desc: "Clean, adjusted financials that reflect true earnings power and EBITDA clarity." },
               { icon: TrendingUp, title: "Growth Narrative", desc: "A credible, data-supported case for continued value creation post-transaction." },
               { icon: Shield, title: "Risk Mitigation", desc: "Addressing customer concentration, key-person dependency, and operational risks." },
               { icon: Users, title: "Working Capital Clarity", desc: "Clear definitions and benchmarks for smooth deal mechanics and closing." },
             ].map((item, i) => (
-              <div key={i} className="text-center">
+              <motion.div key={i} variants={fadeUp} className="text-center">
                 <item.icon className="w-8 h-8 text-primary mx-auto mb-4" strokeWidth={1.5} />
                 <h3 className="font-serif text-sm text-foreground mb-2">{item.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-          <div className="text-center mt-12">
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="text-center mt-12"
+          >
             <Link to="/contact">
               <Button variant="heroOutline" size="lg">
                 Begin Exit Planning <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -253,14 +332,26 @@ const Index = () => {
       {/* Industry Landing Pages */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center mb-16"
+          >
             <p className="text-xs tracking-widest uppercase text-primary mb-3">Industry Expertise</p>
             <h2 className="text-3xl md:text-4xl font-serif text-foreground">Sector-Specific Advisory</h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               Every industry has unique valuation drivers and buyer landscapes. We bring sector fluency to every engagement.
             </p>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          >
             {[
               { label: "Construction & Engineering", path: "/sell-construction-company-florida" },
               { label: "Healthcare Services", path: "/sell-healthcare-business-florida" },
@@ -272,19 +363,27 @@ const Index = () => {
               { label: "Restaurants & Food Service", path: "/sell-restaurant-florida" },
               { label: "All Industries", path: "/industries" },
             ].map((item, i) => (
-              <Link key={i} to={item.path} className="bg-card border border-border p-6 hover:border-primary/30 transition-colors group">
-                <p className="font-serif text-sm text-foreground group-hover:text-primary transition-colors flex items-center justify-between">
-                  {item.label}
-                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                </p>
-              </Link>
+              <motion.div key={i} variants={fadeUp}>
+                <Link to={item.path} className="bg-card border border-border p-6 hover:border-primary/30 transition-colors group block">
+                  <p className="font-serif text-sm text-foreground group-hover:text-primary transition-colors flex items-center justify-between">
+                    {item.label}
+                    <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </p>
+                </Link>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Lead Magnet CTA */}
-      <section className="py-20 bg-secondary border-y border-border">
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={fadeUp}
+        className="py-20 bg-secondary border-y border-border"
+      >
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-4">The 8 Drivers of Enterprise Value</h2>
           <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
@@ -296,7 +395,7 @@ const Index = () => {
             </Button>
           </Link>
         </div>
-      </section>
+      </motion.section>
 
 
 

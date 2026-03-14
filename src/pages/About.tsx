@@ -121,6 +121,9 @@ const About = () => (
                 <img
                   src={member.image}
                   alt={`${member.name}, ${member.title} at CBH Business Group`}
+                  loading="lazy"
+                  width={400}
+                  height={330}
                   className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>
