@@ -140,6 +140,18 @@ const App = () => (
               <Route path="/business-broker-jacksonville" element={<BusinessBrokerJacksonville />} />
               <Route path="/business-broker-fort-lauderdale" element={<BusinessBrokerFortLauderdale />} />
               <Route path="/growth-roadmap" element={<Navigate to="/business-growth-roadmap" replace />} />
+              <Route path="/valuation" element={<Navigate to="/valuation-calculator" replace />} />
+              <Route path="/business-valuation-calculator" element={<Navigate to="/business-valuation-calculator-florida" replace />} />
+              <Route path="/sell-my-business" element={<Navigate to="/sell-business-florida" replace />} />
+              <Route path="/sell-business" element={<Navigate to="/sell-business-florida" replace />} />
+              <Route path="/sell-a-business" element={<Navigate to="/sell-business-florida" replace />} />
+              <Route path="/buy-business" element={<Navigate to="/buy-a-business-in-florida" replace />} />
+              <Route path="/buy-a-business" element={<Navigate to="/buy-a-business-in-florida" replace />} />
+              <Route path="/benchmarks" element={<Navigate to="/florida-ma-benchmarks" replace />} />
+              <Route path="/ma-benchmarks" element={<Navigate to="/florida-ma-benchmarks" replace />} />
+              <Route path="/ebitda" element={<Navigate to="/what-is-ebitda" replace />} />
+              <Route path="/broker-vs-advisor" element={<Navigate to="/business-broker-vs-ma-advisor" replace />} />
+              <Route path="/seller-financing" element={<Navigate to="/seller-financing-explained" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
