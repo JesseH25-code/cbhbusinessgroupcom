@@ -327,6 +327,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Professional Badges */}
+      <ProfessionalBadges />
+
       {/* Testimonials */}
       <Testimonials />
 
