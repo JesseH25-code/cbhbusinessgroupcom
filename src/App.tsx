@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 
@@ -139,6 +139,7 @@ const App = () => (
               <Route path="/business-broker-orlando" element={<BusinessBrokerOrlando />} />
               <Route path="/business-broker-jacksonville" element={<BusinessBrokerJacksonville />} />
               <Route path="/business-broker-fort-lauderdale" element={<BusinessBrokerFortLauderdale />} />
+              <Route path="/growth-roadmap" element={<Navigate to="/business-growth-roadmap" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
