@@ -496,6 +496,7 @@ const ValuationCalculator = () => {
           </div>
         </div>
       </section>
+      <ValuationPackages />
     </Layout>
   );
 };

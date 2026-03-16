@@ -7,6 +7,7 @@ import { organizationJsonLd, localBusinessJsonLd } from "@/lib/seo-data";
 import heroImage from "@/assets/hero-skyline.jpg";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
+import ProfessionalBadges from "@/components/ProfessionalBadges";
 import { motion } from "framer-motion";
 
 const fadeUp = {
