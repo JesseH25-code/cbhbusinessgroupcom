@@ -60,7 +60,7 @@ const consultingFaq = [
   },
   {
     q: "Can I engage CBH for consulting without planning to sell?",
-    a: "Absolutely. Many of our consulting clients are focused purely on operational improvement and growth — with no near-term exit in mind. The disciplines we bring (financial clarity, operational efficiency, risk mitigation) create value regardless of your timeline.",
+    a: "Absolutely. Many of our consulting clients are focused purely on operational improvement and growth — with no near-term exit in mind. Our AI and automation services, for example, deliver immediate ROI through cost reduction and efficiency gains. The disciplines we bring (financial clarity, operational efficiency, risk mitigation) create value regardless of your timeline.",
   },
   {
     q: "What size companies do you work with for consulting?",
