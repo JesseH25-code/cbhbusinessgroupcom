@@ -131,6 +131,8 @@ const App = () => (
               <Route path="/business-growth-roadmap" element={<BusinessGrowthRoadmap />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/florida-ma-benchmarks" element={<FloridaMABenchmarks />} />
+              <Route path="/ai-automation-consulting-florida" element={<AIAutomationConsultingFlorida />} />
+              <Route path="/workflow-optimization-florida" element={<WorkflowOptimizationFlorida />} />
               <Route path="/sell-my-business-miami" element={<SellMyBusinessMiami />} />
               <Route path="/sell-my-business-tampa" element={<SellMyBusinessTampa />} />
               <Route path="/sell-my-business-orlando" element={<SellMyBusinessOrlando />} />
