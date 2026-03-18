@@ -156,6 +156,9 @@ const App = () => (
               <Route path="/ebitda" element={<Navigate to="/what-is-ebitda" replace />} />
               <Route path="/broker-vs-advisor" element={<Navigate to="/business-broker-vs-ma-advisor" replace />} />
               <Route path="/seller-financing" element={<Navigate to="/seller-financing-explained" replace />} />
+              <Route path="/ai-consulting" element={<Navigate to="/ai-automation-consulting-florida" replace />} />
+              <Route path="/automation-consulting" element={<Navigate to="/ai-automation-consulting-florida" replace />} />
+              <Route path="/workflow-optimization" element={<Navigate to="/workflow-optimization-florida" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
