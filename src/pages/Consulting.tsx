@@ -33,6 +33,20 @@ const consultingServices = [
       "Vendor and supply chain rationalization",
     ],
   },
+  {
+    title: "AI, Automation & Workflow Optimization",
+    subtitle: "Modernize Operations Without a Full Engagement",
+    description:
+      "Not every company needs a comprehensive consulting engagement. For owners looking to gain immediate operational leverage, we design and implement targeted AI solutions, workflow automations, and process optimizations that reduce costs, improve efficiency, and drive measurable improvements to net profitability — directly impacting EBITDA and exit valuation.",
+    points: [
+      "AI-powered process automation to eliminate manual bottlenecks",
+      "Workflow design and integration across existing technology platforms",
+      "Intelligent reporting and decision-support systems",
+      "Cost reduction through operational streamlining and automation",
+      "Revenue cycle and billing process optimization",
+      "Scalable systems that increase enterprise value and buyer attractiveness",
+    ],
+  },
 ];
 
 const consultingFaq = [
