@@ -130,6 +130,11 @@ const Consulting = () => (
               <p className="text-xs tracking-widest uppercase text-primary mb-2">{service.subtitle}</p>
               <h2 className="text-2xl font-serif text-foreground mb-4">{service.title}</h2>
               <p className="text-sm text-muted-foreground leading-relaxed">{service.description}</p>
+              {service.link && (
+                <Link to={service.link} className="inline-block mt-4 text-sm text-primary hover:text-primary/80 font-semibold tracking-wide">
+                  {service.linkLabel}
+                </Link>
+              )}
             </div>
             <div className="md:col-span-2 bg-card border border-border p-8">
               <ul className="space-y-3">
