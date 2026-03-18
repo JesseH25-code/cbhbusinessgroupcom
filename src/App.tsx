@@ -56,6 +56,8 @@ const BusinessValuationCalculatorPalmBeach = lazy(() => import("./pages/Business
 const BusinessGrowthRoadmap = lazy(() => import("./pages/BusinessGrowthRoadmap"));
 const Resources = lazy(() => import("./pages/Resources"));
 const FloridaMABenchmarks = lazy(() => import("./pages/FloridaMABenchmarks"));
+const AIAutomationConsultingFlorida = lazy(() => import("./pages/AIAutomationConsultingFlorida"));
+const WorkflowOptimizationFlorida = lazy(() => import("./pages/WorkflowOptimizationFlorida"));
 const SellMyBusinessMiami = lazy(() => import("./pages/SellMyBusinessMiami"));
 const SellMyBusinessTampa = lazy(() => import("./pages/SellMyBusinessTampa"));
 const SellMyBusinessOrlando = lazy(() => import("./pages/SellMyBusinessOrlando"));
@@ -129,6 +131,8 @@ const App = () => (
               <Route path="/business-growth-roadmap" element={<BusinessGrowthRoadmap />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/florida-ma-benchmarks" element={<FloridaMABenchmarks />} />
+              <Route path="/ai-automation-consulting-florida" element={<AIAutomationConsultingFlorida />} />
+              <Route path="/workflow-optimization-florida" element={<WorkflowOptimizationFlorida />} />
               <Route path="/sell-my-business-miami" element={<SellMyBusinessMiami />} />
               <Route path="/sell-my-business-tampa" element={<SellMyBusinessTampa />} />
               <Route path="/sell-my-business-orlando" element={<SellMyBusinessOrlando />} />
@@ -152,6 +156,9 @@ const App = () => (
               <Route path="/ebitda" element={<Navigate to="/what-is-ebitda" replace />} />
               <Route path="/broker-vs-advisor" element={<Navigate to="/business-broker-vs-ma-advisor" replace />} />
               <Route path="/seller-financing" element={<Navigate to="/seller-financing-explained" replace />} />
+              <Route path="/ai-consulting" element={<Navigate to="/ai-automation-consulting-florida" replace />} />
+              <Route path="/automation-consulting" element={<Navigate to="/ai-automation-consulting-florida" replace />} />
+              <Route path="/workflow-optimization" element={<Navigate to="/workflow-optimization-florida" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
