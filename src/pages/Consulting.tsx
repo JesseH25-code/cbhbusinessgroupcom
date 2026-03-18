@@ -46,6 +46,8 @@ const consultingServices = [
       "Revenue cycle and billing process optimization",
       "Scalable systems that increase enterprise value and buyer attractiveness",
     ],
+    link: "/ai-automation-consulting-florida",
+    linkLabel: "Learn More About AI & Automation →",
   },
 ];
 
