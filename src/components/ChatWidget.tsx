@@ -65,6 +65,14 @@ async function streamChat({
   onDone();
 }
 
+const SUGGESTIONS = [
+  "What's my business worth?",
+  "How do I sell my business?",
+  "Tell me about your AI & automation services",
+  "What industries do you specialize in?",
+  "How long does the M&A process take?",
+];
+
 const ChatWidget = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -76,8 +84,8 @@ const ChatWidget = () => {
     scrollRef.current?.scrollTo(0, scrollRef.current.scrollHeight);
   }, [messages]);
 
-  const send = async () => {
-    const text = input.trim();
+  const send = async (overrideText?: string) => {
+    const text = (overrideText || input).trim();
     if (!text || loading) return;
     const userMsg: Msg = { role: "user", content: text };
     const newMsgs = [...messages, userMsg];
@@ -148,14 +156,25 @@ const ChatWidget = () => {
           {/* Messages */}
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3">
             {messages.length === 0 && (
-              <div className="text-center text-muted-foreground text-sm py-8">
+              <div className="text-center text-muted-foreground text-sm py-4">
                 <p className="font-heading font-semibold text-foreground mb-2">
                   Welcome to CBH Business Group
                 </p>
-                <p>
+                <p className="mb-4">
                   Ask about business valuations, the selling process, growth
                   strategies, or anything M&A-related.
                 </p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {SUGGESTIONS.map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => send(s)}
+                      className="text-xs px-3 py-1.5 rounded-full border border-border bg-background text-foreground hover:bg-secondary transition-colors text-left"
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
             {messages.map((m, i) => (
