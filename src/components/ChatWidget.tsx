@@ -65,6 +65,14 @@ async function streamChat({
   onDone();
 }
 
+const SUGGESTIONS = [
+  "What's my business worth?",
+  "How do I sell my business?",
+  "Tell me about your AI & automation services",
+  "What industries do you specialize in?",
+  "How long does the M&A process take?",
+];
+
 const ChatWidget = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
