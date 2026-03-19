@@ -168,38 +168,7 @@ const ChatWidget = () => {
                   {SUGGESTIONS.map((s) => (
                     <button
                       key={s}
-                      onClick={() => {
-                        setInput(s);
-                        setTimeout(() => {
-                          setInput("");
-                          const userMsg: Msg = { role: "user", content: s };
-                          const newMsgs = [userMsg];
-                          setMessages(newMsgs);
-                          setLoading(true);
-                          let assistantSoFar = "";
-                          const upsert = (chunk: string) => {
-                            assistantSoFar += chunk;
-                            setMessages((prev) => {
-                              const last = prev[prev.length - 1];
-                              if (last?.role === "assistant") {
-                                return prev.map((m, i) =>
-                                  i === prev.length - 1 ? { ...m, content: assistantSoFar } : m
-                                );
-                              }
-                              return [...prev, { role: "assistant", content: assistantSoFar }];
-                            });
-                          };
-                          streamChat({
-                            messages: newMsgs,
-                            onDelta: upsert,
-                            onDone: () => setLoading(false),
-                            onError: (e) => {
-                              setMessages((prev) => [...prev, { role: "assistant", content: e }]);
-                              setLoading(false);
-                            },
-                          });
-                        }, 0);
-                      }}
+                      onClick={() => send(s)}
                       className="text-xs px-3 py-1.5 rounded-full border border-border bg-background text-foreground hover:bg-secondary transition-colors text-left"
                     >
                       {s}
