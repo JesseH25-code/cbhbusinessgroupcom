@@ -73,39 +73,78 @@ const INITIAL_SUGGESTIONS = [
   "How long does the M&A process take?",
 ];
 
-const FOLLOW_UP_SUGGESTIONS: Record<string, string[]> = {
-  "What's my business worth?": [
-    "What multiples apply to my industry?",
-    "How can I increase my valuation?",
-    "Schedule a free valuation consultation",
-  ],
-  "How do I sell my business?": [
-    "What documents do I need to prepare?",
-    "How do you find qualified buyers?",
-    "What are your M&A advisory fees?",
-  ],
-  "Tell me about your AI & automation services": [
-    "What kind of ROI can I expect?",
-    "Which processes can be automated?",
-    "How does automation impact my exit valuation?",
-  ],
-  "What industries do you specialize in?": [
-    "Tell me about healthcare M&A in Florida",
-    "What are construction company multiples?",
-    "How do you value a technology company?",
-  ],
-  "How long does the M&A process take?": [
-    "What can delay a deal?",
-    "How do I prepare for due diligence?",
-    "What's the difference between a broker and M&A advisor?",
-  ],
-};
+const FOLLOW_UP_KEYWORDS: { keywords: string[]; suggestions: string[] }[] = [
+  {
+    keywords: ["worth", "valuation", "value", "multiple"],
+    suggestions: [
+      "What multiples apply to my industry?",
+      "How can I increase my valuation?",
+      "Schedule a free valuation consultation",
+    ],
+  },
+  {
+    keywords: ["sell", "selling", "exit", "sale"],
+    suggestions: [
+      "What documents do I need to prepare?",
+      "How do you find qualified buyers?",
+      "What are your M&A advisory fees?",
+    ],
+  },
+  {
+    keywords: ["ai", "automation", "automate", "technology", "workflow"],
+    suggestions: [
+      "What kind of ROI can I expect?",
+      "Which processes can be automated?",
+      "How does automation impact my exit valuation?",
+    ],
+  },
+  {
+    keywords: ["industry", "industries", "sector", "specialize"],
+    suggestions: [
+      "Tell me about healthcare M&A in Florida",
+      "What are construction company multiples?",
+      "How do you value a technology company?",
+    ],
+  },
+  {
+    keywords: ["timeline", "long", "process", "steps", "due diligence"],
+    suggestions: [
+      "What can delay a deal?",
+      "How do I prepare for due diligence?",
+      "What's the difference between a broker and M&A advisor?",
+    ],
+  },
+  {
+    keywords: ["buyer", "buyers", "acquire", "acquisition"],
+    suggestions: [
+      "What types of buyers are in your network?",
+      "How do you qualify buyers?",
+      "Can I sell to a private equity firm?",
+    ],
+  },
+  {
+    keywords: ["fee", "cost", "price", "pay", "commission"],
+    suggestions: [
+      "How is your success fee structured?",
+      "Is there a retainer?",
+      "What's the typical ROI of using an advisor?",
+    ],
+  },
+];
 
 const DEFAULT_FOLLOW_UPS = [
   "Can I get a free valuation?",
   "What makes CBH different?",
   "I'd like to schedule a consultation",
 ];
+
+function getFollowUps(lastUserMsg: string): string[] {
+  const lower = lastUserMsg.toLowerCase();
+  for (const { keywords, suggestions } of FOLLOW_UP_KEYWORDS) {
+    if (keywords.some((kw) => lower.includes(kw))) return suggestions;
+  }
+  return DEFAULT_FOLLOW_UPS;
+}
 
 const ChatWidget = () => {
   const [open, setOpen] = useState(false);
