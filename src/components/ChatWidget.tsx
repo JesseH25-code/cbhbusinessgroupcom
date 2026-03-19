@@ -65,12 +65,46 @@ async function streamChat({
   onDone();
 }
 
-const SUGGESTIONS = [
+const INITIAL_SUGGESTIONS = [
   "What's my business worth?",
   "How do I sell my business?",
   "Tell me about your AI & automation services",
   "What industries do you specialize in?",
   "How long does the M&A process take?",
+];
+
+const FOLLOW_UP_SUGGESTIONS: Record<string, string[]> = {
+  "What's my business worth?": [
+    "What multiples apply to my industry?",
+    "How can I increase my valuation?",
+    "Schedule a free valuation consultation",
+  ],
+  "How do I sell my business?": [
+    "What documents do I need to prepare?",
+    "How do you find qualified buyers?",
+    "What are your M&A advisory fees?",
+  ],
+  "Tell me about your AI & automation services": [
+    "What kind of ROI can I expect?",
+    "Which processes can be automated?",
+    "How does automation impact my exit valuation?",
+  ],
+  "What industries do you specialize in?": [
+    "Tell me about healthcare M&A in Florida",
+    "What are construction company multiples?",
+    "How do you value a technology company?",
+  ],
+  "How long does the M&A process take?": [
+    "What can delay a deal?",
+    "How do I prepare for due diligence?",
+    "What's the difference between a broker and M&A advisor?",
+  ],
+};
+
+const DEFAULT_FOLLOW_UPS = [
+  "Can I get a free valuation?",
+  "What makes CBH different?",
+  "I'd like to schedule a consultation",
 ];
 
 const ChatWidget = () => {
