@@ -199,7 +199,7 @@ const ChatWidget = () => {
                   strategies, or anything M&A-related.
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {SUGGESTIONS.map((s) => (
+                  {INITIAL_SUGGESTIONS.map((s) => (
                     <button
                       key={s}
                       onClick={() => send(s)}
@@ -233,6 +233,24 @@ const ChatWidget = () => {
                 </div>
               </div>
             ))}
+            {/* Follow-up suggestions after assistant reply */}
+            {!loading && messages.length >= 2 && messages[messages.length - 1]?.role === "assistant" && (() => {
+              const firstUserMsg = messages.find(m => m.role === "user")?.content || "";
+              const followUps = FOLLOW_UP_SUGGESTIONS[firstUserMsg] || DEFAULT_FOLLOW_UPS;
+              return (
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {followUps.map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => send(s)}
+                      className="text-xs px-3 py-1.5 rounded-full border border-border bg-background text-foreground hover:bg-secondary transition-colors text-left"
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              );
+            })()}
             {loading && messages[messages.length - 1]?.role !== "assistant" && (
               <div className="flex justify-start">
                 <div className="bg-secondary rounded-lg px-3 py-2">
