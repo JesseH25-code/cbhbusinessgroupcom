@@ -84,8 +84,8 @@ const ChatWidget = () => {
     scrollRef.current?.scrollTo(0, scrollRef.current.scrollHeight);
   }, [messages]);
 
-  const send = async () => {
-    const text = input.trim();
+  const send = async (overrideText?: string) => {
+    const text = (overrideText || input).trim();
     if (!text || loading) return;
     const userMsg: Msg = { role: "user", content: text };
     const newMsgs = [...messages, userMsg];
