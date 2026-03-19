@@ -159,6 +159,7 @@ const App = () => (
               <Route path="/ai-consulting" element={<Navigate to="/ai-automation-consulting-florida" replace />} />
               <Route path="/automation-consulting" element={<Navigate to="/ai-automation-consulting-florida" replace />} />
               <Route path="/workflow-optimization" element={<Navigate to="/workflow-optimization-florida" replace />} />
+              <Route path="/buyer-profile" element={<Navigate to="/buyers" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
