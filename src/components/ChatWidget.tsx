@@ -274,8 +274,8 @@ const ChatWidget = () => {
             ))}
             {/* Follow-up suggestions after assistant reply */}
             {!loading && messages.length >= 2 && messages[messages.length - 1]?.role === "assistant" && (() => {
-              const firstUserMsg = messages.find(m => m.role === "user")?.content || "";
-              const followUps = FOLLOW_UP_SUGGESTIONS[firstUserMsg] || DEFAULT_FOLLOW_UPS;
+              const lastUserMsg = [...messages].reverse().find(m => m.role === "user")?.content || "";
+              const followUps = getFollowUps(lastUserMsg);
               return (
                 <div className="flex flex-wrap gap-2 pt-1">
                   {followUps.map((s) => (
