@@ -69,6 +69,8 @@ const BusinessBrokerOrlando = lazy(() => import("./pages/BusinessBrokerOrlando")
 const BusinessBrokerJacksonville = lazy(() => import("./pages/BusinessBrokerJacksonville"));
 const BusinessBrokerFortLauderdale = lazy(() => import("./pages/BusinessBrokerFortLauderdale"));
 const IndustryCityPage = lazy(() => import("./pages/IndustryCityPage"));
+const Glossary = lazy(() => import("./pages/Glossary"));
+const GlossaryPage = lazy(() => import("./pages/GlossaryPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
