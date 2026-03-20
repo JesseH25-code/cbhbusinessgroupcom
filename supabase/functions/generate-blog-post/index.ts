@@ -163,8 +163,13 @@ IMPORTANT — Internal Linking: Naturally weave in 3-5 contextual links to these
 - /industries — Industry-specific M&A advisory
 - /buyers — For buyers looking to acquire
 - /buy-a-business-in-florida — Buying a business in Florida
-- /buyers — For buyers looking to acquire
-- /buy-a-business-in-florida — Buying a business in Florida
+- /glossary — M&A Glossary
+- /glossary/due-diligence-checklist — Due diligence checklist
+- /glossary/letter-of-intent — Letter of Intent guide
+- /glossary/earnout — Earnout structures
+- /glossary/quality-of-earnings — Quality of Earnings reports
+- /glossary/ebitda-multiples — EBITDA multiples explained
+- /glossary/asset-sale-vs-stock-sale — Asset vs stock sale
 Do NOT force links — only include them where they fit naturally in the text.
 
 Return a JSON object with these exact keys:
