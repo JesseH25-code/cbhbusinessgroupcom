@@ -154,7 +154,15 @@ IMPORTANT — Internal Linking: Naturally weave in 3-5 contextual links to these
 - /sell-hvac-company-florida — Selling an HVAC company
 - /sell-technology-company-florida — Selling a tech company
 - /sell-manufacturing-company-florida — Selling a manufacturing company
+- /sell-hvac-company-miami — HVAC M&A in Miami
+- /sell-construction-company-tampa — Construction M&A in Tampa
+- /sell-healthcare-business-orlando — Healthcare M&A in Orlando
+- /sell-restaurant-miami — Restaurant M&A in Miami
+- /sell-landscaping-business-jacksonville — Landscaping M&A in Jacksonville
+- /sell-technology-company-fort-lauderdale — Tech M&A in Fort Lauderdale
 - /industries — Industry-specific M&A advisory
+- /buyers — For buyers looking to acquire
+- /buy-a-business-in-florida — Buying a business in Florida
 - /buyers — For buyers looking to acquire
 - /buy-a-business-in-florida — Buying a business in Florida
 Do NOT force links — only include them where they fit naturally in the text.
