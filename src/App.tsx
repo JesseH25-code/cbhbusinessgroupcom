@@ -146,6 +146,9 @@ const App = () => (
               <Route path="/business-broker-orlando" element={<BusinessBrokerOrlando />} />
               <Route path="/business-broker-jacksonville" element={<BusinessBrokerJacksonville />} />
               <Route path="/business-broker-fort-lauderdale" element={<BusinessBrokerFortLauderdale />} />
+              {/* Glossary */}
+              <Route path="/glossary" element={<Glossary />} />
+              <Route path="/glossary/:slug" element={<GlossaryPage />} />
               {/* Industry × City dynamic pages (40 combos) */}
               <Route path="/:slug" element={<IndustryCityPage />} />
               <Route path="/growth-roadmap" element={<Navigate to="/business-growth-roadmap" replace />} />
