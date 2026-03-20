@@ -116,14 +116,34 @@ const SellBusinessFlorida = () => (
     <section className="py-16 bg-secondary">
       <div className="container mx-auto px-6">
         <p className="text-xs tracking-widest uppercase text-primary mb-6 text-center">Related Resources</p>
-        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
           <Link to="/business-valuation" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Business Valuation</p>
             <p className="text-xs text-muted-foreground">EBITDA analysis & industry multiples</p>
           </Link>
-          <Link to="/services" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
-            <p className="font-serif text-sm text-foreground mb-1">Advisory Services</p>
-            <p className="text-xs text-muted-foreground">Our full M&A process</p>
+          <Link to="/how-to-sell-a-business" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">How to Sell a Business</p>
+            <p className="text-xs text-muted-foreground">Step-by-step M&A guide</p>
+          </Link>
+          <Link to="/valuation-calculator" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Valuation Calculator</p>
+            <p className="text-xs text-muted-foreground">Estimate your business value</p>
+          </Link>
+          <Link to="/glossary" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">M&A Glossary</p>
+            <p className="text-xs text-muted-foreground">Key terms explained</p>
+          </Link>
+          <Link to="/florida-ma-benchmarks" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Florida M&A Benchmarks</p>
+            <p className="text-xs text-muted-foreground">Industry multiples data</p>
+          </Link>
+          <Link to="/industries" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Industry Expertise</p>
+            <p className="text-xs text-muted-foreground">Sector-specific M&A advisory</p>
+          </Link>
+          <Link to="/what-is-ebitda" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">What Is EBITDA?</p>
+            <p className="text-xs text-muted-foreground">Understanding the key metric</p>
           </Link>
           <Link to="/blog" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">M&A Insights</p>

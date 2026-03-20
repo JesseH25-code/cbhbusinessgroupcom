@@ -126,18 +126,38 @@ const BusinessValuation = () => (
     <section className="py-16 bg-secondary">
       <div className="container mx-auto px-6">
         <p className="text-xs tracking-widest uppercase text-primary mb-6 text-center">Related Resources</p>
-        <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
           <Link to="/sell-business-florida" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Sell a Business in Florida</p>
             <p className="text-xs text-muted-foreground">State-specific M&A guidance</p>
+          </Link>
+          <Link to="/what-is-ebitda" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">What Is EBITDA?</p>
+            <p className="text-xs text-muted-foreground">Understanding the key metric</p>
+          </Link>
+          <Link to="/valuation-calculator" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Valuation Calculator</p>
+            <p className="text-xs text-muted-foreground">Estimate your value</p>
+          </Link>
+          <Link to="/glossary/quality-of-earnings" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Quality of Earnings</p>
+            <p className="text-xs text-muted-foreground">QoE reports explained</p>
+          </Link>
+          <Link to="/glossary/ebitda-multiples" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">EBITDA Multiples</p>
+            <p className="text-xs text-muted-foreground">How multiples work</p>
+          </Link>
+          <Link to="/florida-ma-benchmarks" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">Florida M&A Benchmarks</p>
+            <p className="text-xs text-muted-foreground">Industry multiples data</p>
           </Link>
           <Link to="/sellers" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">For Sellers</p>
             <p className="text-xs text-muted-foreground">What drives valuation multiples</p>
           </Link>
-          <Link to="/blog" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
-            <p className="font-serif text-sm text-foreground mb-1">M&A Insights</p>
-            <p className="text-xs text-muted-foreground">Expert articles & guides</p>
+          <Link to="/glossary" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">M&A Glossary</p>
+            <p className="text-xs text-muted-foreground">Key terms explained</p>
           </Link>
         </div>
       </div>

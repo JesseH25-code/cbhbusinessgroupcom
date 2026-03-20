@@ -252,8 +252,12 @@ const Sellers = () => (
           {[
             { label: "Sell a Business in Florida", desc: "Florida-specific guide", path: "/sell-business-florida" },
             { label: "Business Valuation", desc: "EBITDA analysis & multiples", path: "/business-valuation" },
+            { label: "How to Sell a Business", desc: "Step-by-step M&A guide", path: "/how-to-sell-a-business" },
+            { label: "What Is EBITDA?", desc: "Understanding the key metric", path: "/what-is-ebitda" },
+            { label: "M&A Glossary", desc: "Key terms explained", path: "/glossary" },
+            { label: "Valuation Calculator", desc: "Estimate your value", path: "/valuation-calculator" },
             { label: "Industry Expertise", desc: "Sector-specific advisory", path: "/industries" },
-            { label: "Current Opportunities", desc: "Active deal listings", path: "/opportunities" },
+            { label: "Florida M&A Benchmarks", desc: "Industry multiples data", path: "/florida-ma-benchmarks" },
           ].map((item) => (
             <motion.div key={item.path} variants={fadeUp}>
               <Link to={item.path} className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center block">

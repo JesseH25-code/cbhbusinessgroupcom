@@ -69,6 +69,8 @@ const BusinessBrokerOrlando = lazy(() => import("./pages/BusinessBrokerOrlando")
 const BusinessBrokerJacksonville = lazy(() => import("./pages/BusinessBrokerJacksonville"));
 const BusinessBrokerFortLauderdale = lazy(() => import("./pages/BusinessBrokerFortLauderdale"));
 const IndustryCityPage = lazy(() => import("./pages/IndustryCityPage"));
+const Glossary = lazy(() => import("./pages/Glossary"));
+const GlossaryPage = lazy(() => import("./pages/GlossaryPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -144,6 +146,9 @@ const App = () => (
               <Route path="/business-broker-orlando" element={<BusinessBrokerOrlando />} />
               <Route path="/business-broker-jacksonville" element={<BusinessBrokerJacksonville />} />
               <Route path="/business-broker-fort-lauderdale" element={<BusinessBrokerFortLauderdale />} />
+              {/* Glossary */}
+              <Route path="/glossary" element={<Glossary />} />
+              <Route path="/glossary/:slug" element={<GlossaryPage />} />
               {/* Industry × City dynamic pages (40 combos) */}
               <Route path="/:slug" element={<IndustryCityPage />} />
               <Route path="/growth-roadmap" element={<Navigate to="/business-growth-roadmap" replace />} />
