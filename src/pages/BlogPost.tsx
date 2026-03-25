@@ -36,6 +36,7 @@ function injectHeadingIds(html: string): string {
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+  const [tocOpen, setTocOpen] = useState(true);
 
   const { data: post, isLoading, error } = useQuery({
     queryKey: ["blog-post", slug],
