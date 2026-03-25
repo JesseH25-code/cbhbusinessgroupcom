@@ -43,6 +43,53 @@ const Blog = () => {
         </div>
       </section>
 
+      {/* Featured Post */}
+      {!isLoading && posts && posts.length > 0 && (
+        <section className="py-12 border-b border-border">
+          <div className="container mx-auto px-6">
+            <p className="text-xs tracking-widest uppercase text-primary mb-6">Featured</p>
+            <Link
+              to={`/blog/${posts[0].slug}`}
+              className="group grid md:grid-cols-2 gap-8 items-center"
+            >
+              {posts[0].cover_image_url && (
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={posts[0].cover_image_url}
+                    alt={posts[0].title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              )}
+              <div>
+                {posts[0].tags && posts[0].tags.length > 0 && (
+                  <div className="flex gap-2 mb-3 flex-wrap">
+                    {posts[0].tags.slice(0, 2).map((tag) => (
+                      <span key={tag} className="text-[10px] tracking-widest uppercase text-primary bg-primary/10 px-2 py-0.5">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {posts[0].title}
+                </h2>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{posts[0].excerpt}</p>
+                <div className="flex items-center gap-4">
+                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Calendar className="w-3 h-3" />
+                    {format(new Date(posts[0].created_at), "MMM d, yyyy")}
+                  </span>
+                  <span className="text-xs text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Read Article <ArrowRight className="w-3 h-3" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+      )}
+
       {/* Posts Grid */}
       <section className="py-20">
         <div className="container mx-auto px-6">
@@ -56,9 +103,9 @@ const Blog = () => {
                 </div>
               ))}
             </div>
-          ) : posts && posts.length > 0 ? (
+          ) : posts && posts.length > 1 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post) => (
+              {posts.slice(1).map((post) => (
                 <Link
                   key={post.id}
                   to={`/blog/${post.slug}`}
@@ -100,11 +147,11 @@ const Blog = () => {
                 </Link>
               ))}
             </div>
-          ) : (
+          ) : !isLoading && (!posts || posts.length <= 1) ? (
             <div className="text-center py-20">
               <p className="text-muted-foreground">New articles coming soon. Check back shortly.</p>
             </div>
-          )}
+          ) : null}
         </div>
       </section>
     </Layout>

@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import DOMPurify from "dompurify";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowLeft, Calendar, User } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, User } from "lucide-react";
 import { format } from "date-fns";
 
 const BlogPost = () => {
@@ -23,6 +23,30 @@ const BlogPost = () => {
       return data;
     },
     enabled: !!slug,
+  });
+
+  const { data: relatedPosts } = useQuery({
+    queryKey: ["related-posts", post?.id, post?.tags],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("id, title, slug, excerpt, cover_image_url, tags, created_at")
+        .eq("published", true)
+        .neq("id", post!.id)
+        .order("created_at", { ascending: false })
+        .limit(20);
+      if (error) throw error;
+      // Sort by tag overlap
+      const postTags = new Set(post!.tags || []);
+      return (data || [])
+        .map((p) => ({
+          ...p,
+          overlap: (p.tags || []).filter((t: string) => postTags.has(t)).length,
+        }))
+        .sort((a, b) => b.overlap - a.overlap)
+        .slice(0, 3);
+    },
+    enabled: !!post?.id,
   });
 
   if (isLoading) {
@@ -148,11 +172,46 @@ const BlogPost = () => {
         </div>
       </article>
 
+      {/* Related Posts */}
+      {relatedPosts && relatedPosts.length > 0 && (
+        <section className="py-16 border-t border-border">
+          <div className="container mx-auto px-6">
+            <div className="max-w-5xl mx-auto">
+              <p className="text-xs tracking-widest uppercase text-primary mb-8">Related Articles</p>
+              <div className="grid sm:grid-cols-3 gap-6">
+                {relatedPosts.map((rp) => (
+                  <Link
+                    key={rp.id}
+                    to={`/blog/${rp.slug}`}
+                    className="group bg-card border border-border hover:border-primary/30 transition-all duration-300 flex flex-col"
+                  >
+                    {rp.cover_image_url && (
+                      <div className="aspect-video overflow-hidden">
+                        <img src={rp.cover_image_url} alt={rp.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      </div>
+                    )}
+                    <div className="p-5 flex flex-col flex-1">
+                      <h3 className="font-serif text-sm text-foreground mb-2 group-hover:text-primary transition-colors leading-snug">
+                        {rp.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground line-clamp-2 flex-1">{rp.excerpt}</p>
+                      <span className="text-xs text-primary mt-3 flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Read <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Internal Links */}
       <section className="py-16 bg-secondary border-t border-border">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            <p className="text-xs tracking-widest uppercase text-primary mb-6">Continue Reading</p>
+            <p className="text-xs tracking-widest uppercase text-primary mb-6">Explore More</p>
             <div className="grid sm:grid-cols-3 gap-4">
               <Link to="/services" className="bg-card border border-border p-5 hover:border-primary/30 transition-colors">
                 <p className="font-serif text-sm text-foreground mb-1">Our Services</p>
