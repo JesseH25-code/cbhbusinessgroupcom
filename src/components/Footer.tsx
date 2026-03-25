@@ -52,6 +52,7 @@ const Footer = () => (
               { label: "HVAC", path: "/sell-hvac-company-florida" },
               { label: "Professional Services", path: "/sell-professional-services-firm-florida" },
               { label: "Landscaping", path: "/sell-landscaping-business-florida" },
+              { label: "Insurance", path: "/sell-insurance-company-florida" },
               { label: "Restaurants", path: "/sell-restaurant-florida" },
             ].map((item) => (
               <Link

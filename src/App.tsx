@@ -115,6 +115,7 @@ const App = () => (
               <Route path="/sell-professional-services-firm-florida" element={<SellProfessionalServicesFirmFlorida />} />
               <Route path="/sell-hvac-company-florida" element={<SellHVACCompanyFlorida />} />
               <Route path="/sell-landscaping-business-florida" element={<SellLandscapingBusinessFlorida />} />
+              <Route path="/sell-insurance-company-florida" element={<SellInsuranceCompanyFlorida />} />
               <Route path="/buy-a-business-in-florida" element={<BuyBusinessFlorida />} />
               <Route path="/businesses-for-sale-florida" element={<BusinessesForSaleFlorida />} />
               <Route path="/what-is-ebitda" element={<WhatIsEBITDA />} />
