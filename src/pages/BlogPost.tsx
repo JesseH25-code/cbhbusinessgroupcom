@@ -180,6 +180,9 @@ const BlogPost = () => {
               <span className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4" /> {format(new Date(post.created_at), "MMMM d, yyyy")}
               </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4" /> {readingTime} min read
+              </span>
             </div>
 
             {post.cover_image_url && (
@@ -190,6 +193,34 @@ const BlogPost = () => {
               />
             )}
 
+            {/* Table of Contents */}
+            {headings.length >= 3 && (
+              <nav className="mb-10 p-5 border border-border bg-card">
+                <button
+                  onClick={() => setTocOpen(!tocOpen)}
+                  className="flex items-center gap-2 text-xs tracking-widest uppercase text-primary w-full"
+                >
+                  <List className="w-4 h-4" />
+                  Table of Contents
+                  <span className="ml-auto text-muted-foreground">{tocOpen ? "−" : "+"}</span>
+                </button>
+                {tocOpen && (
+                  <ol className="mt-4 space-y-2">
+                    {headings.map((h) => (
+                      <li key={h.id} className={h.level === 3 ? "ml-4" : ""}>
+                        <a
+                          href={`#${h.id}`}
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {h.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </nav>
+            )}
+
             <div
               className="prose prose-invert prose-gold max-w-none
                 prose-headings:font-serif prose-headings:text-foreground
@@ -198,7 +229,7 @@ const BlogPost = () => {
                 prose-strong:text-foreground
                 prose-li:text-muted-foreground
                 prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(processedContent) }}
             />
           </div>
         </div>
