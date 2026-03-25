@@ -135,7 +135,11 @@ Deno.serve(async (req) => {
 
 Write in a professional, authoritative tone. Use data and specifics where possible. The audience is business owners considering selling or buying a business.
 
+IMPORTANT — TL;DR Summary: Start the article body with a <div class="tldr-summary"> block containing a 2-3 sentence executive summary of the key takeaways. This helps AI search engines extract your content. Format: <div class="tldr-summary"><p><strong>TL;DR:</strong> [summary]</p></div>
+
 IMPORTANT — Internal Linking: Naturally weave in 3-5 contextual links to these pages throughout the article where relevant:
+
+Core Pages:
 - /sell-business-florida — Selling a business in Florida
 - /sell-business-miami — Selling in Miami
 - /sell-business-tampa — Selling in Tampa
@@ -149,20 +153,35 @@ IMPORTANT — Internal Linking: Naturally weave in 3-5 contextual links to these
 - /how-to-sell-a-business — Complete guide to selling
 - /what-is-ebitda — EBITDA explained
 - /seller-financing-explained — Seller financing guide
-- /sell-construction-company-florida — Selling a construction company
-- /sell-healthcare-business-florida — Selling a healthcare business
-- /sell-hvac-company-florida — Selling an HVAC company
-- /sell-technology-company-florida — Selling a tech company
-- /sell-manufacturing-company-florida — Selling a manufacturing company
+- /industries — Industry-specific M&A advisory
+- /buyers — For buyers looking to acquire
+- /buy-a-business-in-florida — Buying a business in Florida
+- /consulting — Business consulting services
+
+Industry Pages (State):
+- /sell-construction-company-florida — Construction M&A
+- /sell-healthcare-business-florida — Healthcare M&A
+- /sell-hvac-company-florida — HVAC M&A
+- /sell-technology-company-florida — Tech M&A
+- /sell-manufacturing-company-florida — Manufacturing M&A
+- /sell-restaurant-florida — Restaurant M&A
+- /sell-landscaping-business-florida — Landscaping M&A
+- /sell-lawncare-business-florida — Lawncare M&A
+- /sell-insurance-company-florida — Insurance agency M&A
+- /sell-professional-services-firm-florida — Professional services M&A
+
+Industry × City Pages (select):
 - /sell-hvac-company-miami — HVAC M&A in Miami
 - /sell-construction-company-tampa — Construction M&A in Tampa
 - /sell-healthcare-business-orlando — Healthcare M&A in Orlando
 - /sell-restaurant-miami — Restaurant M&A in Miami
 - /sell-landscaping-business-jacksonville — Landscaping M&A in Jacksonville
 - /sell-technology-company-fort-lauderdale — Tech M&A in Fort Lauderdale
-- /industries — Industry-specific M&A advisory
-- /buyers — For buyers looking to acquire
-- /buy-a-business-in-florida — Buying a business in Florida
+- /sell-lawncare-business-miami — Lawncare M&A in Miami
+- /sell-insurance-company-tampa — Insurance M&A in Tampa
+- /sell-manufacturing-company-jacksonville — Manufacturing M&A in Jacksonville
+
+Glossary:
 - /glossary — M&A Glossary
 - /glossary/due-diligence-checklist — Due diligence checklist
 - /glossary/letter-of-intent — Letter of Intent guide
@@ -170,13 +189,18 @@ IMPORTANT — Internal Linking: Naturally weave in 3-5 contextual links to these
 - /glossary/quality-of-earnings — Quality of Earnings reports
 - /glossary/ebitda-multiples — EBITDA multiples explained
 - /glossary/asset-sale-vs-stock-sale — Asset vs stock sale
+- /glossary/seller-discretionary-earnings — SDE explained
+- /glossary/non-compete-agreement — Non-compete agreements
+- /glossary/working-capital — Working capital in M&A
+
 Do NOT force links — only include them where they fit naturally in the text.
 
 Return a JSON object with these exact keys:
 - "title": A compelling, SEO-optimized article title (50-70 characters)
 - "excerpt": A 1-2 sentence summary for the blog listing (under 200 characters)
 - "meta_description": An SEO meta description (under 160 characters)
-- "content": The full article body in clean HTML using <h2>, <h3>, <p>, <ul>, <li>, <strong>, <em>, and <a href="..."> tags. Should be 800-1200 words. Include internal links as described above. Include a call-to-action linking to /contact at the end.
+- "cover_image_prompt": A short, descriptive prompt (under 100 characters) for generating a professional cover image. Describe a scene, NOT text. Example: "Modern office boardroom with city skyline at sunset"
+- "content": The full article body in clean HTML using <h2>, <h3>, <p>, <ul>, <li>, <strong>, <em>, and <a href="..."> tags. Should be 800-1200 words. START with the TL;DR summary block. Include internal links as described above. Include a call-to-action linking to /contact at the end.
 
 Return ONLY the JSON object, no markdown code fences.`,
             },
@@ -228,6 +252,70 @@ Return ONLY the JSON object, no markdown code fences.`,
       );
     }
 
+    // Generate cover image
+    let coverImageUrl = null;
+    if (article.cover_image_prompt) {
+      try {
+        console.log(`Generating cover image: ${article.cover_image_prompt}`);
+        const imgResponse = await fetch(
+          "https://ai.gateway.lovable.dev/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${LOVABLE_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              model: "google/gemini-3.1-flash-image-preview",
+              messages: [
+                {
+                  role: "user",
+                  content: `Generate a professional, editorial-style 16:9 landscape photograph for a business article. The scene: ${article.cover_image_prompt}. Style: corporate, sophisticated, dark moody tones with warm gold accents. No text overlays.`,
+                },
+              ],
+              modalities: ["image", "text"],
+            }),
+          }
+        );
+
+        if (imgResponse.ok) {
+          const imgData = await imgResponse.json();
+          const base64Img =
+            imgData.choices?.[0]?.message?.images?.[0]?.image_url?.url;
+
+          if (base64Img) {
+            // Upload to Supabase Storage
+            const imgBuffer = Uint8Array.from(
+              atob(base64Img.replace(/^data:image\/\w+;base64,/, "")),
+              (c) => c.charCodeAt(0)
+            );
+
+            const imgPath = `blog-covers/${slug}.png`;
+            const { error: uploadError } = await supabase.storage
+              .from("guides")
+              .upload(imgPath, imgBuffer, {
+                contentType: "image/png",
+                upsert: true,
+              });
+
+            if (!uploadError) {
+              const { data: publicUrl } = supabase.storage
+                .from("guides")
+                .getPublicUrl(imgPath);
+              coverImageUrl = publicUrl.publicUrl;
+              console.log(`Cover image uploaded: ${coverImageUrl}`);
+            } else {
+              console.error("Image upload error:", uploadError);
+            }
+          }
+        } else {
+          console.error("Image generation failed:", imgResponse.status);
+        }
+      } catch (imgErr) {
+        console.error("Cover image generation error:", imgErr);
+      }
+    }
+
     // Insert the post
     const { data: post, error } = await supabase
       .from("blog_posts")
@@ -237,6 +325,7 @@ Return ONLY the JSON object, no markdown code fences.`,
         excerpt: article.excerpt,
         content: article.content,
         meta_description: article.meta_description,
+        cover_image_url: coverImageUrl,
         author: "CBH Business Group",
         published: true,
         tags,

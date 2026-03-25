@@ -104,3 +104,15 @@
     background: linear-gradient(90deg, transparent, hsl(40 55% 50% / 0.4), transparent);
   }
 }
+
+@layer components {
+  .tldr-summary {
+    @apply border-l-2 border-primary bg-primary/5 p-4 mb-8;
+  }
+  .tldr-summary p {
+    @apply text-sm text-muted-foreground leading-relaxed m-0;
+  }
+  .tldr-summary strong {
+    @apply text-primary;
+  }
+}

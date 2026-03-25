@@ -103,6 +103,10 @@ const BlogPost = () => {
     },
     ...(post.cover_image_url ? { image: post.cover_image_url } : {}),
     ...(post.tags ? { keywords: post.tags.join(", ") } : {}),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".tldr-summary", "h1", ".prose h2"],
+    },
   };
 
   return (
@@ -112,6 +116,7 @@ const BlogPost = () => {
         description={post.meta_description || post.excerpt}
         path={`/blog/${post.slug}`}
         type="article"
+        image={post.cover_image_url || undefined}
         jsonLd={articleJsonLd}
         breadcrumbs={[
           { name: "Home", path: "/" },
