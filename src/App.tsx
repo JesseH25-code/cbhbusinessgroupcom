@@ -37,6 +37,7 @@ const SellProfessionalServicesFirmFlorida = lazy(() => import("./pages/SellProfe
 const SellHVACCompanyFlorida = lazy(() => import("./pages/SellHVACCompanyFlorida"));
 const SellLandscapingBusinessFlorida = lazy(() => import("./pages/SellLandscapingBusinessFlorida"));
 const SellInsuranceCompanyFlorida = lazy(() => import("./pages/SellInsuranceCompanyFlorida"));
+const SellLawncareBusinessFlorida = lazy(() => import("./pages/SellLawncareBusinessFlorida"));
 const BuyBusinessFlorida = lazy(() => import("./pages/BuyBusinessFlorida"));
 const BusinessesForSaleFlorida = lazy(() => import("./pages/BusinessesForSaleFlorida"));
 const WhatIsEBITDA = lazy(() => import("./pages/WhatIsEBITDA"));
@@ -116,6 +117,7 @@ const App = () => (
               <Route path="/sell-hvac-company-florida" element={<SellHVACCompanyFlorida />} />
               <Route path="/sell-landscaping-business-florida" element={<SellLandscapingBusinessFlorida />} />
               <Route path="/sell-insurance-company-florida" element={<SellInsuranceCompanyFlorida />} />
+              <Route path="/sell-lawncare-business-florida" element={<SellLawncareBusinessFlorida />} />
               <Route path="/buy-a-business-in-florida" element={<BuyBusinessFlorida />} />
               <Route path="/businesses-for-sale-florida" element={<BusinessesForSaleFlorida />} />
               <Route path="/what-is-ebitda" element={<WhatIsEBITDA />} />

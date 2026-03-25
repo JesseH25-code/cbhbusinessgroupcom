@@ -169,6 +169,25 @@ const industries = [
     heroDesc: (city: string) => `${city}'s growing population and unique insurance landscape make it a prime market for agency M&A. CBH Business Group helps insurance agency owners in ${city} maximize value by positioning book quality, retention rates, and producer depth for PE-backed aggregators and strategic buyers.`,
   },
   {
+    key: "lawncare",
+    name: "Lawncare",
+    slugPrefix: "sell-lawncare-business",
+    multipleRange: "3x–5x",
+    statePageLink: "/sell-lawncare-business-florida",
+    features: (city: string) => [
+      { title: "Recurring Contract Valuation", desc: `Expert assessment of monthly maintenance contracts and recurring revenue in ${city}.` },
+      { title: "Route Optimization Analysis", desc: `Highlighting geographic route density and service efficiency in ${city}.` },
+      { title: "Crew & Equipment Review", desc: "Comprehensive evaluation of crew capabilities, training programs, and equipment assets." },
+      { title: "Year-Round Revenue", desc: `${city}'s climate supports 12-month mowing and treatment schedules that buyers value highly.` },
+    ],
+    faqs: (city: string) => [
+      { q: `How do I sell my lawncare business in ${city}?`, a: `Selling a lawncare business in ${city} involves documenting recurring service contracts, route efficiency, crew capabilities, and equipment assets. An M&A advisor will position your recurring revenue and route density to attract PE-backed consolidators and strategic acquirers active in the ${city} market.` },
+      { q: `What are lawncare business multiples in ${city}?`, a: `Lawncare businesses in ${city} valued $3M–$50M typically trade at 3x–5x adjusted EBITDA. Companies with high-retention recurring contracts, efficient routes, and diversified residential/commercial mix command premium valuations.` },
+      { q: `Why is ${city} a strong market for lawncare M&A?`, a: `${city}'s year-round growing season eliminates seasonal revenue gaps common in northern markets. Combined with population growth and HOA-driven demand, lawncare businesses in ${city} offer consistent, scalable revenue that PE platforms are actively acquiring.` },
+    ],
+    heroDesc: (city: string) => `Year-round demand and population growth make ${city} one of Florida's strongest markets for lawncare M&A. CBH Business Group helps lawncare business owners in ${city} maximize value by positioning recurring contracts, route density, and crew depth for aggressive PE-backed buyers.`,
+  },
+  {
     key: "landscaping",
     name: "Landscaping",
     slugPrefix: "sell-landscaping-business",
