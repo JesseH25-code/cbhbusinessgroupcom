@@ -81,7 +81,7 @@ const BlogPost = () => {
   const headings = useMemo(() => post ? extractHeadings(post.content) : [], [post]);
   const processedContent = useMemo(() => post ? injectHeadingIds(post.content) : "", [post]);
 
-
+  if (isLoading) {
     return (
       <Layout>
         <div className="container mx-auto px-6 py-32 animate-pulse">
