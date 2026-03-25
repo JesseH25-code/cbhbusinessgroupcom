@@ -19,9 +19,10 @@ const SITE_URL = "https://cbhbusinessgroup.com";
 const SITE_NAME = "CBH Business Group";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
-const SEOHead = ({ title, description, path, type = "website", jsonLd, breadcrumbs }: SEOHeadProps) => {
+const SEOHead = ({ title, description, path, type = "website", image, jsonLd, breadcrumbs }: SEOHeadProps) => {
   const fullTitle = path === "/" ? title : `${title} | ${SITE_NAME}`;
   const canonicalUrl = `${SITE_URL}${path}`;
+  const ogImage = image || OG_IMAGE;
 
   const breadcrumbJsonLd = breadcrumbs
     ? {
