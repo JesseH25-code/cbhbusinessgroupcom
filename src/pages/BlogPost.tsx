@@ -77,7 +77,11 @@ const BlogPost = () => {
     enabled: !!post?.id,
   });
 
-  if (isLoading) {
+  const readingTime = useMemo(() => post ? estimateReadingTime(post.content) : 0, [post]);
+  const headings = useMemo(() => post ? extractHeadings(post.content) : [], [post]);
+  const processedContent = useMemo(() => post ? injectHeadingIds(post.content) : "", [post]);
+
+
     return (
       <Layout>
         <div className="container mx-auto px-6 py-32 animate-pulse">
