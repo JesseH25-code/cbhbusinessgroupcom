@@ -53,7 +53,7 @@ const SEOHead = ({ title, description, path, type = "website", image, jsonLd, br
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={OG_IMAGE} />
+      <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="640" />
       <meta property="og:site_name" content={SITE_NAME} />
@@ -62,7 +62,7 @@ const SEOHead = ({ title, description, path, type = "website", image, jsonLd, br
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={OG_IMAGE} />
+      <meta name="twitter:image" content={ogImage} />
 
       {/* JSON-LD */}
       {allJsonLd.map((ld, i) => (
