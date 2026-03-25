@@ -37,6 +37,7 @@ const SellProfessionalServicesFirmFlorida = lazy(() => import("./pages/SellProfe
 const SellHVACCompanyFlorida = lazy(() => import("./pages/SellHVACCompanyFlorida"));
 const SellLandscapingBusinessFlorida = lazy(() => import("./pages/SellLandscapingBusinessFlorida"));
 const SellInsuranceCompanyFlorida = lazy(() => import("./pages/SellInsuranceCompanyFlorida"));
+const SellLawncareBusinessFlorida = lazy(() => import("./pages/SellLawncareBusinessFlorida"));
 const BuyBusinessFlorida = lazy(() => import("./pages/BuyBusinessFlorida"));
 const BusinessesForSaleFlorida = lazy(() => import("./pages/BusinessesForSaleFlorida"));
 const WhatIsEBITDA = lazy(() => import("./pages/WhatIsEBITDA"));
