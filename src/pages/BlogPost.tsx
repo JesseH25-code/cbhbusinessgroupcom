@@ -116,6 +116,7 @@ const BlogPost = () => {
         description={post.meta_description || post.excerpt}
         path={`/blog/${post.slug}`}
         type="article"
+        image={post.cover_image_url || undefined}
         jsonLd={articleJsonLd}
         breadcrumbs={[
           { name: "Home", path: "/" },
