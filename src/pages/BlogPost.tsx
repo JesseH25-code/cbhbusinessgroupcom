@@ -25,6 +25,30 @@ const BlogPost = () => {
     enabled: !!slug,
   });
 
+  const { data: relatedPosts } = useQuery({
+    queryKey: ["related-posts", post?.id, post?.tags],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("id, title, slug, excerpt, cover_image_url, tags, created_at")
+        .eq("published", true)
+        .neq("id", post!.id)
+        .order("created_at", { ascending: false })
+        .limit(20);
+      if (error) throw error;
+      // Sort by tag overlap
+      const postTags = new Set(post!.tags || []);
+      return (data || [])
+        .map((p) => ({
+          ...p,
+          overlap: (p.tags || []).filter((t: string) => postTags.has(t)).length,
+        }))
+        .sort((a, b) => b.overlap - a.overlap)
+        .slice(0, 3);
+    },
+    enabled: !!post?.id,
+  });
+
   if (isLoading) {
     return (
       <Layout>
