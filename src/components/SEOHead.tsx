@@ -10,6 +10,7 @@ interface SEOHeadProps {
   description: string;
   path: string;
   type?: string;
+  image?: string;
   jsonLd?: object | object[];
   breadcrumbs?: BreadcrumbItem[];
 }
