@@ -4,8 +4,35 @@ import { supabase } from "@/integrations/supabase/client";
 import DOMPurify from "dompurify";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowLeft, ArrowRight, Calendar, User } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, User, Clock, List } from "lucide-react";
 import { format } from "date-fns";
+import { useMemo, useState } from "react";
+
+function estimateReadingTime(html: string): number {
+  const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  const words = text.split(" ").length;
+  return Math.max(1, Math.round(words / 230));
+}
+
+function extractHeadings(html: string): { id: string; text: string; level: number }[] {
+  const regex = /<h([23])[^>]*>(.*?)<\/h[23]>/gi;
+  const headings: { id: string; text: string; level: number }[] = [];
+  let match;
+  while ((match = regex.exec(html)) !== null) {
+    const text = match[2].replace(/<[^>]*>/g, "").trim();
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    headings.push({ id, text, level: parseInt(match[1]) });
+  }
+  return headings;
+}
+
+function injectHeadingIds(html: string): string {
+  return html.replace(/<h([23])([^>]*)>(.*?)<\/h([23])>/gi, (_, level, attrs, content, closeLevel) => {
+    const text = content.replace(/<[^>]*>/g, "").trim();
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    return `<h${level}${attrs} id="${id}">${content}</h${closeLevel}>`;
+  });
+}
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
