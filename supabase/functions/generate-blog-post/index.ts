@@ -252,6 +252,70 @@ Return ONLY the JSON object, no markdown code fences.`,
       );
     }
 
+    // Generate cover image
+    let coverImageUrl = null;
+    if (article.cover_image_prompt) {
+      try {
+        console.log(`Generating cover image: ${article.cover_image_prompt}`);
+        const imgResponse = await fetch(
+          "https://ai.gateway.lovable.dev/v1/chat/completions",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${LOVABLE_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              model: "google/gemini-3.1-flash-image-preview",
+              messages: [
+                {
+                  role: "user",
+                  content: `Generate a professional, editorial-style 16:9 landscape photograph for a business article. The scene: ${article.cover_image_prompt}. Style: corporate, sophisticated, dark moody tones with warm gold accents. No text overlays.`,
+                },
+              ],
+              modalities: ["image", "text"],
+            }),
+          }
+        );
+
+        if (imgResponse.ok) {
+          const imgData = await imgResponse.json();
+          const base64Img =
+            imgData.choices?.[0]?.message?.images?.[0]?.image_url?.url;
+
+          if (base64Img) {
+            // Upload to Supabase Storage
+            const imgBuffer = Uint8Array.from(
+              atob(base64Img.replace(/^data:image\/\w+;base64,/, "")),
+              (c) => c.charCodeAt(0)
+            );
+
+            const imgPath = `blog-covers/${slug}.png`;
+            const { error: uploadError } = await supabase.storage
+              .from("guides")
+              .upload(imgPath, imgBuffer, {
+                contentType: "image/png",
+                upsert: true,
+              });
+
+            if (!uploadError) {
+              const { data: publicUrl } = supabase.storage
+                .from("guides")
+                .getPublicUrl(imgPath);
+              coverImageUrl = publicUrl.publicUrl;
+              console.log(`Cover image uploaded: ${coverImageUrl}`);
+            } else {
+              console.error("Image upload error:", uploadError);
+            }
+          }
+        } else {
+          console.error("Image generation failed:", imgResponse.status);
+        }
+      } catch (imgErr) {
+        console.error("Cover image generation error:", imgErr);
+      }
+    }
+
     // Insert the post
     const { data: post, error } = await supabase
       .from("blog_posts")
@@ -261,6 +325,7 @@ Return ONLY the JSON object, no markdown code fences.`,
         excerpt: article.excerpt,
         content: article.content,
         meta_description: article.meta_description,
+        cover_image_url: coverImageUrl,
         author: "CBH Business Group",
         published: true,
         tags,

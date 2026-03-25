@@ -103,6 +103,10 @@ const BlogPost = () => {
     },
     ...(post.cover_image_url ? { image: post.cover_image_url } : {}),
     ...(post.tags ? { keywords: post.tags.join(", ") } : {}),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".tldr-summary", "h1", ".prose h2"],
+    },
   };
 
   return (
