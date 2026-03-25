@@ -150,6 +150,25 @@ const industries = [
     heroDesc: (city: string) => `${city}'s vibrant food scene and growing population make it a prime market for restaurant M&A. CBH Business Group helps restaurant owners in ${city} achieve premium valuations by positioning brand equity, management depth, and unit economics for sophisticated buyers.`,
   },
   {
+    key: "insurance",
+    name: "Insurance",
+    slugPrefix: "sell-insurance-company",
+    multipleRange: "6x–10x",
+    statePageLink: "/sell-insurance-company-florida",
+    features: (city: string) => [
+      { title: "Book of Business Valuation", desc: `Expert assessment of your commission revenue, retention rates, and carrier mix in ${city}.` },
+      { title: "Carrier Transfer Support", desc: "Guidance on carrier consent, appointment transfers, and contingency considerations." },
+      { title: "Producer Retention", desc: `Confidential strategies to retain key producers and staff in ${city} throughout the sale.` },
+      { title: "PE Aggregator Access", desc: `Direct relationships with PE-backed insurance aggregators actively acquiring in ${city}.` },
+    ],
+    faqs: (city: string) => [
+      { q: `How do I sell my insurance agency in ${city}?`, a: `Selling an insurance agency in ${city} involves documenting your book of business, commission revenue, retention rates, carrier relationships, and producer team. An M&A advisor will position your agency's recurring revenue and growth metrics to attract PE-backed aggregators and strategic buyers active in the ${city} market.` },
+      { q: `What are insurance agency multiples in ${city}?`, a: `Insurance agencies in ${city} valued $3M–$50M typically trade at 6x–10x adjusted EBITDA or 1.5x–3x annual revenue. Agencies with high retention, commercial lines focus, and diversified carrier relationships command the highest multiples.` },
+      { q: `Why is ${city} a strong market for insurance agency M&A?`, a: `${city}'s growing population, hurricane exposure, and robust commercial sector create strong demand for insurance services. Combined with Florida's unique coverage requirements, agencies in ${city} attract significant buyer interest from national aggregators and strategic acquirers.` },
+    ],
+    heroDesc: (city: string) => `${city}'s growing population and unique insurance landscape make it a prime market for agency M&A. CBH Business Group helps insurance agency owners in ${city} maximize value by positioning book quality, retention rates, and producer depth for PE-backed aggregators and strategic buyers.`,
+  },
+  {
     key: "landscaping",
     name: "Landscaping",
     slugPrefix: "sell-landscaping-business",
