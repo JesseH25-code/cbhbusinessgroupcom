@@ -29,3 +29,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://cbhbusinessgroup.com/sitemap.xml
+Sitemap: https://ogkievwunwuklyndzcna.supabase.co/functions/v1/blog-sitemap

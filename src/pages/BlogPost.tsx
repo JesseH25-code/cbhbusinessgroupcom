@@ -4,11 +4,39 @@ import { supabase } from "@/integrations/supabase/client";
 import DOMPurify from "dompurify";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowLeft, ArrowRight, Calendar, User } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, User, Clock, List } from "lucide-react";
 import { format } from "date-fns";
+import { useMemo, useState } from "react";
+
+function estimateReadingTime(html: string): number {
+  const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  const words = text.split(" ").length;
+  return Math.max(1, Math.round(words / 230));
+}
+
+function extractHeadings(html: string): { id: string; text: string; level: number }[] {
+  const regex = /<h([23])[^>]*>(.*?)<\/h[23]>/gi;
+  const headings: { id: string; text: string; level: number }[] = [];
+  let match;
+  while ((match = regex.exec(html)) !== null) {
+    const text = match[2].replace(/<[^>]*>/g, "").trim();
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    headings.push({ id, text, level: parseInt(match[1]) });
+  }
+  return headings;
+}
+
+function injectHeadingIds(html: string): string {
+  return html.replace(/<h([23])([^>]*)>(.*?)<\/h([23])>/gi, (_, level, attrs, content, closeLevel) => {
+    const text = content.replace(/<[^>]*>/g, "").trim();
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    return `<h${level}${attrs} id="${id}">${content}</h${closeLevel}>`;
+  });
+}
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+  const [tocOpen, setTocOpen] = useState(true);
 
   const { data: post, isLoading, error } = useQuery({
     queryKey: ["blog-post", slug],
@@ -49,7 +77,11 @@ const BlogPost = () => {
     enabled: !!post?.id,
   });
 
-  if (isLoading) {
+  const readingTime = useMemo(() => post ? estimateReadingTime(post.content) : 0, [post]);
+  const headings = useMemo(() => post ? extractHeadings(post.content) : [], [post]);
+  const processedContent = useMemo(() => post ? injectHeadingIds(post.content) : "", [post]);
+
+
     return (
       <Layout>
         <div className="container mx-auto px-6 py-32 animate-pulse">
@@ -153,6 +185,9 @@ const BlogPost = () => {
               <span className="flex items-center gap-1.5">
                 <Calendar className="w-4 h-4" /> {format(new Date(post.created_at), "MMMM d, yyyy")}
               </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4" /> {readingTime} min read
+              </span>
             </div>
 
             {post.cover_image_url && (
@@ -163,6 +198,34 @@ const BlogPost = () => {
               />
             )}
 
+            {/* Table of Contents */}
+            {headings.length >= 3 && (
+              <nav className="mb-10 p-5 border border-border bg-card">
+                <button
+                  onClick={() => setTocOpen(!tocOpen)}
+                  className="flex items-center gap-2 text-xs tracking-widest uppercase text-primary w-full"
+                >
+                  <List className="w-4 h-4" />
+                  Table of Contents
+                  <span className="ml-auto text-muted-foreground">{tocOpen ? "−" : "+"}</span>
+                </button>
+                {tocOpen && (
+                  <ol className="mt-4 space-y-2">
+                    {headings.map((h) => (
+                      <li key={h.id} className={h.level === 3 ? "ml-4" : ""}>
+                        <a
+                          href={`#${h.id}`}
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {h.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </nav>
+            )}
+
             <div
               className="prose prose-invert prose-gold max-w-none
                 prose-headings:font-serif prose-headings:text-foreground
@@ -171,7 +234,7 @@ const BlogPost = () => {
                 prose-strong:text-foreground
                 prose-li:text-muted-foreground
                 prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(processedContent) }}
             />
           </div>
         </div>
