@@ -161,6 +161,7 @@ const Industries = () => (
         manufacturing: "/sell-manufacturing-company-florida",
         healthcare: "/sell-healthcare-business-florida",
         construction: "/sell-construction-company-florida",
+        "title-companies": "/sell-title-company-florida",
       };
       const landingPage = landingPageMap[ind.slug];
 
