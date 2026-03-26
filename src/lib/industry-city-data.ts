@@ -241,11 +241,15 @@ export function generateAllIndustryCityPages(): IndustryCityData[] {
   for (const industry of industries) {
     for (const city of cities) {
       const slug = `${industry.slugPrefix}-${city.key}`;
+      const article = ["HVAC"].includes(industry.name) ? "an" : "a";
+      const suffix = ["Restaurant"].includes(industry.name) ? "Business" : "Company";
+      const displayName = industry.name === "Title Company" ? "Title Company" : `${industry.name} ${suffix}`;
       pages.push({
         slug,
         industry: industry.name,
         city: city.name,
-        title: `Sell ${industry.name === "HVAC" ? "an" : "a"} ${industry.name} ${industry.name === "Restaurant" ? "Business" : "Company"} in ${city.name}`,
+        title: `Sell ${article} ${displayName} in ${city.name}`,
+        metaTitle: `Sell ${article} ${displayName} in ${city.name} | M&A Advisory`,
         metaTitle: `Sell ${industry.name === "HVAC" ? "an" : "a"} ${industry.name} ${industry.name === "Restaurant" ? "Business" : "Company"} in ${city.name} | M&A Advisory`,
         metaDescription: `Expert M&A advisory for ${industry.name.toLowerCase()} businesses in ${city.name}, Florida. Confidential valuations, strategic buyer access, and premium exits for companies valued $3M–$50M.`,
         heroLabel: `${industry.name} M&A — ${city.name}`,
