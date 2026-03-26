@@ -206,6 +206,25 @@ const industries = [
     ],
     heroDesc: (city: string) => `Year-round demand and population growth make ${city} one of Florida's strongest markets for landscaping M&A. CBH Business Group helps landscaping business owners in ${city} maximize value by positioning maintenance contracts, route density, and equipment assets for aggressive buyers.`,
   },
+  {
+    key: "title-company",
+    name: "Title Company",
+    slugPrefix: "sell-title-company",
+    multipleRange: "4x–8x",
+    statePageLink: "/sell-title-company-florida",
+    features: (city: string) => [
+      { title: "File & Revenue Analysis", desc: `Expert valuation of your title order volume, fee structure, and revenue mix in ${city}.` },
+      { title: "Underwriter Relationships", desc: "Guidance on title underwriter agreements, agency contracts, and transition requirements." },
+      { title: "Escrow Operations Review", desc: `Assessment of escrow trust accounting, compliance history, and operational efficiency in ${city}.` },
+      { title: "Real Estate Market Leverage", desc: `${city}'s active real estate market drives strong title order volume that buyers value highly.` },
+    ],
+    faqs: (city: string) => [
+      { q: `How do I sell my title company in ${city}?`, a: `Selling a title company in ${city} involves documenting your title order volume, revenue per file, escrow operations, underwriter relationships, and referral network. An M&A advisor will position your recurring revenue streams and market position to attract strategic acquirers and PE-backed consolidators active in the ${city} market.` },
+      { q: `What are title company multiples in ${city}?`, a: `Title companies in ${city} valued $3M–$50M typically trade at 4x–8x adjusted EBITDA. Companies with diversified referral sources, strong escrow compliance records, and commercial title capabilities command the highest multiples.` },
+      { q: `Why is ${city} a strong market for title company M&A?`, a: `${city}'s robust real estate transaction volume, population growth, and commercial development activity create consistent title order flow. Combined with Florida's attorney-optional closing environment, title companies in ${city} attract significant buyer interest from national underwriters and PE-backed platforms.` },
+    ],
+    heroDesc: (city: string) => `${city}'s thriving real estate market makes it a prime location for title company acquisitions. CBH Business Group helps title company owners in ${city} maximize value by positioning order volume, escrow operations, and referral networks for strategic buyers and PE-backed consolidators.`,
+  },
 ];
 
 const cities = [
