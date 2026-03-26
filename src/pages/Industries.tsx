@@ -101,6 +101,22 @@ const industries = [
     ],
     buyerTypes: "Consolidating RIA platforms, PE-backed insurance distribution networks, strategic acquirers expanding service lines, and next-generation partners seeking internal succession.",
   },
+  {
+    slug: "title-companies",
+    name: "Title Companies",
+    headline: "M&A Advisory for Title Companies",
+    description:
+      "Title company transactions require understanding of escrow compliance, underwriter relationships, and referral network value. CBH Business Group helps title company owners navigate complex transitions while maximizing the value of their order volume, escrow operations, and market position.",
+    drivers: [
+      "Title order volume and revenue per file metrics",
+      "Escrow trust compliance and audit history",
+      "Referral source diversity (realtors, lenders, attorneys)",
+      "Underwriter relationships and agency agreements",
+      "Commercial vs. residential transaction mix",
+      "Geographic market density and growth trajectory",
+    ],
+    buyerTypes: "National title underwriters seeking agency acquisitions, PE-backed title platforms pursuing geographic expansion, strategic acquirers consolidating local market share, and multi-service real estate companies adding title capabilities.",
+  },
 ];
 
 const industryJsonLd = {
