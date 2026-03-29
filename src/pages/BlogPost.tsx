@@ -6,7 +6,8 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowLeft, ArrowRight, Calendar, User, Clock, List } from "lucide-react";
 import { format } from "date-fns";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef } from "react";
+import BlogMidArticleCTA from "@/components/BlogMidArticleCTA";
 
 function estimateReadingTime(html: string): number {
   const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
