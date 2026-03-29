@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 import { getIndustryCityPage } from "@/lib/industry-city-data";
+import InlineTestimonial from "@/components/InlineTestimonial";
 
 const icons = [BarChart3, Shield, Users, TrendingUp];
 
