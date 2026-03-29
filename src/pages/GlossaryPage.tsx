@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { getGlossaryTerm, glossaryTerms } from "@/lib/glossary-data";
+import GlossaryNavSidebar from "@/components/GlossaryNavSidebar";
 
 const GlossaryPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -65,20 +66,28 @@ const GlossaryPage = () => {
 
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-secondary border border-border p-8 mb-12">
-              <p className="text-xs tracking-widest uppercase text-primary mb-3">Definition</p>
-              <p className="text-foreground leading-relaxed">{data.definition}</p>
+          <div className="max-w-5xl mx-auto grid lg:grid-cols-[1fr_280px] gap-10">
+            <div>
+              <div className="bg-secondary border border-border p-8 mb-12">
+                <p className="text-xs tracking-widest uppercase text-primary mb-3">Definition</p>
+                <p className="text-foreground leading-relaxed">{data.definition}</p>
+              </div>
+
+              <div className="space-y-12">
+                {data.sections.map((section, i) => (
+                  <div key={i}>
+                    <h2 className="text-2xl font-serif text-foreground mb-4">{section.heading}</h2>
+                    <p className="text-muted-foreground leading-relaxed">{section.content}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-12">
-              {data.sections.map((section, i) => (
-                <div key={i}>
-                  <h2 className="text-2xl font-serif text-foreground mb-4">{section.heading}</h2>
-                  <p className="text-muted-foreground leading-relaxed">{section.content}</p>
-                </div>
-              ))}
-            </div>
+            <aside className="hidden lg:block">
+              <div className="sticky top-24">
+                <GlossaryNavSidebar />
+              </div>
+            </aside>
           </div>
         </div>
       </section>

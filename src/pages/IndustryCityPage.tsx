@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 import { getIndustryCityPage } from "@/lib/industry-city-data";
+import InlineTestimonial from "@/components/InlineTestimonial";
 
 const icons = [BarChart3, Shield, Users, TrendingUp];
 
@@ -76,6 +77,14 @@ const IndustryCityPage = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <InlineTestimonial />
           </div>
         </div>
       </section>
