@@ -227,16 +227,55 @@ const BlogPost = () => {
               </nav>
             )}
 
-            <div
-              className="prose prose-invert prose-gold max-w-none
-                prose-headings:font-serif prose-headings:text-foreground
-                prose-p:text-muted-foreground prose-p:leading-relaxed
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-foreground
-                prose-li:text-muted-foreground
-                prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(processedContent) }}
-            />
+            {(() => {
+              const sanitized = DOMPurify.sanitize(processedContent);
+              // Split content roughly at 40% to insert mid-article CTA
+              const midPoint = Math.floor(sanitized.length * 0.4);
+              const splitIndex = sanitized.indexOf("</p>", midPoint);
+              if (splitIndex === -1) {
+                return (
+                  <>
+                    <div
+                      className="prose prose-invert prose-gold max-w-none
+                        prose-headings:font-serif prose-headings:text-foreground
+                        prose-p:text-muted-foreground prose-p:leading-relaxed
+                        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                        prose-strong:text-foreground
+                        prose-li:text-muted-foreground
+                        prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
+                      dangerouslySetInnerHTML={{ __html: sanitized }}
+                    />
+                  </>
+                );
+              }
+              const firstHalf = sanitized.slice(0, splitIndex + 4);
+              const secondHalf = sanitized.slice(splitIndex + 4);
+              return (
+                <>
+                  <div
+                    className="prose prose-invert prose-gold max-w-none
+                      prose-headings:font-serif prose-headings:text-foreground
+                      prose-p:text-muted-foreground prose-p:leading-relaxed
+                      prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                      prose-strong:text-foreground
+                      prose-li:text-muted-foreground
+                      prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
+                    dangerouslySetInnerHTML={{ __html: firstHalf }}
+                  />
+                  <BlogMidArticleCTA />
+                  <div
+                    className="prose prose-invert prose-gold max-w-none
+                      prose-headings:font-serif prose-headings:text-foreground
+                      prose-p:text-muted-foreground prose-p:leading-relaxed
+                      prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                      prose-strong:text-foreground
+                      prose-li:text-muted-foreground
+                      prose-blockquote:border-primary prose-blockquote:text-muted-foreground"
+                    dangerouslySetInnerHTML={{ __html: secondHalf }}
+                  />
+                </>
+              );
+            })()}
           </div>
         </div>
       </article>

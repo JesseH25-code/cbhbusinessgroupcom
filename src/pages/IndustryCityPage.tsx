@@ -81,6 +81,14 @@ const IndustryCityPage = () => {
         </div>
       </section>
 
+      <section className="py-12">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl mx-auto">
+            <InlineTestimonial />
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 bg-secondary">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
