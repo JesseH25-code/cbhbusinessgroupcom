@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { getGlossaryTerm, glossaryTerms } from "@/lib/glossary-data";
+import GlossaryNavSidebar from "@/components/GlossaryNavSidebar";
 
 const GlossaryPage = () => {
   const { slug } = useParams<{ slug: string }>();
