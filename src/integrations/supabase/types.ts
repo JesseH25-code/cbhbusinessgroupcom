@@ -64,28 +64,34 @@ export type Database = {
           buyer_type: string
           created_at: string
           criteria: string
+          ebitda_ranges: string[] | null
           email: string
           firm: string
           id: string
           name: string
+          revenue_ranges: string[] | null
         }
         Insert: {
           buyer_type: string
           created_at?: string
           criteria: string
+          ebitda_ranges?: string[] | null
           email: string
           firm: string
           id?: string
           name: string
+          revenue_ranges?: string[] | null
         }
         Update: {
           buyer_type?: string
           created_at?: string
           criteria?: string
+          ebitda_ranges?: string[] | null
           email?: string
           firm?: string
           id?: string
           name?: string
+          revenue_ranges?: string[] | null
         }
         Relationships: []
       }
