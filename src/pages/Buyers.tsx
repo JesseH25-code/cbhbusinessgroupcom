@@ -57,8 +57,49 @@ const buyersFaqJsonLd = {
   })),
 };
 
+const rangeOptions = ["$1M or less", "$1M–$3M", "$3M–$5M", "$5M–$10M", "$10M+"];
+
+const MultiSelectRanges = ({
+  label,
+  selected,
+  onChange,
+}: {
+  label: string;
+  selected: string[];
+  onChange: (vals: string[]) => void;
+}) => (
+  <div>
+    <label className="text-xs tracking-widest uppercase text-muted-foreground mb-2 block">{label}</label>
+    <div className="flex flex-wrap gap-2">
+      {rangeOptions.map((opt) => {
+        const active = selected.includes(opt);
+        return (
+          <button
+            key={opt}
+            type="button"
+            onClick={() =>
+              onChange(active ? selected.filter((s) => s !== opt) : [...selected, opt])
+            }
+            className={`px-3 py-1.5 text-xs border transition-colors ${
+              active
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-card text-muted-foreground border-border hover:border-primary/50"
+            }`}
+          >
+            {opt}
+          </button>
+        );
+      })}
+    </div>
+  </div>
+);
+
 const Buyers = () => {
-  const [form, setForm] = useState({ name: "", firm: "", email: "", criteria: "", type: "" });
+  const [form, setForm] = useState({
+    name: "", firm: "", email: "", criteria: "", type: "",
+    revenueRanges: [] as string[],
+    ebitdaRanges: [] as string[],
+  });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -73,6 +114,8 @@ const Buyers = () => {
           email: form.email,
           buyer_type: form.type,
           criteria: form.criteria,
+          revenue_ranges: form.revenueRanges,
+          ebitda_ranges: form.ebitdaRanges,
         },
       });
       if (response.error) throw response.error;
