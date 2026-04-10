@@ -236,6 +236,16 @@ const Buyers = () => {
                       />
                     </div>
                   ))}
+                  <MultiSelectRanges
+                    label="Target Revenue Range (select all that apply)"
+                    selected={form.revenueRanges}
+                    onChange={(vals) => setForm({ ...form, revenueRanges: vals })}
+                  />
+                  <MultiSelectRanges
+                    label="Target EBITDA Range (select all that apply)"
+                    selected={form.ebitdaRanges}
+                    onChange={(vals) => setForm({ ...form, ebitdaRanges: vals })}
+                  />
                   <div>
                     <label className="text-xs tracking-widest uppercase text-muted-foreground mb-1 block">Acquisition Criteria</label>
                     <textarea
@@ -244,7 +254,7 @@ const Buyers = () => {
                       value={form.criteria}
                       onChange={(e) => setForm({ ...form, criteria: e.target.value })}
                       className="w-full bg-card border border-border px-4 py-3 text-sm text-foreground focus:border-primary focus:outline-none transition-colors resize-none"
-                      placeholder="Industry preferences, size range, geography, structure..."
+                      placeholder="Industry preferences, geography, structure..."
                     />
                   </div>
                   <Button variant="hero" size="lg" type="submit" className="w-full" disabled={submitting}>
