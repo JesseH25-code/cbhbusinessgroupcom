@@ -12,6 +12,8 @@ interface BuyerForm {
   email: string;
   buyer_type: string;
   criteria: string;
+  revenue_ranges?: string[];
+  ebitda_ranges?: string[];
 }
 
 const escapeHtml = (s: string): string =>
@@ -32,6 +34,9 @@ Deno.serve(async (req) => {
       );
     }
 
+    const revenueRanges = body.revenue_ranges ?? [];
+    const ebitdaRanges = body.ebitda_ranges ?? [];
+
     // Store in database
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
@@ -44,11 +49,16 @@ Deno.serve(async (req) => {
       email: body.email,
       buyer_type: body.buyer_type,
       criteria: body.criteria,
+      revenue_ranges: revenueRanges,
+      ebitda_ranges: ebitdaRanges,
     });
 
     if (dbError) {
       console.error("Database error:", dbError);
     }
+
+    const formatRanges = (ranges: string[]) =>
+      ranges.length > 0 ? ranges.map(escapeHtml).join(", ") : "Not specified";
 
     // Send email notification via Resend
     const emailHtml = `
@@ -58,6 +68,8 @@ Deno.serve(async (req) => {
         <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Firm</td><td style="padding:8px;border-bottom:1px solid #ddd;">${escapeHtml(body.firm)}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border-bottom:1px solid #ddd;">${escapeHtml(body.email)}</td></tr>
         <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Buyer Type</td><td style="padding:8px;border-bottom:1px solid #ddd;">${escapeHtml(body.buyer_type)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">Revenue Ranges</td><td style="padding:8px;border-bottom:1px solid #ddd;">${formatRanges(revenueRanges)}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #ddd;font-weight:bold;">EBITDA Ranges</td><td style="padding:8px;border-bottom:1px solid #ddd;">${formatRanges(ebitdaRanges)}</td></tr>
         <tr><td style="padding:8px;font-weight:bold;">Acquisition Criteria</td><td style="padding:8px;">${escapeHtml(body.criteria)}</td></tr>
       </table>
     `;
