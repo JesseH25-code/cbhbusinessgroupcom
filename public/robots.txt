@@ -30,3 +30,8 @@ Allow: /
 
 Sitemap: https://cbhbusinessgroup.com/sitemap.xml
 Sitemap: https://ogkievwunwuklyndzcna.supabase.co/functions/v1/blog-sitemap
+
+# LLM-readable content
+# Full site content in structured text format for AI tools
+# See: https://llmstxt.org
+LLMs.txt: https://cbhbusinessgroup.com/llms.txt
