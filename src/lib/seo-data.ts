@@ -67,6 +67,17 @@ export const localBusinessJsonLd = {
   ],
 };
 
+export const speakableJsonLd = (path: string, cssSelectors: string[] = ["h1", ".speakable"]) => ({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "CBH Business Group",
+  url: `${SITE_URL}${path}`,
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: cssSelectors,
+  },
+});
+
 export const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
