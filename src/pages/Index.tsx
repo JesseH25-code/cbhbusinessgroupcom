@@ -101,7 +101,7 @@ const Index = () => {
         title="CBH Business Group | M&A Advisory for Businesses $3M–$50M"
         description="Florida-based M&A advisory and business brokerage firm specializing in strategic sale transactions, valuation advisory, and exit planning for businesses valued $3M–$50M."
         path="/"
-        jsonLd={[organizationJsonLd, localBusinessJsonLd]}
+        jsonLd={[organizationJsonLd, localBusinessJsonLd, speakableJsonLd("/")]}
       />
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
