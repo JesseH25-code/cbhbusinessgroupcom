@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { organizationJsonLd, localBusinessJsonLd } from "@/lib/seo-data";
+import { organizationJsonLd, localBusinessJsonLd, speakableJsonLd } from "@/lib/seo-data";
 import heroImage from "@/assets/hero-skyline.jpg";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
