@@ -137,7 +137,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+              className="speakable text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
             >
               CBH Business Group advises owners of privately held companies through confidential sale transactions, 
               valuation advisory, and structured exit planning. We are not a listing service — we provide 
