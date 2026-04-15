@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import { speakableJsonLd } from "@/lib/seo-data";
 import georgeImg from "@/assets/george-hastings.jpg";
 import richardImg from "@/assets/richard-bradley.jpg";
 import jesseImg from "@/assets/jesse-hastings.jpg";
@@ -52,10 +53,11 @@ const About = () => (
     <SEOHead
       title="About Our M&A Advisory Team"
       description="Meet the CBH Business Group team — over 50 years of combined M&A experience advising privately held business owners through strategic sale transactions in Florida."
-      path="/about"
-      breadcrumbs={[
-        { name: "Home", path: "/" },
-        { name: "About", path: "/about" },
+        path="/about"
+        jsonLd={speakableJsonLd("/about")}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
       ]}
     />
     <section className="py-24 bg-gradient-section">
