@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 import { getIndustryCityPage } from "@/lib/industry-city-data";
+import { speakableJsonLd } from "@/lib/seo-data";
 import InlineTestimonial from "@/components/InlineTestimonial";
 
 const icons = [BarChart3, Shield, Users, TrendingUp];
@@ -30,7 +31,7 @@ const IndustryCityPage = () => {
         title={data.metaTitle}
         description={data.metaDescription}
         path={`/${data.slug}`}
-        jsonLd={faqJsonLd}
+        jsonLd={[faqJsonLd, speakableJsonLd(`/${data.slug}`)]}
         breadcrumbs={[
           { name: "Home", path: "/" },
           { name: "Industries", path: "/industries" },

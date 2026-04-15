@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { organizationJsonLd, localBusinessJsonLd } from "@/lib/seo-data";
+import { organizationJsonLd, localBusinessJsonLd, speakableJsonLd } from "@/lib/seo-data";
 import heroImage from "@/assets/hero-skyline.jpg";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
@@ -101,7 +101,7 @@ const Index = () => {
         title="CBH Business Group | M&A Advisory for Businesses $3M–$50M"
         description="Florida-based M&A advisory and business brokerage firm specializing in strategic sale transactions, valuation advisory, and exit planning for businesses valued $3M–$50M."
         path="/"
-        jsonLd={[organizationJsonLd, localBusinessJsonLd]}
+        jsonLd={[organizationJsonLd, localBusinessJsonLd, speakableJsonLd("/")]}
       />
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center">
@@ -137,7 +137,7 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
+              className="speakable text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl"
             >
               CBH Business Group advises owners of privately held companies through confidential sale transactions, 
               valuation advisory, and structured exit planning. We are not a listing service — we provide 

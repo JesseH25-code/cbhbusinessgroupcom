@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowRight, FileText } from "lucide-react";
+import { speakableJsonLd } from "@/lib/seo-data";
 
 const faqItems = [
   {
@@ -52,7 +53,7 @@ const BusinessValuation = () => (
       title="Business Valuation Advisory | How Much Is My Business Worth?"
       description="Professional business valuation advisory for companies valued $3M–$50M. EBITDA analysis, industry benchmarking, and market-based valuation to determine what your business is worth."
       path="/business-valuation"
-      jsonLd={faqJsonLd}
+      jsonLd={[faqJsonLd, speakableJsonLd("/business-valuation")]}
       breadcrumbs={[
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },

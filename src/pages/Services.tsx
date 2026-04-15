@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowRight } from "lucide-react";
+import { speakableJsonLd } from "@/lib/seo-data";
 import { motion } from "framer-motion";
 
 const fadeUp = {
@@ -115,7 +116,7 @@ const Services = () => (
       title="M&A Advisory Services"
       description="Sell-side M&A advisory, business valuation, exit planning, deal structuring, and buyer representation for privately held businesses valued $3M–$50M."
       path="/services"
-      jsonLd={servicesFaqJsonLd}
+      jsonLd={[servicesFaqJsonLd, speakableJsonLd("/services")]}
       breadcrumbs={[
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },

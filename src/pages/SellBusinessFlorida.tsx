@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3, FileText } from "lucide-react";
+import { speakableJsonLd } from "@/lib/seo-data";
 
 const faqItems = [
   {
@@ -43,7 +44,7 @@ const SellBusinessFlorida = () => (
       title="Sell a Business in Florida | M&A Advisory"
       description="Expert M&A advisory for selling your Florida business. Confidential process, professional valuation, and strategic buyer identification for businesses valued $3M–$50M."
       path="/sell-business-florida"
-      jsonLd={faqJsonLd}
+      jsonLd={[faqJsonLd, speakableJsonLd("/sell-business-florida")]}
       breadcrumbs={[
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },
