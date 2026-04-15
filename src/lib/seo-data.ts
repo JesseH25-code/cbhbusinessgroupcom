@@ -8,17 +8,27 @@ export const organizationJsonLd = {
   logo: `${SITE_URL}/og-image.jpg`,
   description:
     "Florida-based M&A advisory and business brokerage firm specializing in strategic sale transactions, valuation advisory, and exit planning for businesses valued $3M–$50M.",
+  telephone: "(407) 908-3845",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "1550 Dolphin Drive",
+    addressLocality: "St. Cloud",
     addressRegion: "FL",
+    postalCode: "34771",
     addressCountry: "US",
   },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
+    telephone: "(407) 908-3845",
     email: "jesse@cbhadvisory.com",
+    availableLanguage: ["English", "Spanish"],
   },
-  sameAs: [],
+  sameAs: [
+    "https://www.linkedin.com/company/cbh-business-group",
+    "https://www.bizbuysell.com/broker/cbh-business-group/",
+    "https://www.axial.net/",
+  ],
 };
 
 export const localBusinessJsonLd = {
@@ -27,17 +37,26 @@ export const localBusinessJsonLd = {
   name: "CBH Business Group",
   url: SITE_URL,
   image: `${SITE_URL}/og-image.jpg`,
+  telephone: "(407) 908-3845",
   description:
     "M&A advisory firm specializing in sell-side representation, business valuation, and exit planning for privately held businesses valued $3M–$50M.",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "1550 Dolphin Drive",
+    addressLocality: "St. Cloud",
     addressRegion: "FL",
+    postalCode: "34771",
     addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 28.2489,
+    longitude: -81.2812,
   },
   priceRange: "$3M–$50M transaction range",
   areaServed: {
-    "@type": "Country",
-    name: "United States",
+    "@type": "State",
+    name: "Florida",
   },
   serviceType: [
     "M&A Advisory",
