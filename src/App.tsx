@@ -175,6 +175,7 @@ const App = () => (
               <Route path="/workflow-optimization" element={<Navigate to="/workflow-optimization-florida" replace />} />
               <Route path="/buyer-profile" element={<Navigate to="/buyers" replace />} />
               <Route path="/book-online" element={<Navigate to="/contact" replace />} />
+              <Route path="/about-us" element={<Navigate to="/about" replace />} />
               <Route path="/services/contact-us" element={<Navigate to="/contact" replace />} />
               <Route path="/services/*" element={<Navigate to="/services" replace />} />
               <Route path="*" element={<NotFound />} />
