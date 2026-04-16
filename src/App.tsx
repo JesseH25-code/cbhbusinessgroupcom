@@ -157,6 +157,7 @@ const App = () => (
               <Route path="/glossary/:slug" element={<GlossaryPage />} />
               {/* Industry × City dynamic pages (40 combos) */}
               <Route path="/:slug" element={<IndustryCityPage />} />
+              <Route path="/glossary/working-capital" element={<Navigate to="/glossary/working-capital-adjustment" replace />} />
               <Route path="/growth-roadmap" element={<Navigate to="/business-growth-roadmap" replace />} />
               <Route path="/valuation" element={<Navigate to="/valuation-calculator" replace />} />
               <Route path="/business-valuation-calculator" element={<Navigate to="/business-valuation-calculator-florida" replace />} />
