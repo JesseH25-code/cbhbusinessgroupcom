@@ -1,0 +1,26 @@
+# 301 redirects for legacy/alternate URLs (server-side, SEO-friendly)
+/about-us                              /about                                     301
+/services/contact-us                   /contact                                   301
+/glossary/working-capital              /glossary/working-capital-adjustment       301
+/growth-roadmap                        /business-growth-roadmap                   301
+/valuation                             /valuation-calculator                      301
+/business-valuation-calculator         /business-valuation-calculator-florida     301
+/sell-my-business                      /sell-business-florida                     301
+/sell-business                         /sell-business-florida                     301
+/sell-a-business                       /sell-business-florida                     301
+/buy-business                          /buy-a-business-in-florida                 301
+/buy-a-business                        /buy-a-business-in-florida                 301
+/benchmarks                            /florida-ma-benchmarks                     301
+/ma-benchmarks                         /florida-ma-benchmarks                     301
+/ebitda                                /what-is-ebitda                            301
+/broker-vs-advisor                     /business-broker-vs-ma-advisor             301
+/seller-financing                      /seller-financing-explained                301
+/ai-consulting                         /ai-automation-consulting-florida          301
+/automation-consulting                 /ai-automation-consulting-florida          301
+/workflow-optimization                 /workflow-optimization-florida             301
+/buyer-profile                         /buyers                                    301
+/book-online                           /contact                                   301
+/services/*                            /services                                  301
+
+# SPA fallback (must be last)
+/*                                     /index.html                                200
