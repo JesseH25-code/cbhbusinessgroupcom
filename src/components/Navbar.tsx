@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import LanguageToggle from "./LanguageToggle";
 
 interface NavItem {
   label: string;
@@ -72,7 +73,9 @@ const Navbar = () => {
     <>
       {/* Utility Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-[hsl(220_30%_12%)] border-b border-primary/10">
-        <div className="container mx-auto flex items-center justify-end h-8 px-6">
+        <div className="container mx-auto flex items-center justify-end gap-5 h-8 px-6">
+          <LanguageToggle />
+          <span className="hidden sm:inline-block w-px h-3 bg-primary/20" aria-hidden="true" />
           <a href="tel:+14079083845" className="flex items-center gap-2 text-primary/90 hover:text-primary transition-colors text-[11px] font-sans font-medium tracking-widest uppercase">
             <Phone className="w-3 h-3" />
             (407) 908-3845
