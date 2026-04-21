@@ -159,8 +159,38 @@ const Index = () => {
                 <Button variant="heroOutline" size="lg" className="w-full">Join Buyer Network</Button>
               </Link>
             </motion.div>
+            {/* Hero quick-nav: surfaces depth, reduces bounce */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1 }}
+              className="hidden md:flex items-center gap-6 mt-10 text-xs tracking-widest uppercase text-muted-foreground"
+            >
+              <Link to="/florida-ma-benchmarks" className="hover:text-primary transition-colors flex items-center gap-2">
+                <LineChart className="w-3.5 h-3.5" /> 2026 Multiples
+              </Link>
+              <span className="text-border">·</span>
+              <Link to="/case-studies" className="hover:text-primary transition-colors flex items-center gap-2">
+                <Building2 className="w-3.5 h-3.5" /> Past Transactions
+              </Link>
+              <span className="text-border">·</span>
+              <Link to="/about" className="hover:text-primary transition-colors flex items-center gap-2">
+                <Users className="w-3.5 h-3.5" /> Advisory Team
+              </Link>
+            </motion.div>
           </div>
         </div>
+        {/* Scroll cue */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-muted-foreground"
+          aria-hidden="true"
+        >
+          <span className="text-[10px] tracking-[0.3em] uppercase">Explore</span>
+          <ChevronDown className="w-4 h-4 animate-bounce" />
+        </motion.div>
       </section>
 
       {/* Credibility Strip */}
