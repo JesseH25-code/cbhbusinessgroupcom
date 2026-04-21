@@ -155,8 +155,7 @@ const App = () => (
               {/* Glossary */}
               <Route path="/glossary" element={<Glossary />} />
               <Route path="/glossary/:slug" element={<GlossaryPage />} />
-              {/* Industry × City dynamic pages (40 combos) */}
-              <Route path="/:slug" element={<IndustryCityPage />} />
+              {/* Legacy URL redirects — MUST come before catch-all /:slug */}
               <Route path="/glossary/working-capital" element={<Navigate to="/glossary/working-capital-adjustment" replace />} />
               <Route path="/growth-roadmap" element={<Navigate to="/business-growth-roadmap" replace />} />
               <Route path="/valuation" element={<Navigate to="/valuation-calculator" replace />} />
@@ -179,6 +178,8 @@ const App = () => (
               <Route path="/about-us" element={<Navigate to="/about" replace />} />
               <Route path="/services/contact-us" element={<Navigate to="/contact" replace />} />
               <Route path="/services/*" element={<Navigate to="/services" replace />} />
+              {/* Industry × City dynamic pages (catch-all — must come LAST before NotFound) */}
+              <Route path="/:slug" element={<IndustryCityPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
