@@ -318,7 +318,7 @@ const Buyers = () => {
           >
             {[
               { icon: Building2, title: "Active Opportunities", desc: "Current confidential acquisition targets.", path: "/opportunities" },
-              { icon: LineChart, title: "2026 Florida M&A Benchmarks", desc: "Sector EBITDA multiples and trends.", path: "/florida-ma-benchmarks" },
+              { icon: LineChart, title: "2026 FL Sale Multiples Report", desc: "Median EBITDA multiples across 10 sectors.", path: "/florida-business-sale-multiples-2026" },
               { icon: FileText, title: "M&A Glossary", desc: "Key terms used in deal documents.", path: "/glossary" },
               { icon: BookOpen, title: "Resource Library", desc: "Buyer guides and exit planning.", path: "/resources" },
             ].map((item, i) => (

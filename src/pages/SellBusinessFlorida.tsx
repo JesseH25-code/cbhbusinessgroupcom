@@ -140,6 +140,10 @@ const SellBusinessFlorida = () => (
             <p className="font-serif text-sm text-foreground mb-1">Florida M&A Benchmarks</p>
             <p className="text-xs text-muted-foreground">Industry multiples data</p>
           </Link>
+          <Link to="/florida-business-sale-multiples-2026" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">2026 FL Sale Multiples</p>
+            <p className="text-xs text-muted-foreground">Median multiples by sector</p>
+          </Link>
           <Link to="/industries" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Industry Expertise</p>
             <p className="text-xs text-muted-foreground">Sector-specific M&A advisory</p>
