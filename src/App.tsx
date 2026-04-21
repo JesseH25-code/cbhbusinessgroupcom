@@ -59,6 +59,7 @@ const BusinessValuationCalculatorPalmBeach = lazy(() => import("./pages/Business
 const BusinessGrowthRoadmap = lazy(() => import("./pages/BusinessGrowthRoadmap"));
 const Resources = lazy(() => import("./pages/Resources"));
 const FloridaMABenchmarks = lazy(() => import("./pages/FloridaMABenchmarks"));
+const FloridaBusinessSaleMultiples2026 = lazy(() => import("./pages/FloridaBusinessSaleMultiples2026"));
 const AIAutomationConsultingFlorida = lazy(() => import("./pages/AIAutomationConsultingFlorida"));
 const WorkflowOptimizationFlorida = lazy(() => import("./pages/WorkflowOptimizationFlorida"));
 const SellMyBusinessMiami = lazy(() => import("./pages/SellMyBusinessMiami"));
@@ -140,6 +141,7 @@ const App = () => (
               <Route path="/business-growth-roadmap" element={<BusinessGrowthRoadmap />} />
               <Route path="/resources" element={<Resources />} />
               <Route path="/florida-ma-benchmarks" element={<FloridaMABenchmarks />} />
+              <Route path="/florida-business-sale-multiples-2026" element={<FloridaBusinessSaleMultiples2026 />} />
               <Route path="/ai-automation-consulting-florida" element={<AIAutomationConsultingFlorida />} />
               <Route path="/workflow-optimization-florida" element={<WorkflowOptimizationFlorida />} />
               <Route path="/sell-my-business-miami" element={<SellMyBusinessMiami />} />
