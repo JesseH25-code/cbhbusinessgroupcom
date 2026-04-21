@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { organizationJsonLd, localBusinessJsonLd, speakableJsonLd } from "@/lib/seo-data";
 import heroImage from "@/assets/hero-skyline.jpg";
-import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { ArrowRight, Shield, TrendingUp, Users, BarChart3, Calculator, FileText, BookOpen, Building2, ChevronDown, LineChart } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
 import ProfessionalBadges from "@/components/ProfessionalBadges";
 import { motion } from "framer-motion";
