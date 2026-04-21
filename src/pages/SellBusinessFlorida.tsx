@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import HeroTrustStrip from "@/components/HeroTrustStrip";
 import { ArrowRight, Shield, TrendingUp, Users, BarChart3, FileText } from "lucide-react";
 import { speakableJsonLd } from "@/lib/seo-data";
 
@@ -41,8 +42,8 @@ const faqJsonLd = {
 const SellBusinessFlorida = () => (
   <Layout>
     <SEOHead
-      title="Sell a Business in Florida | M&A Advisory"
-      description="Expert M&A advisory for selling your Florida business. Confidential process, professional valuation, and strategic buyer identification for businesses valued $3M–$50M."
+      title="Sell a Business in Florida — Confidential M&A Advisory ($3M–$50M)"
+      description="Sell your Florida business with a boutique M&A firm. Confidential valuations, vetted PE & strategic buyers, and proven 6–9 month closings for $3M–$50M companies."
       path="/sell-business-florida"
       jsonLd={[faqJsonLd, speakableJsonLd("/sell-business-florida")]}
       breadcrumbs={[
@@ -64,6 +65,7 @@ const SellBusinessFlorida = () => (
             a strategic exit. We handle valuation, buyer targeting, negotiation, and closing — so you can 
             focus on running your business until the deal is done.
           </p>
+          <HeroTrustStrip />
           <Link to="/contact">
             <Button variant="hero" size="lg">
               Request Confidential Valuation <ArrowRight className="ml-2 w-4 h-4" />
@@ -137,6 +139,10 @@ const SellBusinessFlorida = () => (
           <Link to="/florida-ma-benchmarks" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Florida M&A Benchmarks</p>
             <p className="text-xs text-muted-foreground">Industry multiples data</p>
+          </Link>
+          <Link to="/florida-business-sale-multiples-2026" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
+            <p className="font-serif text-sm text-foreground mb-1">2026 FL Sale Multiples</p>
+            <p className="text-xs text-muted-foreground">Median multiples by sector</p>
           </Link>
           <Link to="/industries" className="bg-card border border-border p-6 hover:border-primary/30 transition-colors text-center">
             <p className="font-serif text-sm text-foreground mb-1">Industry Expertise</p>

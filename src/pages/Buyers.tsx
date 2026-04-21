@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
+import HeroTrustStrip from "@/components/HeroTrustStrip";
 import IndustryExplorer from "@/components/IndustryExplorer";
 import { ArrowRight, Building2, LineChart, FileText, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -133,8 +134,8 @@ const Buyers = () => {
   return (
     <Layout>
       <SEOHead
-        title="Join Our Acquisition Network"
-        description="Qualified strategic and financial buyers seeking lower middle-market acquisition opportunities in the $3M–$50M enterprise value range. Join CBH Business Group's buyer network."
+        title="Florida Business Acquisition Opportunities — Confidential Deal Flow"
+        description="Confidential deal flow for PE firms, family offices, and strategic acquirers. Pre-vetted Florida lower middle-market opportunities ($3M–$50M EV). Register for matched targets."
         path="/buyers"
         jsonLd={buyersFaqJsonLd}
         breadcrumbs={[
@@ -152,6 +153,7 @@ const Buyers = () => {
               We maintain a confidential network of qualified strategic and financial buyers seeking 
               lower middle-market opportunities in the $3M–$50M enterprise value range.
             </p>
+            <HeroTrustStrip />
             <a href="#buyer-form" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 text-sm tracking-wide uppercase hover:bg-primary/90 transition-colors">
               Register as a Buyer <ArrowRight className="w-4 h-4" />
             </a>
@@ -316,7 +318,7 @@ const Buyers = () => {
           >
             {[
               { icon: Building2, title: "Active Opportunities", desc: "Current confidential acquisition targets.", path: "/opportunities" },
-              { icon: LineChart, title: "2026 Florida M&A Benchmarks", desc: "Sector EBITDA multiples and trends.", path: "/florida-ma-benchmarks" },
+              { icon: LineChart, title: "2026 FL Sale Multiples Report", desc: "Median EBITDA multiples across 10 sectors.", path: "/florida-business-sale-multiples-2026" },
               { icon: FileText, title: "M&A Glossary", desc: "Key terms used in deal documents.", path: "/glossary" },
               { icon: BookOpen, title: "Resource Library", desc: "Buyer guides and exit planning.", path: "/resources" },
             ].map((item, i) => (
