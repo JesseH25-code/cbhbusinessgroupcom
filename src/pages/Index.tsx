@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import { organizationJsonLd, localBusinessJsonLd, speakableJsonLd } from "@/lib/seo-data";
 import heroImage from "@/assets/hero-skyline.jpg";
-import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { ArrowRight, Shield, TrendingUp, Users, BarChart3, Calculator, FileText, BookOpen, Building2, ChevronDown, LineChart } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
 import ProfessionalBadges from "@/components/ProfessionalBadges";
 import { motion } from "framer-motion";
@@ -159,8 +159,38 @@ const Index = () => {
                 <Button variant="heroOutline" size="lg" className="w-full">Join Buyer Network</Button>
               </Link>
             </motion.div>
+            {/* Hero quick-nav: surfaces depth, reduces bounce */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1 }}
+              className="hidden md:flex items-center gap-6 mt-10 text-xs tracking-widest uppercase text-muted-foreground"
+            >
+              <Link to="/florida-ma-benchmarks" className="hover:text-primary transition-colors flex items-center gap-2">
+                <LineChart className="w-3.5 h-3.5" /> 2026 Multiples
+              </Link>
+              <span className="text-border">·</span>
+              <Link to="/case-studies" className="hover:text-primary transition-colors flex items-center gap-2">
+                <Building2 className="w-3.5 h-3.5" /> Past Transactions
+              </Link>
+              <span className="text-border">·</span>
+              <Link to="/about" className="hover:text-primary transition-colors flex items-center gap-2">
+                <Users className="w-3.5 h-3.5" /> Advisory Team
+              </Link>
+            </motion.div>
           </div>
         </div>
+        {/* Scroll cue */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-muted-foreground"
+          aria-hidden="true"
+        >
+          <span className="text-[10px] tracking-[0.3em] uppercase">Explore</span>
+          <ChevronDown className="w-4 h-4 animate-bounce" />
+        </motion.div>
       </section>
 
       {/* Credibility Strip */}
@@ -373,6 +403,57 @@ const Index = () => {
                     {item.label}
                     <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                   </p>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Tools & Resources Hub — internal linking to lift pages/visit */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-center mb-16"
+          >
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Tools & Resources</p>
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground">Begin Where You Are</h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Whether you're exploring valuation, planning an exit, or evaluating opportunities — start with the resources that match your stage.
+            </p>
+          </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
+          >
+            {[
+              { icon: Calculator, title: "Free Valuation Calculator", desc: "Get a baseline estimate of your business value in under 3 minutes.", path: "/valuation-calculator" },
+              { icon: LineChart, title: "2026 Florida M&A Benchmarks", desc: "Current EBITDA multiples and transaction trends across 8 sectors.", path: "/florida-ma-benchmarks" },
+              { icon: TrendingUp, title: "Business Growth Roadmap", desc: "Five scaling stages with diagnostic tools for owners.", path: "/business-growth-roadmap" },
+              { icon: BookOpen, title: "Resource Library", desc: "Exit planning, valuation, and M&A guides for owners and buyers.", path: "/resources" },
+              { icon: FileText, title: "M&A Glossary", desc: "Key terms every business owner should know before going to market.", path: "/glossary" },
+              { icon: Building2, title: "Active Opportunities", desc: "Confidential acquisition opportunities currently being marketed.", path: "/opportunities" },
+            ].map((item, i) => (
+              <motion.div key={i} variants={fadeUp}>
+                <Link
+                  to={item.path}
+                  className="block bg-card border border-border p-7 h-full hover:border-primary/40 transition-all duration-300 group"
+                >
+                  <item.icon className="w-6 h-6 text-primary mb-5" strokeWidth={1.5} />
+                  <h3 className="font-serif text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{item.desc}</p>
+                  <span className="text-xs tracking-widest uppercase text-primary inline-flex items-center gap-2">
+                    Open <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </Link>
               </motion.div>
             ))}
