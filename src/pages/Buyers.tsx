@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
 import IndustryExplorer from "@/components/IndustryExplorer";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Building2, LineChart, FileText, BookOpen } from "lucide-react";
+import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -289,6 +290,49 @@ const Buyers = () => {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Related Resources — reduces bounce by surfacing next steps */}
+      <section className="py-20 border-t border-border">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUp}
+            className="text-center mb-12"
+          >
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Continue Exploring</p>
+            <h2 className="text-2xl md:text-3xl font-serif text-foreground">Related Buyer Resources</h2>
+          </motion.div>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto"
+          >
+            {[
+              { icon: Building2, title: "Active Opportunities", desc: "Current confidential acquisition targets.", path: "/opportunities" },
+              { icon: LineChart, title: "2026 Florida M&A Benchmarks", desc: "Sector EBITDA multiples and trends.", path: "/florida-ma-benchmarks" },
+              { icon: FileText, title: "M&A Glossary", desc: "Key terms used in deal documents.", path: "/glossary" },
+              { icon: BookOpen, title: "Resource Library", desc: "Buyer guides and exit planning.", path: "/resources" },
+            ].map((item, i) => (
+              <motion.div key={i} variants={fadeUp}>
+                <Link
+                  to={item.path}
+                  className="block bg-card border border-border p-6 h-full hover:border-primary/40 transition-all group"
+                >
+                  <item.icon className="w-5 h-5 text-primary mb-3" strokeWidth={1.5} />
+                  <h3 className="font-serif text-base text-foreground mb-1.5 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
