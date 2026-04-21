@@ -233,6 +233,9 @@ const cities = [
   { key: "orlando", name: "Orlando", stateRegion: "Central Florida" },
   { key: "jacksonville", name: "Jacksonville", stateRegion: "Northeast Florida" },
   { key: "fort-lauderdale", name: "Fort Lauderdale", stateRegion: "South Florida" },
+  { key: "naples", name: "Naples", stateRegion: "Southwest Florida" },
+  { key: "sarasota", name: "Sarasota", stateRegion: "Southwest Florida" },
+  { key: "palm-beach", name: "Palm Beach", stateRegion: "Palm Beach County" },
 ];
 
 export function generateAllIndustryCityPages(): IndustryCityData[] {
