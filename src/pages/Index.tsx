@@ -161,21 +161,40 @@ const Index = () => {
             </motion.div>
             {/* Hero quick-nav: surfaces depth, reduces bounce */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
-              className="hidden md:flex items-center gap-6 mt-10 text-xs tracking-widest uppercase text-muted-foreground"
+              className="hidden md:grid grid-cols-3 gap-px bg-border/50 mt-12 max-w-2xl border border-border/50"
             >
-              <Link to="/florida-ma-benchmarks" className="hover:text-primary transition-colors flex items-center gap-2">
-                <LineChart className="w-3.5 h-3.5" /> 2026 Multiples
+              <Link
+                to="/florida-ma-benchmarks"
+                className="group bg-card/40 backdrop-blur-sm hover:bg-card/70 transition-all p-4 flex items-start gap-3"
+              >
+                <LineChart className="w-4 h-4 text-primary mt-0.5 shrink-0" strokeWidth={1.5} />
+                <div>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1">View Report</p>
+                  <p className="text-sm font-serif text-foreground group-hover:text-primary transition-colors">2026 Multiples</p>
+                </div>
               </Link>
-              <span className="text-border">·</span>
-              <Link to="/case-studies" className="hover:text-primary transition-colors flex items-center gap-2">
-                <Building2 className="w-3.5 h-3.5" /> Past Transactions
+              <Link
+                to="/case-studies"
+                className="group bg-card/40 backdrop-blur-sm hover:bg-card/70 transition-all p-4 flex items-start gap-3"
+              >
+                <Building2 className="w-4 h-4 text-primary mt-0.5 shrink-0" strokeWidth={1.5} />
+                <div>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1">Track Record</p>
+                  <p className="text-sm font-serif text-foreground group-hover:text-primary transition-colors">Past Transactions</p>
+                </div>
               </Link>
-              <span className="text-border">·</span>
-              <Link to="/about" className="hover:text-primary transition-colors flex items-center gap-2">
-                <Users className="w-3.5 h-3.5" /> Advisory Team
+              <Link
+                to="/about"
+                className="group bg-card/40 backdrop-blur-sm hover:bg-card/70 transition-all p-4 flex items-start gap-3"
+              >
+                <Users className="w-4 h-4 text-primary mt-0.5 shrink-0" strokeWidth={1.5} />
+                <div>
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-1">Meet the Team</p>
+                  <p className="text-sm font-serif text-foreground group-hover:text-primary transition-colors">Advisory Team</p>
+                </div>
               </Link>
             </motion.div>
           </div>
