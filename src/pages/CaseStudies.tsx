@@ -57,6 +57,33 @@ const caseStudies = [
   },
 ];
 
+const recentExamples = [
+  {
+    sector: "Consumer Products / Apparel",
+    headline: "Athletic Apparel Company",
+    value: "$4.9M",
+    note: "100% strategic acquisition",
+  },
+  {
+    sector: "Construction Services",
+    headline: "Commercial Roofing Company",
+    value: "$23M",
+    note: "Majority sale to PE-backed platform",
+  },
+  {
+    sector: "Specialty Trade",
+    headline: "Window Installation Company",
+    value: "$28M",
+    note: "Strategic acquisition with rollover",
+  },
+  {
+    sector: "Outdoor Construction",
+    headline: "Pool Construction Company",
+    value: "$3M",
+    note: "Owner-operator transition sale",
+  },
+];
+
 const caseStudyJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
