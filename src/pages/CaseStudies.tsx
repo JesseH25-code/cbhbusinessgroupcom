@@ -57,6 +57,33 @@ const caseStudies = [
   },
 ];
 
+const recentExamples = [
+  {
+    sector: "Consumer Products / Apparel",
+    headline: "Athletic Apparel Company",
+    value: "$4.9M",
+    note: "100% strategic acquisition",
+  },
+  {
+    sector: "Construction Services",
+    headline: "Commercial Roofing Company",
+    value: "$23M",
+    note: "Majority sale to PE-backed platform",
+  },
+  {
+    sector: "Specialty Trade",
+    headline: "Window Installation Company",
+    value: "$28M",
+    note: "Strategic acquisition with rollover",
+  },
+  {
+    sector: "Outdoor Construction",
+    headline: "Pool Construction Company",
+    value: "$3M",
+    note: "Owner-operator transition sale",
+  },
+];
+
 const caseStudyJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -141,6 +168,29 @@ const CaseStudies = () => (
         </div>
       </section>
     ))}
+
+    {/* Recent Examples */}
+    <section className="py-24 bg-gradient-section border-t border-border">
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mb-12">
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Additional Engagements</p>
+          <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-4">Recent Transaction Examples</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            A selection of additional confidential transactions advised across construction, consumer products, and specialty trades.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+          {recentExamples.map((ex, i) => (
+            <div key={i} className="bg-card p-6 flex flex-col">
+              <p className="text-[10px] tracking-widest uppercase text-muted-foreground mb-3">{ex.sector}</p>
+              <p className="font-serif text-3xl text-primary mb-2">{ex.value}</p>
+              <p className="font-serif text-sm text-foreground mb-2">{ex.headline}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">{ex.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
     {/* CTA */}
     <section className="py-20 border-t border-border">

@@ -173,7 +173,14 @@ const ValuationPackages = () => (
               <span className="font-semibold text-foreground">Best for:</span> {pkg.bestFor}
             </p>
 
-            <Link to={pkg.ctaPath}>
+            <Link
+              to={pkg.ctaPath}
+              onClick={() => {
+                if (pkg.ctaPath === "/valuation-calculator") {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+            >
               <Button
                 variant={pkg.highlight ? "hero" : "heroOutline"}
                 size="lg"
