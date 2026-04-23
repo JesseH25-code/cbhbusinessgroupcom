@@ -51,14 +51,24 @@ const SellMyBusinessFortLauderdale = () => (
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Fort Lauderdale Business Sales</p>
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Fort Lauderdale · Broward County · Pop. 1.95M</p>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
             Sell My Business in Fort Lauderdale
           </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Fort Lauderdale's thriving economy — anchored by marine, tech, healthcare, and professional 
-            services — creates exceptional opportunities for business owners pursuing a strategic exit. 
-            We provide hands-on M&A advisory tailored to the Broward County market.
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            Broward County is home to 1.95M residents, ~135,000 active businesses, and the
+            largest concentration of marine services in the United States. Port Everglades
+            (one of the three busiest cruise ports in the world), the Fort
+            Lauderdale-Hollywood International Airport corridor, and the rapidly growing
+            family-office community across Las Olas and Boca create distinctly favorable
+            exit conditions.
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed mb-8">
+            We advise Fort Lauderdale owners — from Las Olas professional firms, to
+            Pompano marine and aviation businesses, to Coral Springs IT and healthcare
+            companies — on confidential, full-process sales. Lower-middle-market sale
+            prices in Broward County typically run $2M–$10M, with EBITDA multiples
+            generally 3.5x–7.0x.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
@@ -79,22 +89,30 @@ const SellMyBusinessFortLauderdale = () => (
     <section className="py-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Why Fort Lauderdale Owners Choose CBH</p>
-          <h2 className="text-3xl font-serif text-foreground">Broward County M&A Expertise</h2>
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Active Sectors in Broward County</p>
+          <h2 className="text-3xl font-serif text-foreground">Where Fort Lauderdale M&A Is Most Active</h2>
         </div>
-        <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
           {[
-            { icon: BarChart3, title: "Local Market Intelligence", desc: "Broward County-specific valuation analysis with South Florida comparable transactions." },
-            { icon: Shield, title: "Complete Confidentiality", desc: "NDA-protected process ensuring your business sale stays private until you decide otherwise." },
-            { icon: Users, title: "Premium Buyer Access", desc: "Family offices, PE firms, and strategic acquirers concentrated in the South Florida corridor." },
-            { icon: TrendingUp, title: "Maximized Exit Value", desc: "Competitive process leveraging Fort Lauderdale's strong demand dynamics." },
+            { icon: Sailboat, title: "Marine & Yachting", desc: "Yacht refit, brokerage, MRO, and marine supply businesses in Pompano, Dania Beach, and Fort Lauderdale regularly attract premium offers from PE-backed strategics." },
+            { icon: Wallet, title: "Wealth & Financial Services", desc: "Las Olas and Boca's growing family-office concentration drives interest in RIAs, accounting practices, insurance brokerages, and tax advisory firms." },
+            { icon: Stethoscope, title: "Healthcare Services", desc: "Specialty medical, dental, and behavioral health practices across Broward County continue to transact at the higher end of South Florida multiples." },
+            { icon: Cpu, title: "IT & Managed Services", desc: "Coral Springs and Sunrise host a strong cluster of MSPs, cybersecurity, and SaaS-adjacent firms attracting institutional rollup capital." },
           ].map((item, i) => (
-            <div key={i} className="text-center">
-              <item.icon className="w-8 h-8 text-primary mx-auto mb-4" strokeWidth={1.5} />
-              <h3 className="font-serif text-sm text-foreground mb-2">{item.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+            <div key={i} className="bg-card border border-border p-6">
+              <item.icon className="w-7 h-7 text-primary mb-4" strokeWidth={1.5} />
+              <h3 className="font-serif text-base text-foreground mb-2">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
             </div>
           ))}
+        </div>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-base text-muted-foreground leading-relaxed">
+            Whether you searched "<em>sell my business in Fort Lauderdale</em>,"
+            "<em>Fort Lauderdale business broker</em>," or "<em>Fort Lauderdale business
+            valuation</em>," the right first step is a confidential conversation about
+            your true exit options in today's Broward market.
+          </p>
         </div>
       </div>
     </section>

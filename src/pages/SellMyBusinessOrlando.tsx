@@ -51,14 +51,22 @@ const SellMyBusinessOrlando = () => (
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Orlando Business Sales</p>
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Greater Orlando · Orange & Seminole · Pop. 2.8M</p>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
             Sell My Business in Orlando
           </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Orlando's economy has evolved far beyond tourism — and so has its M&A market. Whether you own 
-            a technology company, healthcare practice, or professional services firm, we help Central Florida 
-            business owners navigate a confidential, value-maximizing exit.
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            Greater Orlando has 2.8M residents and roughly 175,000 active businesses, with
+            a metro economy that has materially diversified beyond tourism over the last decade.
+            Lake Nona's Medical City, the UCF / Lockheed simulation cluster, and the I-4 tech
+            corridor have created a much deeper buyer pool than Orlando had even five years ago.
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed mb-8">
+            We advise Central Florida owners — from Winter Park professional services firms
+            to Sanford and Apopka contractors and Lake Nona healthcare platforms — on
+            confidential, full-process sales. Typical lower-middle-market sale prices in
+            Orange and Seminole counties run $1.5M–$8M, with EBITDA multiples generally
+            3.0x–6.5x.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
@@ -79,22 +87,30 @@ const SellMyBusinessOrlando = () => (
     <section className="py-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Why Orlando Owners Choose CBH</p>
-          <h2 className="text-3xl font-serif text-foreground">Central Florida M&A Expertise</h2>
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Active Sectors in Greater Orlando</p>
+          <h2 className="text-3xl font-serif text-foreground">Where Orlando M&A Is Most Active</h2>
         </div>
-        <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
           {[
-            { icon: BarChart3, title: "Market-Based Valuation", desc: "Orlando-specific analysis using local comparable transactions and industry benchmarks." },
-            { icon: Shield, title: "Complete Confidentiality", desc: "NDA-protected process from first conversation through closing." },
-            { icon: Users, title: "Qualified Buyer Network", desc: "Access to PE firms, strategic acquirers, and individuals targeting Central Florida." },
-            { icon: TrendingUp, title: "Premium Outcomes", desc: "Competitive process designed to maximize your business's sale price." },
+            { icon: Hospital, title: "Healthcare & Life Sciences", desc: "Lake Nona's Medical City has anchored a strong rollup market for dental, dermatology, and specialty healthcare practices in Central Florida." },
+            { icon: Cpu, title: "Tech, Simulation & Defense", desc: "The UCF / Central Florida Research Park / Lockheed corridor drives buyer demand for IT services, modeling and simulation, and defense-adjacent firms." },
+            { icon: Wrench, title: "Construction & Home Services", desc: "Population growth across Orange, Seminole, Lake, and Osceola counties is fueling acquisitions of HVAC, electrical, and pool service operators." },
+            { icon: Hotel, title: "Hospitality & Experience", desc: "Tourism-adjacent businesses still transact actively — restaurant groups, attractions services, transportation, and event production firms remain in demand." },
           ].map((item, i) => (
-            <div key={i} className="text-center">
-              <item.icon className="w-8 h-8 text-primary mx-auto mb-4" strokeWidth={1.5} />
-              <h3 className="font-serif text-sm text-foreground mb-2">{item.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+            <div key={i} className="bg-card border border-border p-6">
+              <item.icon className="w-7 h-7 text-primary mb-4" strokeWidth={1.5} />
+              <h3 className="font-serif text-base text-foreground mb-2">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
             </div>
           ))}
+        </div>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-base text-muted-foreground leading-relaxed">
+            Whether you searched "<em>sell my business in Orlando</em>,"
+            "<em>Orlando business broker</em>," or "<em>Orlando business valuation</em>,"
+            the right starting point is a confidential, no-obligation conversation about
+            what your company would actually trade for in today's Central Florida market.
+          </p>
         </div>
       </div>
     </section>

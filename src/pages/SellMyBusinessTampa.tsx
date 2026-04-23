@@ -51,14 +51,22 @@ const SellMyBusinessTampa = () => (
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Tampa Business Sales</p>
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Tampa Bay · Hillsborough & Pinellas · Pop. 3.2M</p>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
             Sell My Business in Tampa
           </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Tampa Bay's booming economy and growing buyer demand make it one of Florida's strongest 
-            markets for business exits. Whether you're planning your retirement or pursuing a new venture, 
-            we help Tampa business owners achieve premium valuations with complete confidentiality.
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            Tampa Bay is the fastest-growing major metro in Florida, with 3.2M residents,
+            ~190,000 active businesses, and a per-capita influx of new residents that has
+            outpaced almost every other U.S. metro since 2020. That growth is fueling
+            unusually strong M&A demand for Hillsborough and Pinellas County businesses.
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed mb-8">
+            We advise Tampa-area owners — from South Tampa professional services firms,
+            to Brandon HVAC and roofing operators, to St. Pete tech and healthcare
+            companies — on confidential, full-process exits. Median lower-middle-market sale
+            prices in the Tampa Bay region run $1.5M–$7M, with EBITDA multiples typically
+            3.0x–6.5x.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
@@ -79,25 +87,28 @@ const SellMyBusinessTampa = () => (
     <section className="py-24">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">The Process</p>
-          <h2 className="text-3xl font-serif text-foreground mb-8">How We Help You Sell Your Tampa Business</h2>
-          <div className="space-y-8">
-            {[
-              { step: "1", title: "Confidential Valuation", desc: "We analyze your financials, Tampa Bay market conditions, and industry multiples to determine your business's true market value — at no cost." },
-              { step: "2", title: "Strategic Preparation", desc: "We normalize EBITDA, prepare a comprehensive offering memorandum, and position your business to maximize buyer interest." },
-              { step: "3", title: "Qualified Buyer Outreach", desc: "We target strategic acquirers, private equity groups, and qualified individual buyers with proven interest in the Tampa market." },
-              { step: "4", title: "Negotiation & Closing", desc: "We manage the competitive process, structure favorable terms, and coordinate all parties through a smooth closing." },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-6">
-                <div className="flex-shrink-0 w-10 h-10 bg-primary/10 text-primary flex items-center justify-center font-serif text-lg">
-                  {item.step}
-                </div>
-                <div>
-                  <h3 className="font-serif text-lg text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">The Tampa Bay Market</p>
+          <h2 className="text-3xl font-serif text-foreground mb-6">Why Tampa Bay Owners Sell Right Now</h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <p>
+              Two demographic forces dominate Tampa Bay M&A: a 60+ owner-operator generation
+              that built businesses through the 2010s and is now ready for retirement, and a
+              steady influx of relocating PE-backed strategics looking to plant Florida flags.
+              That combination is producing dense buyer competition for $1M–$10M EBITDA businesses.
+            </p>
+            <p>
+              The most common reasons we see Tampa owners selling: founder retirement after a
+              long build, partner buyouts in family businesses, exits ahead of property-insurance
+              inflation pressuring margins, and opportunistic sales from owners who realize a
+              <em> Tampa business broker</em> can't access the institutional buyers that actually
+              pay premium multiples.
+            </p>
+            <p>
+              Whether you searched "<em>sell my business in Tampa</em>,"
+              "<em>Tampa business broker</em>," or "<em>Tampa business valuation</em>," your
+              starting point is the same: a confidential conversation about what your business
+              is worth today and what would change that number in 12–18 months.
+            </p>
           </div>
         </div>
       </div>
@@ -105,16 +116,36 @@ const SellMyBusinessTampa = () => (
 
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
-          <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            {faqItems.map((faq, i) => (
-              <div key={i} className="border-b border-border pb-6">
-                <h3 className="font-serif text-lg text-foreground mb-2">{faq.q}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Active Sectors in Tampa Bay</p>
+            <h2 className="text-3xl font-serif text-foreground">Where Tampa M&A Is Most Active</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {[
+              { icon: HardHat, title: "Construction & Trades", desc: "HVAC, roofing, plumbing, and electrical contractors with $1M+ EBITDA are seeing aggressive PE rollup activity across the I-4 corridor." },
+              { icon: Stethoscope, title: "Healthcare Services", desc: "Dental, dermatology, behavioral health, and home-health platforms in Tampa Bay regularly transact at 5x–7x EBITDA." },
+              { icon: Briefcase, title: "Professional & B2B Services", desc: "Accounting, IT services, and staffing firms in Westshore and Brandon attract both strategic and institutional buyers." },
+              { icon: Anchor, title: "Marine & Logistics", desc: "Port Tampa Bay's expansion is driving demand for marine services, logistics, and warehousing operators with recurring revenue." },
+            ].map((item, i) => (
+              <div key={i} className="bg-card border border-border p-6">
+                <item.icon className="w-7 h-7 text-primary mb-4" strokeWidth={1.5} />
+                <h3 className="font-serif text-base text-foreground mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xs tracking-widest uppercase text-primary mb-3">Common Questions</p>
+            <h2 className="text-3xl font-serif text-foreground mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              {faqItems.map((faq, i) => (
+                <div key={i} className="border-b border-border pb-6">
+                  <h3 className="font-serif text-lg text-foreground mb-2">{faq.q}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
