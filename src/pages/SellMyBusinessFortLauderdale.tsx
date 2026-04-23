@@ -2,24 +2,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { ArrowRight, Sailboat, Wallet, Stethoscope, Cpu } from "lucide-react";
 
 const faqItems = [
   {
     q: "How do I sell my business in Fort Lauderdale?",
-    a: "Start with a confidential valuation from an M&A advisor who understands the Broward County market. The process includes financial preparation, targeted buyer outreach under NDA, competitive negotiations, and closing — typically 6–9 months for mid-market businesses.",
+    a: "Start with a confidential valuation referenced to Broward County comparable transactions, then engage an M&A advisor to prepare deal materials, run an NDA-protected buyer process across South Florida and out-of-state PE, and negotiate to close. Fort Lauderdale mid-market deals typically take 6–9 months end-to-end.",
   },
   {
     q: "What is my Fort Lauderdale business worth?",
-    a: "Fort Lauderdale businesses typically sell for 3x–7x EBITDA depending on industry, recurring revenue, and growth profile. The region's marine, technology, healthcare, and professional services sectors see particularly strong buyer demand.",
+    a: "Fort Lauderdale businesses typically sell for 3.5x–7.0x EBITDA. Marine industry suppliers (yacht refit, brokerage, MRO), specialty healthcare practices, and IT services firms regularly transact at the higher end of that range thanks to Broward's concentration of high-net-worth buyers.",
   },
   {
     q: "Is Fort Lauderdale a good market to sell a business?",
-    a: "Excellent. Broward County's diversified economy, proximity to Miami's international buyer pool, and strong population growth create competitive buyer dynamics. Fort Lauderdale also benefits from a concentration of wealth managers and family offices seeking direct investments.",
+    a: "Yes. Broward County has 1.95M residents and ~135,000 active businesses. Its proximity to Miami's LATAM buyer pool, the marine cluster around Port Everglades, and the rapid growth of family offices in Fort Lauderdale and Boca create deep demand for $2M–$25M lower-middle-market companies.",
   },
   {
     q: "How quickly can I sell my Fort Lauderdale business?",
-    a: "A well-prepared business with clean financials and strong EBITDA can close in 6–9 months. The South Florida market's active buyer base can sometimes accelerate timelines for attractive businesses.",
+    a: "A well-prepared Fort Lauderdale business — clean financials, sub-25% customer concentration, documented operations — can close in 6–9 months. Marine and IT services deals occasionally move faster due to dedicated PE rollup activity in those niches.",
   },
 ];
 

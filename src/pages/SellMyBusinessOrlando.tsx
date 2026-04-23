@@ -2,24 +2,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { ArrowRight, Hospital, Cpu, Wrench, Hotel } from "lucide-react";
 
 const faqItems = [
   {
     q: "How do I sell my business in Orlando?",
-    a: "Engage an M&A advisor who understands Central Florida's diverse economy. The process includes confidential valuation, financial preparation, strategic buyer outreach, negotiation, and closing — typically 6–9 months for businesses with $1M+ EBITDA.",
+    a: "Engage a Florida M&A advisor who understands Central Florida's mix of healthcare, technology, simulation, and tourism-adjacent sectors. The full process — valuation, CIM preparation, NDA-protected buyer outreach across the I-4 corridor, negotiation, and closing — typically takes 6–9 months for Orlando businesses with $1M+ EBITDA.",
   },
   {
     q: "What is my Orlando business worth?",
-    a: "Orlando businesses generally sell for 3x–6x EBITDA. Tourism-adjacent businesses, technology companies, and healthcare services often command premium multiples due to Orlando's strong economic diversification beyond hospitality.",
+    a: "Orlando businesses generally sell for 3.0x–6.5x EBITDA. Lake Nona healthcare services, simulation and modeling firms tied to the UCF / Lockheed corridor, and recurring-revenue B2B services tend to trade at the higher end. Tourism-dependent businesses still transact actively but at slightly compressed multiples.",
   },
   {
     q: "Is Orlando a good market to sell a business?",
-    a: "Yes. Orlando's economy has diversified significantly beyond tourism into technology, healthcare, defense, and professional services. Population growth and corporate relocations drive strong buyer demand across multiple sectors.",
+    a: "Yes. Greater Orlando's metro population now exceeds 2.8 million and is projected to be Florida's fastest-growing major metro through 2030. Corporate relocations to Lake Nona's Medical City and continued buildout of the UCF research corridor have meaningfully diversified the buyer pool beyond hospitality.",
   },
   {
     q: "How long does it take to sell a business in Orlando?",
-    a: "Most transactions close in 6–9 months. Well-prepared businesses with clean financials and strong EBITDA may close faster, while complex deals or niche industries may take up to 12 months.",
+    a: "Most Orlando transactions close in 6–9 months. Well-prepared businesses — clean QoE-ready financials, documented SOPs, sub-25% customer concentration — sometimes close in 4–5 months. Complex deals (real estate, multi-entity structures, regulated healthcare) can extend to 10–12 months.",
   },
 ];
 

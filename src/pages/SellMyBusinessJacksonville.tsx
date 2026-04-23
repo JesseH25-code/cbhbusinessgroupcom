@@ -2,24 +2,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowRight, Shield, TrendingUp, Users, BarChart3 } from "lucide-react";
+import { ArrowRight, Anchor, Banknote, HeartPulse, Truck } from "lucide-react";
 
 const faqItems = [
   {
     q: "How do I sell my business in Jacksonville?",
-    a: "Work with an M&A advisor experienced in Northeast Florida's market. The process includes confidential valuation, financial preparation, strategic buyer identification under NDA, competitive negotiations, and closing — typically 6–9 months for mid-market businesses.",
+    a: "Work with an M&A advisor who understands Northeast Florida's port-anchored economy. The process includes a confidential valuation tied to Duval and St. Johns County comparables, EBITDA normalization, NDA-protected outreach to logistics, financial services, and healthcare buyers, then negotiation and closing — typically 6–9 months for mid-market Jacksonville businesses.",
   },
   {
     q: "What is my Jacksonville business worth?",
-    a: "Jacksonville businesses typically sell for 3x–6x EBITDA. The city's logistics, healthcare, financial services, and construction sectors often see strong buyer demand. Jacksonville's lower cost of doing business compared to South Florida can make profit margins more attractive to acquirers.",
+    a: "Jacksonville businesses typically sell for 3.0x–6.0x EBITDA. The lower operating-cost base versus South Florida — labor, real estate, insurance — often translates to stronger normalized EBITDA margins, which in turn supports a more attractive enterprise value when adjusted for risk.",
   },
   {
     q: "Why is Jacksonville a strong market for selling a business?",
-    a: "Jacksonville is Florida's largest city by land area with a diversified economy anchored by financial services, logistics, healthcare, and military-related industries. Strong population growth and corporate relocations are driving increased M&A activity.",
+    a: "Jacksonville is Florida's largest city by land area (875 sq miles) and is anchored by JAXPORT, the region's third-largest container facility on the East Coast, plus major employers in financial services (Fidelity, Citi, Deutsche Bank), Mayo Clinic, and Naval Station Mayport. This diversified base supports steady buyer demand across cycles.",
   },
   {
     q: "Can I sell my Jacksonville business without anyone knowing?",
-    a: "Absolutely. Our process is designed for complete confidentiality using blind marketing profiles, NDAs, staged information disclosure, and advisor-managed communications throughout the entire transaction.",
+    a: "Yes. We run blind teasers, require executed NDAs before any company-identifying information is shared, and stage data-room access. Northeast Florida's defense and financial services networks are tighter than they appear, so disciplined buyer screening is critical.",
   },
 ];
 

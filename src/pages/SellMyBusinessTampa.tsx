@@ -2,24 +2,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowRight, Shield, TrendingUp, Users, BarChart3, Clock, CheckCircle } from "lucide-react";
+import { ArrowRight, HardHat, Stethoscope, Briefcase, Anchor } from "lucide-react";
 
 const faqItems = [
   {
     q: "How do I sell my business in Tampa?",
-    a: "Start with a confidential valuation, then engage an M&A advisor familiar with the Tampa Bay market. The process includes financial preparation, buyer identification under NDA, offer negotiations, and closing — typically completed in 6–9 months for businesses with $1M+ EBITDA.",
+    a: "Begin with a confidential valuation benchmarked to recent Tampa Bay transactions in your sector, then engage an M&A advisor to prepare a CIM, run a controlled buyer process across Hillsborough and Pinellas counties, and negotiate to close. Tampa-area mid-market deals typically take 6–9 months from engagement to wire.",
   },
   {
     q: "What is my Tampa business worth?",
-    a: "Tampa businesses typically sell for 3x–6x EBITDA depending on industry, size, and growth profile. The Tampa Bay area's rapid population growth and business-friendly environment support strong valuations, particularly in construction, healthcare, and professional services.",
+    a: "Tampa Bay businesses generally trade between 3.0x and 6.5x EBITDA. Construction trades and healthcare service platforms in the I-4 corridor frequently exceed 5x because of explicit PE rollup activity in those sectors. Owner-dependence and customer concentration are the two largest swing factors.",
   },
   {
     q: "Is now a good time to sell my business in Tampa?",
-    a: "Tampa Bay is experiencing significant economic expansion with population growth outpacing most U.S. metros. Strong buyer demand, favorable tax conditions, and active private equity interest in the region make this an excellent window for business sales.",
+    a: "Tampa Bay added more net new residents per capita than nearly any other U.S. metro in the past five years, lifting demand for local services and the businesses that provide them. With private equity actively rolling up Tampa healthcare, HVAC, plumbing, and roofing platforms, well-run businesses are seeing competitive bidding.",
   },
   {
     q: "How can I sell my Tampa business confidentially?",
-    a: "Professional M&A advisors use blind profiles, NDAs, staged information release, and controlled buyer access to ensure complete confidentiality throughout the sale process. Your employees, customers, and competitors won't know until you choose to tell them.",
+    a: "We use blind teasers (no city-level details that would identify you), NDAs before any buyer sees financials, and a staged data room. Tampa Bay's tight industry networks — especially in MacDill-area defense contracting and South Tampa professional services — make controlled disclosure essential.",
   },
 ];
 
