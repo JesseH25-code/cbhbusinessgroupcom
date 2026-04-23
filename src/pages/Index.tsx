@@ -108,7 +108,8 @@ const Index = () => {
         <img src={heroImage} alt="Florida skyline at sunset representing business growth opportunities" fetchPriority="high" width={1920} height={1080} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="relative container mx-auto px-6">
-          <div className="max-w-3xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-8 max-w-3xl">
             {/* Live Ticker */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -197,6 +198,91 @@ const Index = () => {
                 </div>
               </Link>
             </motion.div>
+            </div>
+
+            {/* Right-side market intel panel — desktop only, doesn't affect mobile */}
+            <motion.aside
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="hidden lg:block lg:col-span-4 lg:mt-24"
+              aria-label="Current Florida M&A market intelligence"
+            >
+              <div className="bg-card/60 backdrop-blur-md border border-border/60 rounded-sm">
+                {/* Header */}
+                <div className="px-6 py-4 border-b border-border/60 flex items-center justify-between">
+                  <p className="text-[10px] tracking-[0.25em] uppercase text-muted-foreground">Florida M&A Snapshot</p>
+                  <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-primary">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
+                    </span>
+                    Live
+                  </span>
+                </div>
+
+                {/* 2026 Multiples preview */}
+                <div className="px-6 py-5 border-b border-border/60">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-3">2026 EBITDA Multiples</p>
+                  <div className="space-y-2.5">
+                    {[
+                      { sector: "HVAC & Mechanical", range: "4.5×–6.5×" },
+                      { sector: "Construction Services", range: "4.0×–6.0×" },
+                      { sector: "Healthcare Services", range: "5.5×–8.0×" },
+                      { sector: "Professional Services", range: "4.0×–6.0×" },
+                    ].map((row) => (
+                      <div key={row.sector} className="flex items-baseline justify-between gap-3">
+                        <span className="text-sm text-foreground/90">{row.sector}</span>
+                        <span className="text-sm font-serif text-primary tabular-nums">{row.range}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    to="/florida-ma-benchmarks"
+                    className="mt-4 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
+                  >
+                    Full benchmark report <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+
+                {/* Recent close */}
+                <div className="px-6 py-5 border-b border-border/60">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-3">Recent Closes</p>
+                  <ul className="space-y-3">
+                    {[
+                      { sector: "Roofing Co.", value: "$23M" },
+                      { sector: "Window Co.", value: "$28M" },
+                      { sector: "Athletic Apparel", value: "$4.9M" },
+                      { sector: "Pool Construction", value: "$3M" },
+                    ].map((d) => (
+                      <li key={d.sector} className="flex items-baseline justify-between gap-3">
+                        <span className="text-sm text-foreground/90">{d.sector}</span>
+                        <span className="text-sm font-serif text-primary tabular-nums">{d.value}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/case-studies"
+                    className="mt-4 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
+                  >
+                    View case studies <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+
+                {/* Quick action */}
+                <div className="px-6 py-5">
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                    Considering a sale in the next 12–24 months? Start with a confidential, no-obligation valuation.
+                  </p>
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.2em] text-primary hover:text-primary/80 transition-colors"
+                  >
+                    Speak with an advisor <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
+              </div>
+            </motion.aside>
           </div>
         </div>
         {/* Scroll cue */}
