@@ -2,28 +2,28 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SEOHead from "@/components/SEOHead";
-import { ArrowRight, Shield, TrendingUp, Users, BarChart3, Clock, CheckCircle } from "lucide-react";
+import { ArrowRight, Globe2, Building2, Plane, Ship } from "lucide-react";
 
 const faqItems = [
   {
     q: "How do I sell my business in Miami?",
-    a: "Start with a confidential business valuation to understand your company's market value. Then work with an M&A advisor who knows the Miami market to prepare marketing materials, identify qualified buyers under NDA, negotiate terms, and close the deal. The process typically takes 6–9 months for businesses in the $3M–$50M range.",
+    a: "Start with a confidential valuation tied to Miami-Dade comparable transactions, then engage a Florida M&A advisor to prepare a confidential information memorandum, run a competitive process with vetted U.S. and Latin American buyers, and close under NDA. Most Miami businesses in the $3M–$50M EBITDA range close within 6–9 months.",
   },
   {
     q: "What is my Miami business worth?",
-    a: "Miami businesses typically sell for 3x–7x EBITDA depending on industry, growth trajectory, recurring revenue, and customer concentration. South Florida's strong economic growth and international buyer pool often support premium valuations compared to national averages.",
+    a: "Miami-Dade businesses typically trade between 3.5x and 7.5x EBITDA. Logistics, trade, marine, hospitality, and bilingual professional services often command a 0.5–1.0x premium over Florida averages because of LATAM-facing demand and PortMiami / MIA cargo flows.",
   },
   {
     q: "When is the best time to sell my business in Miami?",
-    a: "The best time is when your business shows consistent growth, clean financials, and strong EBITDA margins. Miami's economy is robust year-round, but preparing 12–24 months in advance — by reducing owner dependency and diversifying revenue — can significantly increase your exit multiple.",
+    a: "Sell when EBITDA is trending up, customer concentration is below 25%, and the owner can be replaced. Miami buyer demand has been strongest in Q1 and Q4, when capital deployment from family offices in Brickell, Coral Gables, and Aventura accelerates ahead of fiscal year-end.",
   },
   {
-    q: "Do I need a business broker or M&A advisor to sell my business in Miami?",
-    a: "For businesses under $1M in revenue, a business broker may suffice. For companies with $3M+ revenue, an M&A advisor provides strategic buyer identification, competitive bidding processes, and deal structuring expertise that typically results in 20–40% higher sale prices than unadvised transactions.",
+    q: "Do I need a business broker in Miami or an M&A advisor?",
+    a: "Sub-$1M revenue main-street businesses are typically handled by a business broker. For $3M+ revenue Miami companies, an M&A advisor adds buyer competition, deal structuring, and tax-efficient terms that typically improve net proceeds by 20–40% versus a single-buyer broker process.",
   },
   {
-    q: "How do I sell my business in Miami without employees finding out?",
-    a: "Confidentiality is managed through NDAs with all prospective buyers, blind marketing profiles that don't identify your company, controlled information release in stages, and advisor-managed communications. A professional M&A process ensures your employees, customers, and competitors never know until you're ready to announce.",
+    q: "How do I sell my Miami business without employees or competitors finding out?",
+    a: "We use blind teasers (no company name, address, or identifying photos), NDAs before any buyer sees the CIM, and staged data-room access. In a city as networked as Miami, we also screen prospective buyers against your customer and competitor list before disclosure.",
   },
 ];
 
