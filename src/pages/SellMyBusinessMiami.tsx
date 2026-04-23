@@ -40,8 +40,8 @@ const faqJsonLd = {
 const SellMyBusinessMiami = () => (
   <Layout>
     <SEOHead
-      title="Sell My Business in Miami | Confidential M&A Advisory"
-      description="Ready to sell your business in Miami? Get a confidential valuation, access qualified buyers, and maximize your exit value with expert M&A advisory. Free consultation."
+      title="Sell My Business in Miami | Miami-Dade M&A Advisor"
+      description="Sell your business in Miami with confidential valuations, LATAM buyer access, and Miami-Dade M&A expertise. Serving Brickell, Doral, Coral Gables & Aventura owners."
       path="/sell-my-business-miami"
       jsonLd={faqJsonLd}
       breadcrumbs={[
@@ -55,14 +55,21 @@ const SellMyBusinessMiami = () => (
     <section className="py-24 bg-gradient-section">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Miami Business Sales</p>
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Miami-Dade County · Population 2.7M</p>
           <h1 className="text-4xl md:text-5xl font-serif text-foreground mb-6">
             Sell My Business in Miami
           </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Thinking "I want to sell my business in Miami"? You're not alone — Miami's thriving economy 
-            and international buyer demand make it one of the strongest markets in Florida for business 
-            exits. We guide owner-operators through every step, from valuation to closing.
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            Miami is the most internationally connected M&A market in the Southeast U.S. Home to over
+            2.7 million residents, 320,000+ active businesses, and the busiest cruise port in the world,
+            Miami-Dade attracts buyers from New York, Madrid, São Paulo, and Bogotá looking for
+            U.S.-based platforms with Latin American reach.
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed mb-8">
+            We advise Miami business owners — from Brickell professional services firms to Doral logistics
+            operators and Hialeah manufacturers — on confidential, full-process sales. Median lower-middle-market
+            sale prices in Miami-Dade run $1.8M–$8M, with EBITDA multiples typically 3.5x–7.5x depending on
+            recurring revenue and customer concentration.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/contact">
@@ -83,25 +90,28 @@ const SellMyBusinessMiami = () => (
     <section className="py-24">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">The Process</p>
-          <h2 className="text-3xl font-serif text-foreground mb-8">How We Help You Sell Your Miami Business</h2>
-          <div className="space-y-8">
-            {[
-              { step: "1", title: "Confidential Valuation", desc: "We analyze your financials, industry multiples, and Miami market conditions to determine what your business is truly worth — at no cost and under strict NDA." },
-              { step: "2", title: "Strategic Preparation", desc: "We prepare a comprehensive offering memorandum, normalize your EBITDA, and position your business to attract premium offers from qualified buyers." },
-              { step: "3", title: "Targeted Buyer Outreach", desc: "We leverage our network of private equity firms, strategic acquirers, and high-net-worth individuals — including Miami's unique international buyer pool." },
-              { step: "4", title: "Negotiation & Closing", desc: "We manage competing offers, structure deal terms that protect your interests, and coordinate with attorneys and CPAs through a smooth closing." },
-            ].map((item, i) => (
-              <div key={i} className="flex gap-6">
-                <div className="flex-shrink-0 w-10 h-10 bg-primary/10 text-primary flex items-center justify-center font-serif text-lg">
-                  {item.step}
-                </div>
-                <div>
-                  <h3 className="font-serif text-lg text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">The Miami Market</p>
+          <h2 className="text-3xl font-serif text-foreground mb-6">Why Miami Owners Sell Right Now</h2>
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <p>
+              Three forces are driving record M&A activity in Miami: a wave of out-of-state private
+              equity opening South Florida offices, family offices relocating from the Northeast post-2020,
+              and Latin American capital seeking dollar-denominated platforms. The result is unusually deep
+              buyer demand for $2M–$25M Miami-based companies.
+            </p>
+            <p>
+              The most common reasons Miami owners decide to sell: founders aged 55+ ready for retirement
+              after a decade of growth, partner buyouts following property and lifestyle inflation, and
+              opportunistic exits ahead of insurance, hurricane, and condo-reform cost pressures squeezing
+              margins. Whatever the reason, the strategy is the same — quietly run a full process and let
+              competitive tension set the price.
+            </p>
+            <p>
+              Whether you searched "<em>sell my business in Miami</em>," "<em>Miami business broker</em>,"
+              or "<em>Miami business valuation</em>," your first step is the same: a confidential
+              conversation about what your company is actually worth — and what it would take to be
+              positioned for a premium exit in 12–18 months.
+            </p>
           </div>
         </div>
       </div>
@@ -110,22 +120,20 @@ const SellMyBusinessMiami = () => (
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <p className="text-xs tracking-widest uppercase text-primary mb-3">Why Miami Business Owners Choose CBH</p>
-          <h2 className="text-3xl font-serif text-foreground">Your Advantage in the Miami Market</h2>
+          <p className="text-xs tracking-widest uppercase text-primary mb-3">Active Sectors in Miami-Dade</p>
+          <h2 className="text-3xl font-serif text-foreground">Where Miami M&A Is Most Active</h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {[
-            { icon: Users, title: "International Buyer Access", desc: "Miami's position as a gateway to Latin America attracts cross-border acquirers who pay premium multiples for U.S. businesses." },
-            { icon: Shield, title: "100% Confidential Process", desc: "Your employees, customers, and competitors will never know your business is for sale until you decide to tell them." },
-            { icon: TrendingUp, title: "Premium Exit Valuations", desc: "Our competitive bidding process and strategic positioning consistently deliver 20–40% above initial expectations." },
-            { icon: BarChart3, title: "Miami Market Intelligence", desc: "Deep knowledge of local multiples, buyer activity, and industry trends specific to the South Florida market." },
-            { icon: Clock, title: "Efficient 6–9 Month Timeline", desc: "Structured process that moves efficiently from engagement to closing without sacrificing value." },
-            { icon: CheckCircle, title: "No Upfront Fees", desc: "Success-based fee structure means we only get paid when you successfully close your transaction." },
+            { icon: Ship, title: "Logistics & Trade", desc: "PortMiami and MIA cargo flows make freight forwarders, customs brokers, and 3PLs highly acquisitive — typical multiples 4.5x–6.5x EBITDA." },
+            { icon: Globe2, title: "LATAM-Facing Services", desc: "Bilingual professional services, fintech, and trade finance firms see premium offers from cross-border strategics." },
+            { icon: Building2, title: "Construction & Trades", desc: "South Florida's permanent build-out cycle drives demand for HVAC, electrical, and concrete contractors with $1M+ EBITDA." },
+            { icon: Plane, title: "Hospitality & Tourism", desc: "Restaurant groups, marine services, and aviation MRO businesses near MIA continue to attract PE rollup capital." },
           ].map((item, i) => (
-            <div key={i} className="text-center p-6">
-              <item.icon className="w-8 h-8 text-primary mx-auto mb-4" strokeWidth={1.5} />
-              <h3 className="font-serif text-sm text-foreground mb-2">{item.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+            <div key={i} className="bg-card border border-border p-6">
+              <item.icon className="w-7 h-7 text-primary mb-4" strokeWidth={1.5} />
+              <h3 className="font-serif text-base text-foreground mb-2">{item.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
