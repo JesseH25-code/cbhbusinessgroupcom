@@ -281,6 +281,13 @@ const Index = () => {
                     Speak with an advisor <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
+
+                {/* Data source & compliance footer */}
+                <div className="px-6 py-3 border-t border-border/40 bg-secondary/30">
+                  <p className="text-[10px] text-muted-foreground leading-relaxed">
+                    <span className="font-medium text-foreground/70">Data as of Q1 2026.</span> Multiples represent observed transaction ranges from confidential Florida engagements. Not a guarantee of value. Past performance does not predict future results.
+                  </p>
+                </div>
               </div>
             </motion.aside>
           </div>
