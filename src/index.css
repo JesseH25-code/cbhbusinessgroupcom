@@ -58,6 +58,27 @@
   * {
     @apply border-border;
   }
+}
+
+/* Hide Google Translate UI artifacts (banner, tooltip, top offset) */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-text-highlight {
+  display: none !important;
+  visibility: hidden !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+body {
+  top: 0 !important;
+  position: static !important;
+}
 
   body {
     @apply bg-background text-foreground;
