@@ -58,9 +58,21 @@
   * {
     @apply border-border;
   }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Sans 3', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    top: 0 !important;
+    position: static !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
 }
 
-/* Hide Google Translate UI artifacts (banner, tooltip, top offset) */
+/* Hide Google Translate UI artifacts (banner, tooltip, highlights) */
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
 iframe.goog-te-banner-frame,
@@ -73,23 +85,6 @@ iframe.goog-te-banner-frame,
   visibility: hidden !important;
   box-shadow: none !important;
   background: transparent !important;
-}
-
-body {
-  top: 0 !important;
-  position: static !important;
-}
-
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Source Sans 3', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-  }
 }
 
 @layer utilities {
