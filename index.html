@@ -38,6 +38,81 @@
       gtag('js', new Date());
       gtag('config', 'G-KXD3SY8CWE');
     </script>
+
+    <!-- Organization + LocalBusiness schema (server-rendered for crawlers) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://cbhbusinessgroup.com/#organization",
+          "name": "CBH Business Group",
+          "url": "https://cbhbusinessgroup.com",
+          "logo": "https://cbhbusinessgroup.com/og-image.jpg",
+          "description": "Florida-based M&A advisory and business brokerage firm specializing in privately held businesses valued $3M–$50M.",
+          "telephone": "+1-407-908-3845",
+          "email": "info@cbhbusinessgroup.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1550 Dolphin Drive",
+            "addressLocality": "St. Cloud",
+            "addressRegion": "FL",
+            "postalCode": "34771",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            { "@type": "State", "name": "Florida" },
+            { "@type": "City", "name": "Miami" },
+            { "@type": "City", "name": "Tampa" },
+            { "@type": "City", "name": "Orlando" },
+            { "@type": "City", "name": "Jacksonville" },
+            { "@type": "City", "name": "Fort Lauderdale" }
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/cbh-business-group",
+            "https://www.facebook.com/cbhbusinessgroup"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://cbhbusinessgroup.com/#localbusiness",
+          "name": "CBH Business Group — M&A Advisory",
+          "image": "https://cbhbusinessgroup.com/og-image.jpg",
+          "url": "https://cbhbusinessgroup.com",
+          "telephone": "+1-407-908-3845",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1550 Dolphin Drive",
+            "addressLocality": "St. Cloud",
+            "addressRegion": "FL",
+            "postalCode": "34771",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 28.2489,
+            "longitude": -81.2812
+          },
+          "openingHoursSpecification": [{
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }],
+          "areaServed": { "@type": "State", "name": "Florida" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://cbhbusinessgroup.com/#website",
+          "url": "https://cbhbusinessgroup.com",
+          "name": "CBH Business Group",
+          "publisher": { "@id": "https://cbhbusinessgroup.com/#organization" }
+        }
+      ]
+    }
+    </script>
 </head>
 
   <body>
